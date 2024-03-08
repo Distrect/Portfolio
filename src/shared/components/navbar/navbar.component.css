@@ -1,0 +1,20 @@
+#navbar {
+  padding-block: 15px;
+  border-bottom: 1px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: var(--dark-background);
+
+  grid-column: 1/-1;
+  grid-row: 1/2;
+}
+
+#logo-wrapper {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+}

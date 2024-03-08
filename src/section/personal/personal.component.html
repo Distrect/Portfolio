@@ -1,0 +1,48 @@
+<section id="personal-section" class="layout">
+  <h3 class="navigate-header">Who am I?</h3>
+  <div id="personal-info">
+    <div class="image-wrapper">
+      <img id="me" src="assets/images/me.png" alt="" />
+    </div>
+    <div id="intro">
+      <h4 class="heading">Hello there, nice to meet you...</h4>
+      <p class="paragraph">
+        {{ me.intro }}
+      </p>
+    </div>
+    <div id="info">
+      <ul>
+        <li>
+          <img src="assets/svg/person.svg" class="icon" alt="" />
+          <p class="label-text">
+            {{ me.fullName }}
+          </p>
+        </li>
+        <li>
+          <img src="assets/svg/calendar.svg" class="icon" alt="" />
+          <p class="label-text">
+            {{ transformDate() }}
+          </p>
+        </li>
+        <li>
+          <img src="assets/svg/location.svg" class="icon" alt="" />
+          <p class="label-text">
+            {{ me.location }}
+          </p>
+        </li>
+        <li>
+          <img src="assets/svg/status.svg" class="icon" alt="" />
+          <p class="label-text">
+            {{ me.status }}
+          </p>
+        </li>
+        <li>
+          <img src="assets/svg/code.svg" class="icon" alt="" />
+          <p class="label-text">
+            {{ me.title }}
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

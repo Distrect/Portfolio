@@ -1,0 +1,82 @@
+<section id="contact-section" class="layout">
+  <h3 class="navigate-header">Contact Me</h3>
+  <div id="contact-form-wrapper">
+    <form
+      id="contact-form"
+      autocomplete="off"
+      method="get"
+      [formGroup]="contactForm"
+      action="mailto:{{ me.email }}"
+    >
+      <div class="form-field">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            name="name"
+            placeholder="Subject"
+            autocomplete="off"
+            formControlName="name"
+            [attr.error]="
+              getIfFieldTouched('name') && checkIfFieldHasError('name')
+            "
+            aria-autocomplete="none"
+          />
+        </div>
+        <span
+          class="input-error"
+          *ngIf="getIfFieldTouched('name') && checkIfFieldHasError('name')"
+          >{{ getNameErrorMessage() }}</span
+        >
+      </div>
+      <div class="form-field">
+        <div class="input-wrapper">
+          <input
+            autocomplete="off"
+            aria-autocomplete="none"
+            type="email"
+            name="email"
+            placeholder="Email"
+            formControlName="email"
+            [attr.error]="
+              getIfFieldTouched('email') && checkIfFieldHasError('email')
+            "
+          />
+        </div>
+        <span
+          class="input-error"
+          *ngIf="getIfFieldTouched('email') && checkIfFieldHasError('email')"
+          >{{ getEmailErrorMessage() }}</span
+        >
+      </div>
+      <div class="form-field">
+        <div class="input-wrapper">
+          <textarea
+            name="body"
+            placeholder="body"
+            formControlName="subject"
+            autocomplete="off"
+            aria-autocomplete="none"
+            [attr.error]="
+              getIfFieldTouched('subject') && checkIfFieldHasError('subject')
+            "
+          ></textarea>
+        </div>
+        <span
+          class="input-error"
+          *ngIf="
+            getIfFieldTouched('subject') && checkIfFieldHasError('subject')
+          "
+          >{{ getSubjectErrorMessage() }}</span
+        >
+      </div>
+      <button
+        id="contact-form-submit"
+        type="submit"
+        form="contact-form"
+        (click)="submitForm($event)"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</section>

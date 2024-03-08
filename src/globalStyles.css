@@ -1,0 +1,43 @@
+.display-text {
+  font-family: var(--font-face-2);
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.display-complementary-text {
+  font-family: var(--font-face-2);
+  font-size: 22px;
+  line-height: 1.42;
+  font-weight: 600;
+}
+
+.display-paragraph {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--gray-300);
+}
+
+.navigate-header {
+  font-size: 28px;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+.heading {
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--gray-200);
+}
+
+.paragraph {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--gray-300);
+}
+
+.label-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--gray-400);
+}

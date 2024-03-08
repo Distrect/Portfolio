@@ -1,0 +1,22 @@
+<section id="skill-section" class="layout">
+  <h3 class="navigate-header">My Skills</h3>
+  <div class="list-container">
+    <ul>
+      <li class="skill-item" *ngFor="let skil of me.skills">
+        <img [src]="skil.iconSrc" class="skill-icon" alt="" />
+        <div class="detail-wrapper">
+          <p class="label-text">
+            {{ skil.skillName }}
+          </p>
+          <div class="progress-bar">
+            <div
+              [style.background-color]="skil.color"
+              [style.width]="skil.percent + '' + '%'"
+              class="progress"
+            ></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

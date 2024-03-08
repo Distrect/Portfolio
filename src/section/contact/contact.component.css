@@ -1,0 +1,79 @@
+#contact-section .navigate-header {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+}
+
+#contact-section.layout {
+  row-gap: 3rem;
+}
+
+#contact-form-wrapper {
+  grid-row: 2/3;
+  grid-column: 1/-1;
+}
+
+#contact-form-wrapper #contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-wrapper {
+  height: min-content;
+}
+
+.input-wrapper,
+.input-wrapper input,
+.input-wrapper textarea {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 10px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--secondary-green);
+  border-radius: 2px;
+  transition: width 0.2s ease-in-out;
+}
+
+/* .input-wrapper:has(textarea)::before {
+  position: relative;
+} */
+
+.input-wrapper:has(input:focus)::before {
+  width: 100%;
+}
+
+.input-wrapper:has(input[error="true"])::before {
+  background-color: red;
+}
+
+.input-wrapper:has(textarea:focus)::before {
+  width: 100%;
+}
+
+.input-wrapper:has(textarea[error="true"])::before {
+  background-color: red;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.75rem;
+}
+
+.input-error {
+  font-size: 14px;
+  color: var(--secondary-red);
+}
+
+#contact-form-submit:disabled {
+  background-color: red;
+}

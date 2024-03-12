@@ -15,6 +15,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: min-content;
+}
+
+#landing-illustration {
+  aspect-ratio: 1/1;
+  width: 60%;
+  max-width: 300px;
+}
+
+.cls-1 {
+  fill: var(--gray-200);
 }
 
 #landing-me {
@@ -47,5 +58,13 @@
 @media screen and (min-width: 576px) {
   #landing-me {
     width: 45%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #landing-illustration {
+    /* max-width: none; */
+    width: 40%;
+    max-width: 400px;
   }
 }

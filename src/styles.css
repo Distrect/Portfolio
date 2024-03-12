@@ -1,7 +1,7 @@
 :root {
   color: var(--white);
   font-family: var(--font-face-1);
-
+  font-size: 16px;
   --font-face-1: "Work Sans", sans-serif;
   --font-face-2: "Uber Move";
 
@@ -119,6 +119,8 @@
   --reactjs: #61dbfb;
   --mysql: #00758f;
   --figma: #0acf83;
+
+  --tablet-width: 768px;
 }
 
 *,
@@ -143,7 +145,7 @@ body {
 }
 
 section {
-  margin-block: 3rem;
+  margin-block: 1.5rem;
   width: 100% !important;
 }
 
@@ -208,3 +210,17 @@ textarea {
   resize: vertical;
   min-height: 20px;
 }
+
+@media screen and (min-width: 576px) {
+  .layout {
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 18px;
+  }
+}
+/*
+@media screen and (min-width: 768px) {
+  .layout {
+    grid-template-columns: repeat(10, 1fr);
+    row-gap: 36px;
+  }
+} */

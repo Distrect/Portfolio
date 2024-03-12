@@ -5,6 +5,7 @@
 }
 
 .display-complementary-text {
+  color: var(--gray-300);
   font-family: var(--font-face-2);
   font-size: 22px;
   line-height: 1.42;
@@ -13,7 +14,7 @@
 
 .display-paragraph {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--gray-300);
 }
@@ -25,8 +26,8 @@
 }
 
 .heading {
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 26px;
+  line-height: 1.3;
   color: var(--gray-200);
 }
 
@@ -36,8 +37,78 @@
   color: var(--gray-300);
 }
 
-.label-text {
+.skill-text {
   font-size: 18px;
+}
+
+.label-text {
+  font-size: 16px;
   font-weight: 400;
   color: var(--gray-400);
 }
+
+@media screen and (min-width: 576px) {
+  .display-text {
+    font-size: 30px;
+  }
+
+  .display-complementary-text {
+    font-size: 24px;
+  }
+
+  .display-paragraph {
+    font-size: 20px;
+  }
+
+  .navigate-header {
+    font-size: 30px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .paragraph {
+    font-size: 20px;
+  }
+
+  .label-text {
+    font-size: 18px;
+  }
+}
+
+/* @media screen and (min-width: 768px) {
+  .display-text {
+    font-size: 37px;
+  }
+
+  .display-complementary-text {
+    font-size: 31px;
+  }
+
+  .display-paragraph {
+    font-size: 20px;
+  }
+
+  .paragraph {
+    font-size: 20px;
+  }
+
+  .navigate-header {
+    font-size: 34px;
+  }
+
+  .heading {
+    font-size: 32px;
+    line-height: 28px;
+    color: var(--gray-200);
+  }
+
+  .label-text {
+    font-size: 18px;
+  }
+
+  .skill-text {
+    font-size: 18px;
+  }
+} */

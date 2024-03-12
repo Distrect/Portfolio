@@ -22,7 +22,11 @@ export class ContactComponent {
   public allowSubmit: boolean = true;
 
   public contactForm: FormGroup = new FormGroup({
-    name: new FormControl('', { validators: [Validators.required] }),
+    name: new FormControl('', {
+      validators: [Validators.required],
+      updateOn: 'change',
+      nonNullable: true,
+    }),
     email: new FormControl('', {
       validators: [Validators.required, Validators.email],
     }),

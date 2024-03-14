@@ -1,7 +1,8 @@
 :root {
-  color: var(--white);
   font-family: var(--font-face-1);
   font-size: 16px;
+  color: var(--white);
+
   --font-face-1: "Work Sans", sans-serif;
   --font-face-2: "Uber Move";
 
@@ -147,6 +148,8 @@ body {
 section {
   margin-block: 1.5rem;
   width: 100% !important;
+  max-width: 1400px;
+  margin-inline: auto;
 }
 
 ul,
@@ -166,12 +169,11 @@ button {
   outline: none;
   border: none;
   font-size: 16px;
-  padding-inline: 1ch;
+  /* padding: 1ch; */
+  padding-inline: 1.125ch;
   padding-block: 0.75ch;
-  border-radius: 3px;
+  border-radius: 50px;
   color: var(--accent-blue);
-  background-color: transparent;
-  border: 3px solid var(--accent-blue);
 }
 
 #me {
@@ -233,5 +235,13 @@ textarea {
   input[type="password"],
   textarea {
     font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .layout {
+    padding-inline: 36px;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 16 px;
   }
 }

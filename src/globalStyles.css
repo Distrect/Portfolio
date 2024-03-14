@@ -1,7 +1,44 @@
+/* .h1 {
+  font-size: 3.815rem;
+}
+
+.h2 {
+  font-size: 3.052rem;
+}
+
+.h3 {
+  font-size: 2.441rem;
+}
+
+.h4 {
+  font-size: 1.953rem;
+}
+
+.h5 {
+  font-size: 1.563rem;
+}
+
+.h6 {
+  font-size: 1.25rem;
+}
+
+.p {
+  font-size: 1rem;
+}
+
+.small-1 {
+  font-size: 0.8rem;
+}
+
+.small-1 {
+  font-size: 0.64rem;
+} */
+
 .display-text {
   font-family: var(--font-face-2);
   font-size: 28px;
   line-height: 1.2;
+  color: var(--white);
 }
 
 .display-complementary-text {
@@ -38,6 +75,7 @@
 }
 
 .skill-text {
+  color: var(--white);
   font-size: 18px;
 }
 
@@ -88,6 +126,40 @@
 
   .display-paragraph {
     font-size: 24px;
+  }
+
+  .paragraph {
+    font-size: 24px;
+  }
+
+  .navigate-header {
+    font-size: 38px;
+  }
+
+  .heading {
+    font-size: 34px;
+  }
+
+  .label-text {
+    font-size: 22px;
+  }
+
+  .skill-text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .display-text {
+    font-size: 46px;
+  }
+
+  .display-complementary-text {
+    font-size: 36px;
+  }
+
+  .display-paragraph {
+    font-size: 28px;
   }
 
   .paragraph {

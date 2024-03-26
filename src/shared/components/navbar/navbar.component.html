@@ -1,4 +1,22 @@
 <nav id="navbar" class="layout">
-  <div id="logo-wrapper"></div>
-  <img src="assets/svg/hamburger.svg" alt="" />
+  <div class="navbar-inner">
+    <div id="logo-wrapper"></div>
+    <div id="navigation">
+      <img
+        id="hamburger"
+        (click)="openModal()"
+        src="assets/svg/hamburger.svg"
+      />
+      <div id="navigation-modal" [ngClass]="isOpen ? 'open' : ''">
+        <div id="close-icon-wrapper">
+          <div (click)="closeModal()">X</div>
+        </div>
+        <ul id="navigation-items">
+          <li class="navigation-item">About Me</li>
+          <li class="navigation-item">Skills</li>
+          <li class="navigation-item">Contact</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </nav>

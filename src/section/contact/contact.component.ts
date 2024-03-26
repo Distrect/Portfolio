@@ -90,14 +90,18 @@ export class ContactComponent {
       : '';
   }
 
-  public checkIfFormHasError(): void {
-    Object.entries(this.contactForm.controls).forEach(([key, val]) => {
+  public checkIfFormHasError(): boolean {
+    const controls = Object.entries(this.contactForm.controls);
+
+    for (const [key, val] of controls) {
       if (this.checkIfFieldHasError(val)) {
         this.allowSubmit = false;
+        return false;
       }
-    });
+    }
 
     this.allowSubmit = true;
+    return true;
   }
 
   private generateMailLink(data: any) {
@@ -108,9 +112,9 @@ export class ContactComponent {
   public submitForm(e: Event): void {
     this.contactForm.markAllAsTouched();
 
-    this.checkIfFormHasError();
-
-    if (this.allowSubmit === false) return;
+    if (this.checkIfFormHasError()) {
+      return;
+    }
 
     const emailData = this.contactForm.getRawValue();
     this.generateMailLink(emailData);

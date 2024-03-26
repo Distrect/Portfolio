@@ -1,6 +1,6 @@
 :root {
   font-family: var(--font-face-1);
-  font-size: 16px;
+  font-size: 18px;
   color: var(--white);
 
   --font-face-1: "Work Sans", sans-serif;
@@ -145,11 +145,32 @@ body {
   position: relative;
 }
 
+button,
+textarea,
+input,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*Taşı*/
+body:has(#navigation-modal.open) {
+  overflow: hidden;
+}
+
 section {
   margin-block: 1.5rem;
   width: 100% !important;
-  max-width: 1400px;
-  margin-inline: auto;
+}
+
+section[personal] {
+  background-color: red;
 }
 
 ul,
@@ -165,21 +186,59 @@ li {
 }
 
 button {
+  position: relative;
+  cursor: pointer;
   appearance: none;
   outline: none;
   border: none;
-  font-size: 16px;
-  /* padding: 1ch; */
-  padding-inline: 1.125ch;
-  padding-block: 0.75ch;
-  border-radius: 50px;
-  color: var(--accent-blue);
+  font-size: 1rem;
+  font-weight: 500;
+  width: fit-content;
+  padding-inline: 1.5ch;
+  padding-block: 1ch;
+  border-radius: 5px;
+  border: 2px solid var(--gray-100);
+  color: var(--black);
+  overflow: hidden;
+  background-color: transparent;
+  transition-property: color, background-clor, transform;
+  transition-duration: 0.3s, 0.2s, 0.1s;
+  transition-timing-function: ease-in-out;
 }
 
-#me {
-  aspect-ratio: 2/1;
+button:active {
+  transform: scale(0.9);
+}
+
+button.close-btn::before,
+button.open-btn:before {
+  z-index: -2;
+  position: absolute;
+  content: "";
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--gray-100);
+  transition: width 0.2s ease-in-out;
+}
+
+button.close-btn::before {
   width: 100%;
-  background-color: var(--white);
+}
+button.open-btn:before {
+  width: 0;
+}
+
+button:hover {
+  color: var(--gray-100);
+}
+
+button.close-btn:hover::before {
+  width: 0;
+}
+
+button.open-btn:hover::before {
+  width: 100%;
 }
 
 input[type="text"],
@@ -188,12 +247,11 @@ input[type="password"] {
   appearance: none;
   border: none;
   outline: none;
-  padding: 2ch;
-  /* height: 2.25rem; */
+  padding: 1ch;
   border-radius: 2px;
   background-color: var(--input-background);
   caret-color: var(--white);
-  font-size: 18px;
+  font-size: 1em;
   color: var(--gray-200);
   position: relative;
 }
@@ -202,11 +260,11 @@ textarea {
   appearance: none;
   border: none;
   outline: none;
-  padding: 2ch;
+  padding: 1ch;
   border-radius: 2px;
   background-color: var(--input-background);
   caret-color: var(--white);
-  font-size: 18px;
+  font-size: 1em;
   color: var(--gray-200);
   font-family: var(--font-face-1);
   resize: vertical;
@@ -215,8 +273,14 @@ textarea {
 
 @media screen and (min-width: 576px) {
   .layout {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     row-gap: 18px;
+  }
+
+  section:not(#personal-section),
+  .section-inner {
+    max-width: 540px;
+    margin-inline: auto;
   }
 }
 
@@ -226,8 +290,14 @@ textarea {
   }
 
   .layout {
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     row-gap: 36px;
+  }
+
+  section:not(#personal-section),
+  .section-inner {
+    max-width: 820px;
+    margin-inline: auto;
   }
 
   input[type="text"],
@@ -240,8 +310,91 @@ textarea {
 
 @media screen and (min-width: 1000px) {
   .layout {
-    padding-inline: 36px;
+    /* padding-inline: 36px; */
     grid-template-columns: repeat(12, 1fr);
-    column-gap: 16 px;
+    column-gap: 16px;
   }
+
+  section:not(#personal-section),
+  .section-inner {
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+}
+
+.display-text {
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.display-subtext {
+  font-size: 1em;
+  color: var(--gray-100);
+  line-height: 1.4;
+}
+
+.skill-text {
+  font-size: 0.95em;
+}
+
+h1,
+.text-size-h1 {
+  font-size: 2.49em;
+}
+
+h2,
+.text-size-h2 {
+  font-size: 2.07em;
+}
+
+h3,
+.text-size-h3 {
+  font-size: 1.73em;
+}
+
+h4,
+.text-size-h4 {
+  font-size: 1.44em;
+}
+
+h5,
+.text-size-h5 {
+  font-size: 1.2em;
+}
+
+.text-caption {
+  font-size: 0.83em;
+}
+
+p {
+  font-size: 1em;
+  color: var(--gray-300);
+}
+
+small,
+.text-small-1 {
+  font-size: 0.88em;
+}
+
+.text-small-2 {
+  font-size: 0.69em;
+}
+
+.navigate-header {
+  font-size: 1.9em;
+  text-align: center;
+  color: var(--gray-400);
+}
+
+.navigation-item {
+  font-size: 1.25em;
+  font-weight: 500;
+  color: var(--gray-50);
+}
+
+.flex-center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

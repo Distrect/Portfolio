@@ -3,7 +3,7 @@ import Person from '../../shared/personal.info';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'section[personal]',
+  selector: 'personal',
   standalone: true,
   providers: [DatePipe],
   templateUrl: './personal.component.html',

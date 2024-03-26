@@ -1,5 +1,14 @@
 <section id="contact-section" class="layout">
   <h3 class="navigate-header">Contact Me</h3>
+  <div id="social-media-container">
+    <div
+      class="social-link-icon"
+      [id]="social.socialMedia + '-' + 'link'"
+      *ngFor="let social of me.socialMedias"
+    >
+      <img [src]="social.icon" alt="" />
+    </div>
+  </div>
   <div id="contact-form-wrapper">
     <form
       id="contact-form"
@@ -73,6 +82,7 @@
         id="contact-form-submit"
         type="submit"
         form="contact-form"
+        class="close-btn"
         (click)="submitForm($event)"
       >
         Submit

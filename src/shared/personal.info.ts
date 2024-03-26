@@ -5,6 +5,12 @@ interface ISkill {
   color: string;
 }
 
+interface ISocialMediaLinks {
+  socialMedia: string;
+  url: string;
+  icon: string;
+}
+
 interface IPersonalInfo {
   name: string;
   lastname: string;
@@ -16,6 +22,7 @@ interface IPersonalInfo {
   skills: ISkill[];
   location: string;
   status: string;
+  socialMedias: ISocialMediaLinks[];
 }
 
 const skillz: ISkill[] = [
@@ -69,6 +76,24 @@ const skillz: ISkill[] = [
   },
 ];
 
+const socialMedia: ISocialMediaLinks[] = [
+  {
+    socialMedia: 'Github',
+    icon: 'assets/svg/github.svg',
+    url: '',
+  },
+  {
+    socialMedia: 'LinkedIn',
+    icon: 'assets/svg/linkedin.svg',
+    url: '',
+  },
+  {
+    socialMedia: 'Whatsapp',
+    icon: 'assets/svg/whatsapp.svg',
+    url: '',
+  },
+];
+
 export default class Person implements IPersonalInfo {
   readonly name: string = 'Samet';
   readonly lastname: string = 'Sarıçiçek';
@@ -80,6 +105,7 @@ export default class Person implements IPersonalInfo {
   readonly skills: ISkill[] = skillz;
   readonly location: string = 'Cyprus/Ncosia';
   readonly status: string = 'Undergratuade';
+  readonly socialMedias: ISocialMediaLinks[] = socialMedia;
   readonly intro: string = `
   My name is Samet. I am a Software Engineer,
   undergraduate from Eastern Mediterranean University.

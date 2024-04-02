@@ -14,24 +14,38 @@
             {{ me.intro }}
           </p>
         </div>
-        <!-- <div id="info">
-          <ul>
+        <div id="info">
+          <div class="info-item" *ngFor="let item of me.personalInfo">
+            <span class="info-label">
+              {{ item.label }}
+            </span>
+            <p class="info-item-text">
+              {{ item.attribute }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <ul>
             <div class="col">
               <li>
                 <img src="assets/svg/person.svg" class="icon" alt="" />
-                <p class="text-small-1">
+                <p class="text-span-1">
                   {{ me.fullName }}
                 </p>
               </li>
               <li>
                 <img src="assets/svg/calendar.svg" class="icon" alt="" />
-                <p class="text-small-1">
+                <p class="text-span-1">
                   {{ transformDate() }}
                 </p>
               </li>
               <li>
                 <img src="assets/svg/location.svg" class="icon" alt="" />
-                <p class="text-small-1">
+                <p class="text-span-1">
                   {{ me.location }}
                 </p>
               </li>
@@ -39,20 +53,15 @@
             <div class="col">
               <li>
                 <img src="assets/svg/status.svg" class="icon" alt="" />
-                <p class="text-small-1">
+                <p class="text-span-1">
                   {{ me.status }}
                 </p>
               </li>
               <li>
                 <img src="assets/svg/code.svg" class="icon" alt="" />
-                <p class="text-small-1">
+                <p class="text-span-1">
                   {{ me.title }}
                 </p>
               </li>
             </div>
-          </ul>
-        </div> -->
-      </div>
-    </div>
-  </div>
-</section>
+          </ul> -->

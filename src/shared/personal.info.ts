@@ -25,6 +25,11 @@ interface IPersonalInfo {
   socialMedias: ISocialMediaLinks[];
 }
 
+interface RPersonalInfo {
+  label: string;
+  attribute: string;
+}
+
 const skillz: ISkill[] = [
   {
     skillName: 'HTML',
@@ -106,8 +111,34 @@ export default class Person implements IPersonalInfo {
   readonly location: string = 'Cyprus/Ncosia';
   readonly status: string = 'Undergratuade';
   readonly socialMedias: ISocialMediaLinks[] = socialMedia;
+  readonly degree: string = 'Eastern Mediterranean University';
+  readonly program: string = 'Software Engineering';
   readonly intro: string = `
   My name is Samet. I am a Software Engineer,
   undergraduate from Eastern Mediterranean University.
   I am very passionate about solving problems and web development`;
+
+  private transformDate(date: Date) {
+    return (
+      date.getDate().toString() +
+      '/' +
+      date.getMonth().toString().padStart(2, '0') +
+      '/' +
+      date.getFullYear().toString()
+    );
+  }
+
+  public get personalInfo(): RPersonalInfo[] {
+    const personalInfo: RPersonalInfo[] = [
+      { label: 'Name', attribute: this.fullName },
+      { label: 'Birthday', attribute: this.transformDate(this.birthDate) },
+      { label: 'Location', attribute: this.location },
+      { label: 'Status', attribute: this.status },
+      { label: 'Title', attribute: this.title },
+      { label: 'Universtiy', attribute: this.degree },
+      { label: 'Program', attribute: this.program },
+    ];
+
+    return personalInfo;
+  }
 }

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import Person from '../../shared/personal.info';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'personal',
   standalone: true,
+  imports: [CommonModule],
   providers: [DatePipe],
   templateUrl: './personal.component.html',
   styleUrls: ['../../globalStyles.css', './personal.component.css'],

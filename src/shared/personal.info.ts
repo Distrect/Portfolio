@@ -25,6 +25,13 @@ interface IPersonalInfo {
   socialMedias: ISocialMediaLinks[];
 }
 
+interface ISkilArea {
+  areaName: string;
+  explanation: string;
+  skills: ISkill[];
+  icon: string;
+}
+
 interface RPersonalInfo {
   label: string;
   attribute: string;
@@ -74,6 +81,18 @@ const skillz: ISkill[] = [
     color: '#00758f',
   },
   {
+    skillName: 'Typeorm',
+    percent: 45,
+    iconSrc: 'assets/svg/typeorm.svg',
+    color: '#fe0200',
+  },
+  {
+    skillName: 'Sequelize',
+    percent: 50,
+    iconSrc: 'assets/svg/sequelize.svg',
+    color: '#2379bd',
+  },
+  {
     skillName: 'Figma',
     percent: 20,
     iconSrc: 'assets/svg/figma.svg',
@@ -111,12 +130,44 @@ export default class Person implements IPersonalInfo {
   readonly location: string = 'Cyprus/Ncosia';
   readonly status: string = 'Undergratuade';
   readonly socialMedias: ISocialMediaLinks[] = socialMedia;
-  readonly degree: string = 'Eastern Mediterranean University';
+  readonly degree: string = 'EMU';
   readonly program: string = 'Software Engineering';
   readonly intro: string = `
   My name is Samet. I am a Software Engineer,
   undergraduate from Eastern Mediterranean University.
   I am very passionate about solving problems and web development`;
+
+  readonly frontendSkills: ISkilArea = {
+    areaName: 'Frontend Development',
+    explanation: `I started to learn programing from frontend development. 
+    I create many application however complex, however simple. 
+    While developing apps, aside from logic and requirements, i also focus on responsivness and performance`,
+    skills: [...skillz.slice(0, 4)],
+    icon: 'assets/svg/frontend.svg',
+  };
+
+  readonly backendSkills: ISkilArea = {
+    areaName: 'Backend Development',
+    explanation: `After learning frontend, i needed to develop backend applications for my projects. 
+    So i started to learn backend and studied server theories
+    `,
+    skills: [...skillz.slice(4, 6)],
+    icon: 'assets/svg/backend.svg',
+  };
+
+  readonly databaseSkills: ISkilArea = {
+    areaName: 'Database Operations',
+    explanation: `For full-stack applications i needed to learn database management. I am beginner but i am developing this skill`,
+    skills: [...skillz.slice(6, 9)],
+    icon: 'assets/svg/database.svg',
+  };
+
+  readonly uiSkills: ISkilArea = {
+    areaName: 'UI&UX Design',
+    explanation: `I am very beginer on this skill journey`,
+    skills: [skillz[skillz.length - 1]],
+    icon: 'assets/svg/ui.svg',
+  };
 
   private transformDate(date: Date) {
     return (
@@ -135,10 +186,19 @@ export default class Person implements IPersonalInfo {
       { label: 'Location', attribute: this.location },
       { label: 'Status', attribute: this.status },
       { label: 'Title', attribute: this.title },
-      { label: 'Universtiy', attribute: this.degree },
+      { label: 'Degree', attribute: this.degree },
       { label: 'Program', attribute: this.program },
     ];
 
     return personalInfo;
+  }
+
+  public get skillAreas(): ISkilArea[] {
+    return [
+      this.frontendSkills,
+      this.backendSkills,
+      this.databaseSkills,
+      this.uiSkills,
+    ];
   }
 }

@@ -1,7 +1,45 @@
 <section id="skill-section" class="layout">
   <h3 class="navigate-header">My Skills</h3>
   <div class="list-container">
-    <div class="skill-item" *ngFor="let skil of me.skills">
+    <div class="area-item" *ngFor="let area of me.skillAreas">
+      <div class="area-header">
+        <div class="area-header-name">
+          <img class="area-item-icon" [src]="area.icon" [alt]="area.areaName" />
+          <h6 [innerHTML]="area.areaName.split(' ').join('</br>')"></h6>
+        </div>
+        <div class="area-explanation">
+          <p>
+            {{ area.explanation }}
+          </p>
+        </div>
+      </div>
+      <div class="area-skills">
+        <div class="skill-header">
+          <h6>Acquared Skills</h6>
+        </div>
+        <div class="area-skill">
+          <div class="horizontal-skill-item" *ngFor="let skil of area.skills">
+            <img [src]="skil.iconSrc" class="skill-icon" alt="" />
+            <div class="detail-wrapper">
+              <p class="skill-text">
+                {{ skil.skillName }}
+              </p>
+              <div class="progress-bar">
+                <div
+                  [style.background-color]="skil.color"
+                  [style.width]="skil.percent + '' + '%'"
+                  class="progress"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="skill-item" *ngFor="let skil of me.skills">
       <img [src]="skil.iconSrc" class="skill-icon" alt="" />
       <div class="detail-wrapper">
         <p class="skill-text">
@@ -15,6 +53,4 @@
           ></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </div> -->

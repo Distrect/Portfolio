@@ -1,12 +1,17 @@
 <section id="contact-section" class="layout">
   <h3 class="navigate-header">Contact Me</h3>
   <div id="social-media-container">
-    <div
-      class="social-link-icon"
-      [id]="social.socialMedia + '-' + 'link'"
-      *ngFor="let social of me.socialMedias"
-    >
-      <img [src]="social.icon" alt="" />
+    <div id="outro-container">
+      <h4 class="outro-text">Hope to meet you, someday...</h4>
+    </div>
+    <div id="social-medias">
+      <div
+        class="social-link-icon"
+        [id]="social.socialMedia + '-' + 'link'"
+        *ngFor="let social of me.socialMedias"
+      >
+        <img [src]="social.icon" alt="" />
+      </div>
     </div>
   </div>
   <div id="contact-form-wrapper">
@@ -78,6 +83,7 @@
           >{{ getSubjectErrorMessage() }}</span
         >
       </div>
+      <a id="mailer" #mailer href="">Deneme</a>
       <button
         id="contact-form-submit"
         type="submit"

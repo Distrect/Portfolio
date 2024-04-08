@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -17,7 +17,8 @@ import Person from '../../shared/personal.info';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })
-export class ContactComponent {
+export class ContactComponent implements AfterViewInit {
+  @ViewChild('mailer') private mailButton: ElementRef | undefined;
   public me: Person = new Person();
   public allowSubmit: boolean = true;
 
@@ -34,6 +35,10 @@ export class ContactComponent {
   });
 
   private fields: string[] = Object.keys(this.contactForm.controls);
+
+  public ngAfterViewInit() {
+    console.log(this.mailButton);
+  }
 
   private getFormField(fieldName: string): AbstractControl {
     if (!this.fields.includes(fieldName))
@@ -104,9 +109,12 @@ export class ContactComponent {
     return true;
   }
 
+  private clickMailer() {}
+
   private generateMailLink(data: any) {
     const link = `mailto:${this.me.email}?subject=${data.name}&body=${data.subject}`;
-    window.location.href = link;
+
+    // window.location.href = link;
   }
 
   public submitForm(e: Event): void {

@@ -5,23 +5,48 @@
       <div id="deneme">
         <div id="personal-image-wrapper">
           <img id="me" src="assets/images/1-1.png" alt="" />
+          <div class="button-group">
+            <button class="display-button close-btn">Download CV</button>
+            <button class="display-button linkedin-btn">LinkedIn</button>
+          </div>
         </div>
       </div>
       <div id="info-intro-wrapper">
         <div id="intro">
           <h4 class="heading">Hello there, nice to meet you...</h4>
           <p class="paragraph p">
-            {{ me.intro }}
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore
+            quidem sequi totam unde molestias, magni beatae corrupti a,
+            architecto tempora quisquam explicabo repellat. Itaque consectetur
+            illum odit quis esse pariatur.
           </p>
         </div>
         <div id="info">
-          <div class="info-item" *ngFor="let item of me.personalInfo">
-            <span class="info-label">
-              {{ item.label }}
-            </span>
-            <p class="info-item-text">
-              {{ item.attribute }}
-            </p>
+          <div class="col">
+            <div
+              class="info-item"
+              *ngFor="let item of me.personalInfo | slice : 0 : 4"
+            >
+              <span class="info-label">
+                {{ item.label }}
+              </span>
+              <p class="info-item-text">
+                {{ item.attribute }}
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="info-item"
+              *ngFor="let item of me.personalInfo | slice : 4"
+            >
+              <span class="info-label">
+                {{ item.label }}
+              </span>
+              <p class="info-item-text">
+                {{ item.attribute }}
+              </p>
+            </div>
           </div>
         </div>
       </div>

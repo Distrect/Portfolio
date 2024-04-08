@@ -21,7 +21,7 @@
 
 .skill-item {
   grid-column: span 1;
-  background-color: #161616;
+  background-color: #181818;
   padding: 0.75em;
   border-radius: 4px;
   height: 100%;
@@ -41,11 +41,12 @@
   aspect-ratio: 1/1;
 }
 
-.skill-item .detail-wrapper {
+.detail-wrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   gap: 0.5rem;
+  justify-content: space-between;
 }
 
 .detail-wrapper .progress-bar {
@@ -56,8 +57,13 @@
   font-weight: 500;
 }
 
+.skill-text {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
 .progress-bar {
-  height: 5px;
+  height: 10px;
   width: 100%;
   border-radius: 2px;
   position: relative;
@@ -74,12 +80,68 @@
   border-radius: 2px;
 }
 
-.skill-text {
-  display: none;
+.area-item {
+  grid-column: 1/-1;
+  border: 4px solid #212121;
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.area-item .area-explanation {
+  margin-top: 1.5rem;
+}
+
+.area-item .area-header .area-header-name {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  height: 5ch;
+}
+
+.area-item .area-header .area-header-name .area-item-icon {
+  flex: 0 0 auto;
+  aspect-ratio: 1/1;
+  height: 100%;
+}
+
+.area-item .area-header .area-header-name h6,
+.area-item .area-skills h6 {
+  flex: 1 1 auto;
+  font-size: 1.3em;
+  flex-grow: 1;
+}
+
+.area-item .area-skill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.horizontal-skill-item {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.horizontal-skill-item .skill-icon {
+  aspect-ratio: 1/1;
+  width: 50px;
+}
+
+.horizontal-skill-item .detail-wrapper {
+  flex-grow: 1;
 }
 
 @media screen and (min-width: 768px) {
   .skill-item {
     grid-column: span 2;
+  }
+
+  .area-item {
+    grid-column: span 4;
   }
 }

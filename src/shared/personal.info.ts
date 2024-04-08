@@ -184,8 +184,8 @@ export default class Person implements IPersonalInfo {
       { label: 'Name', attribute: this.fullName },
       { label: 'Birthday', attribute: this.transformDate(this.birthDate) },
       { label: 'Location', attribute: this.location },
-      { label: 'Status', attribute: this.status },
       { label: 'Title', attribute: this.title },
+      { label: 'Status', attribute: this.status },
       { label: 'Degree', attribute: this.degree },
       { label: 'Program', attribute: this.program },
     ];

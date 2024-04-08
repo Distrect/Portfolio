@@ -15,13 +15,7 @@
     </div>
   </div>
   <div id="contact-form-wrapper">
-    <form
-      id="contact-form"
-      autocomplete="off"
-      method="get"
-      [formGroup]="contactForm"
-      action="mailto:{{ me.email }}"
-    >
+    <form id="contact-form" autocomplete="off" [formGroup]="contactForm">
       <div class="form-field wrap">
         <div class="input-wrapper">
           <input

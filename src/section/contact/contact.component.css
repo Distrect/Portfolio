@@ -45,6 +45,9 @@
   width: 100%;
 }
 
+#mailer {
+  display: none;
+}
 .input-wrapper {
   height: min-content;
 }

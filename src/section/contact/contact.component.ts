@@ -10,6 +10,12 @@ import {
 } from '@angular/forms';
 import Person from '../../shared/personal.info';
 
+interface IContactForm {
+  name: string;
+  email: string;
+  subject: string;
+}
+
 @Component({
   selector: 'section[contact]',
   standalone: true,
@@ -18,7 +24,9 @@ import Person from '../../shared/personal.info';
   styleUrl: './contact.component.css',
 })
 export class ContactComponent implements AfterViewInit {
-  @ViewChild('mailer') private mailButton: ElementRef | undefined;
+  @ViewChild('mailer') private mailButton:
+    | ElementRef<HTMLAnchorElement>
+    | undefined;
   public me: Person = new Person();
   public allowSubmit: boolean = true;
 
@@ -53,10 +61,17 @@ export class ContactComponent implements AfterViewInit {
 
   public checkIfFieldHasError(fieldName: string | AbstractControl): boolean {
     if (fieldName instanceof AbstractControl) {
+      console.log(fieldName.errors);
       return Object.keys(fieldName?.errors || {}).length > 0;
     }
 
     const fieldControl = this.getFormField(fieldName);
+
+    console.log(
+      'Fields',
+      fieldControl,
+      Object.keys(fieldControl?.errors || {}).length > 0
+    );
 
     return Object.keys(fieldControl?.errors || {}).length > 0;
   }
@@ -73,7 +88,7 @@ export class ContactComponent implements AfterViewInit {
   public getNameErrorMessage(): string {
     const nameError = this.contactForm.get('name')?.errors;
     const isRequiredError = nameError?.['required']
-      ? 'Full name cannot be empty'
+      ? 'Subject cannot be empty'
       : 'null';
     return isRequiredError;
   }
@@ -101,31 +116,41 @@ export class ContactComponent implements AfterViewInit {
     for (const [key, val] of controls) {
       if (this.checkIfFieldHasError(val)) {
         this.allowSubmit = false;
-        return false;
+        return true;
       }
     }
 
     this.allowSubmit = true;
-    return true;
+    return false;
   }
 
-  private clickMailer() {}
+  private clickMailer(link: string) {
+    if (this.mailButton === undefined)
+      throw new Error('Mail Button is undefined');
+
+    const el = this.mailButton.nativeElement;
+    el.href = link;
+    el.click();
+  }
 
   private generateMailLink(data: any) {
     const link = `mailto:${this.me.email}?subject=${data.name}&body=${data.subject}`;
 
-    // window.location.href = link;
+    return link;
   }
 
   public submitForm(e: Event): void {
     this.contactForm.markAllAsTouched();
 
+    console.log('Form Error:', this.checkIfFormHasError());
+
     if (this.checkIfFormHasError()) {
+      console.log('Error');
       return;
     }
 
-    const emailData = this.contactForm.getRawValue();
-    this.generateMailLink(emailData);
-    console.log('Raw Data:', emailData);
+    const link = this.generateMailLink(this.contactForm.getRawValue());
+
+    this.clickMailer(link);
   }
 }

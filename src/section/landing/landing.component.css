@@ -14,17 +14,17 @@
   grid-column: 1/-1;
   display: flex;
   flex-direction: row;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 .image-wrapper #me {
-  width: 82%;
+  width: 83%;
   aspect-ratio: 1/1;
 }
 
 #characteristics-container {
   display: flex;
   flex-direction: column;
-  width: 18%;
+  width: 17%;
   height: 100%;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +32,7 @@
 
 .characterisitic-icon-wrapper {
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: var(--red-500);
 }
 
@@ -47,7 +47,7 @@
 
 #landing-me {
   background-color: var(--white);
-  border-radius: 5px;
+  border-radius: 2px;
   user-select: none;
   width: 60%;
 }

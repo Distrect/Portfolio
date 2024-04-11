@@ -147,6 +147,10 @@ body {
   position: relative;
 }
 
+body:has(dialog[open="true"]) {
+  overflow-y: hidden;
+}
+
 button,
 textarea,
 input,

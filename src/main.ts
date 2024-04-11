@@ -7,4 +7,6 @@ import { enableProdMode } from '@angular/core';
 
 enableProdMode();
 
-bootstrapApplication(AppComponent).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, { providers: [] }).catch((err) =>
+  console.error(err)
+);

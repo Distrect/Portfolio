@@ -1,7 +1,5 @@
 #navbar {
   padding-block: 20px;
-  position: sticky;
-  top: 0;
   background-color: var(--dark-background);
   grid-column: 1/-1;
   grid-row: 1/2;

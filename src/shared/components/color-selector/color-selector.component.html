@@ -1,0 +1,15 @@
+<div id="color-selector-container">
+  <div class="color-selector-opener" (click)="openModal()"></div>
+  <dialog [open]="isModalOpen" class="color-dialog">
+    <div class="color-items">
+      <div class="color-item"></div>
+      <div class="color-item"></div>
+      <div class="color-item"></div>
+      <div class="color-item"></div>
+      <div class="color-item"></div>
+      <div class="color-item"></div>
+      <div class="color-item"></div>
+    </div>
+  </dialog>
+  <div [attr.modal-open]="isModalOpen" class="overlay"></div>
+</div>

@@ -4,6 +4,8 @@ import { NavbarComponent } from '../shared/components/navbar/navbar.component';
 import { PersonalComponent } from '../section/personal/personal.component';
 import { SkillsComponent } from '../section/skills/skills.component';
 import { ContactComponent } from '../section/contact/contact.component';
+import { FooterComponent } from '../shared/components/footer/footer.component';
+import { ColorSelectorComponent } from '../shared/components/color-selector/color-selector.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,8 @@ import { ContactComponent } from '../section/contact/contact.component';
     PersonalComponent,
     SkillsComponent,
     ContactComponent,
+    FooterComponent,
+    ColorSelectorComponent,
   ],
   encapsulation: ViewEncapsulation.None,
 })

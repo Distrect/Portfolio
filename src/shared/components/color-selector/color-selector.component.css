@@ -1,0 +1,75 @@
+#color-selector-container {
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.overlay[modal-open="false"] {
+  display: none;
+}
+
+.color-selector-opener {
+  position: fixed;
+  left: 0;
+  top: 30%;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.color-dialog {
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  padding: 10px;
+  border: 1px solid transparent;
+  background-color: #202020;
+}
+
+.color-items {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+
+.color-item {
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+}
+
+.color-item:nth-child(1) {
+  background-color: var(--accent-blue);
+}
+.color-item:nth-child(2) {
+  background-color: var(--accent-red);
+}
+.color-item:nth-child(3) {
+  background-color: var(--accent-green);
+}
+.color-item:nth-child(4) {
+  background-color: var(--accent-brown);
+}
+.color-item:nth-child(5) {
+  background-color: var(--accent-orange);
+}
+.color-item:nth-child(6) {
+  background-color: var(--accent-purple);
+}
+.color-item:nth-child(7) {
+  background-color: var(--accent-orange);
+}

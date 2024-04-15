@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'svg[frontend]',
+  selector: 'svg[database]',
   standalone: true,
-  templateUrl: '../assets/svg/frontend.svg',
+  templateUrl: '../assets/svg/database.svg',
   styleUrls: ['../styles.css', './svg.component.style.css'],
 })
-export class FrontendSVGComponent {}
+export class DatabaseSVGComponent {}

@@ -33,7 +33,7 @@
 .characterisitic-icon-wrapper {
   padding: 5px;
   border-radius: 2px;
-  background-color: var(--red-500);
+  background-color: var(--selected-color);
 }
 
 .characteristic-icon {

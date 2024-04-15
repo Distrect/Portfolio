@@ -1,3 +1,9 @@
+import { Type } from '@angular/core';
+import { FrontendSVGComponent } from '../svgComponents/frontend.svg.component';
+import { BackendSVGComponent } from '../svgComponents/backend.svg.component';
+import { DatabaseSVGComponent } from '../svgComponents/database.svg.component';
+import { UiSVGComponent } from '../svgComponents/ui.svg.component';
+
 interface ISkill {
   skillName: string;
   percent: number;
@@ -30,6 +36,7 @@ interface ISkilArea {
   explanation: string;
   skills: ISkill[];
   icon: string;
+  svgComponent: Type<any>;
 }
 
 interface RPersonalInfo {
@@ -133,9 +140,7 @@ export default class Person implements IPersonalInfo {
   readonly degree: string = 'EMU';
   readonly program: string = 'Software Engineering';
   readonly intro: string = `
-  My name is Samet. I am a Software Engineer,
-  undergraduate from Eastern Mediterranean University.
-  I am very passionate about solving problems and web development`;
+  My name is Samet Sarıçiçek. I am a senior year Software Engineer at Eastern Mediterranean University. I have been improving myself on web technologies for about 3 years. I really enjoy solving problems and designing systems.`;
 
   readonly frontendSkills: ISkilArea = {
     areaName: 'Frontend Development',
@@ -144,6 +149,7 @@ export default class Person implements IPersonalInfo {
     While developing apps, aside from logic and requirements, i also focus on responsivness and performance`,
     skills: [...skillz.slice(0, 4)],
     icon: 'assets/svg/frontend.svg',
+    svgComponent: FrontendSVGComponent,
   };
 
   readonly backendSkills: ISkilArea = {
@@ -153,6 +159,7 @@ export default class Person implements IPersonalInfo {
     `,
     skills: [...skillz.slice(4, 6)],
     icon: 'assets/svg/backend.svg',
+    svgComponent: BackendSVGComponent,
   };
 
   readonly databaseSkills: ISkilArea = {
@@ -160,6 +167,7 @@ export default class Person implements IPersonalInfo {
     explanation: `For full-stack applications i needed to learn database management. I am beginner but i am developing this skill`,
     skills: [...skillz.slice(6, 9)],
     icon: 'assets/svg/database.svg',
+    svgComponent: DatabaseSVGComponent,
   };
 
   readonly uiSkills: ISkilArea = {
@@ -167,6 +175,7 @@ export default class Person implements IPersonalInfo {
     explanation: `I am very beginer on this skill journey`,
     skills: [skillz[skillz.length - 1]],
     icon: 'assets/svg/ui.svg',
+    svgComponent: UiSVGComponent,
   };
 
   private transformDate(date: Date) {

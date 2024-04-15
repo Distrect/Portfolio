@@ -16,14 +16,23 @@
 }
 
 .color-selector-opener {
+  display: flex;
+  place-items: center;
   position: fixed;
   left: 0;
   top: 30%;
-  width: 30px;
-  height: 30px;
-  background-color: red;
+  padding: 4px;
+  background-color: var(--selected-color);
   z-index: 1;
   cursor: pointer;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.color-selector-opener .icon {
+  width: 35px;
+  aspect-ratio: 1/1;
+  animation: rotater infinite 3s linear;
 }
 
 .color-dialog {
@@ -32,7 +41,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 50vw;
+  width: calc((5 * 60px) + (1 * 1rem));
   padding: 10px;
   border: 1px solid transparent;
   background-color: #202020;
@@ -45,31 +54,47 @@
   flex-wrap: wrap;
 }
 
-
 .color-item {
   width: 60px;
-  height: 60px;
+  aspect-ratio: 1/1;
   border-radius: 2px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.color-item:nth-child(1) {
-  background-color: var(--accent-blue);
+.dialog-header {
+  margin-bottom: 1rem;
 }
-.color-item:nth-child(2) {
-  background-color: var(--accent-red);
+
+.dialog-header h5 {
+  color: var(--white);
 }
-.color-item:nth-child(3) {
-  background-color: var(--accent-green);
+
+@media (hover: hover) and (pointer: fine) {
+  .color-item {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .color-item:hover {
+    transform: scale(1.05);
+  }
+
+  .color-selector-opener:hover {
+    transform: translate(1.7);
+  }
 }
-.color-item:nth-child(4) {
-  background-color: var(--accent-brown);
+
+@media screen and (min-width: 768px) {
+  .color-dialog {
+    width: 50vw;
+  }
 }
-.color-item:nth-child(5) {
-  background-color: var(--accent-orange);
-}
-.color-item:nth-child(6) {
-  background-color: var(--accent-purple);
-}
-.color-item:nth-child(7) {
-  background-color: var(--accent-orange);
+
+@keyframes rotater {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

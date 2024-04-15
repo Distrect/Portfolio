@@ -1,22 +1,38 @@
 <nav id="navbar" class="layout">
-  <div class="navbar-inner">
+  <div class="navbar-inner" [ngClass]="isOpen === true ? 'sidebar-open' : ''">
     <div id="logo-wrapper"></div>
-    <div id="navigation">
-      <img
-        id="hamburger"
-        (click)="openModal()"
-        src="assets/svg/hamburger.svg"
-      />
-      <div id="navigation-modal" [ngClass]="isOpen ? 'open' : ''">
-        <div id="close-icon-wrapper">
-          <div (click)="closeModal()">X</div>
-        </div>
-        <ul id="navigation-items">
-          <li class="navigation-item">About Me</li>
-          <li class="navigation-item">Skills</li>
-          <li class="navigation-item">Contact</li>
-        </ul>
+    <div id="navigation-items-container">
+      <ul class="navigation-items-fixed">
+        <li *ngFor="let item of navigationItems">
+          <a class="navigation-item" [href]="'#' + navigationImtes[item]">
+            {{ item }}
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-icon-container">
+        <img
+          id="sidebar-interact-icon"
+          src="assets/svg/hamburger.svg"
+          (click)="openModal()"
+          alt=""
+        />
       </div>
+    </div>
+    <div id="sidebar-navigation-container">
+      <aside id="sidebar">
+        <div class="sidebar-row">
+          <div class="close-icon" (click)="closeModal()">X</div>
+        </div>
+        <div class="sidebar-row">
+          <ul class="navigation-items-side">
+            <li *ngFor="let item of navigationItems" (click)="den()">
+              <a class="navigation-item" [href]="'#' + navigationImtes[item]">
+                {{ item }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
     </div>
   </div>
 </nav>

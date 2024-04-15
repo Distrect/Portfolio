@@ -124,6 +124,9 @@
   --sequelize: #2379bd;
 
   --tablet-width: 768px;
+
+  --area-item-border-color: rgba(0, 90, 255, 0.7);
+  --selected-color: var(--selected, var(--accent-blue));
 }
 
 *,
@@ -140,6 +143,7 @@ body {
   height: 100%;
   min-width: 320px;
   overflow: auto;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -151,6 +155,9 @@ body:has(dialog[open="true"]) {
   overflow-y: hidden;
 }
 
+body:has(.navbar-inner.sidebar-open) {
+  overflow: hidden;
+}
 button,
 textarea,
 input,
@@ -165,10 +172,15 @@ a {
   user-select: none;
 }
 
-/*Taşı*/
-body:has(#navigation-modal.open) {
-  overflow: hidden;
+a {
+  text-decoration: none;
+  color: inherit;
 }
+
+/*Taşı*/
+/* body:has(#navigation-modal.open) {
+  overflow: hidden;
+} */
 
 section {
   margin-block: 1.5rem;
@@ -196,7 +208,7 @@ button {
   cursor: pointer;
   appearance: none;
   outline: none;
-  border: none;
+  border: none !important;
   font-size: 0.875rem;
   font-weight: 500;
   width: fit-content;
@@ -206,45 +218,44 @@ button {
   border: 2px solid var(--gray-100);
   color: var(--black);
   overflow: hidden;
-  background-color: transparent;
-  transition-property: color, background-clor, transform;
+  background-color: var(--white);
+  transition-property: color, background-color, transform;
   transition-duration: 0.3s, 0.2s, 0.1s;
   transition-timing-function: ease-in-out;
 }
 
-button:active {
-  transform: scale(1.05);
+button.color-button {
+  background-color: var(--selected-color);
+  color: seashell;
 }
 
-button.close-btn::before,
-button.open-btn:before {
-  z-index: -2;
-  position: absolute;
-  content: "";
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: var(--gray-100);
-  transition: width 0.2s ease-in-out;
+@media (hover: hover) and (pointer: coarse) {
+  button.fixed-button:active,
+  button.color-button:active {
+    transform: scale(1.05);
+  }
 }
 
-button.close-btn::before {
-  width: 100%;
-}
-button.open-btn:before {
-  width: 0;
-}
+@media (hover: hover) and (pointer: fine) {
+  button {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition: transform 0.1s, background-color 0.1s, outline 0.1s;
+  }
 
-button:hover {
-  color: var(--gray-100);
-}
+  button.fixed-button:hover {
+    outline-color: var(--gray-50);
+    background-color: var(--gray-200);
+  }
 
-button.close-btn:hover::before {
-  width: 0;
-}
+  button.color-button:hover {
+    outline-color: var(--area-item-border-color);
+  }
 
-button.open-btn:hover::before {
-  width: 100%;
+  button.fixed-button:active,
+  button.color-button:active {
+    transform: scale(1.05);
+  }
 }
 
 input[type="text"],
@@ -378,7 +389,7 @@ p {
 
 small,
 .text-small-1 {
-  font-size: 0.88em;
+  font-size: 0.8em;
 }
 
 .text-small-2 {

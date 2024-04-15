@@ -4,7 +4,9 @@
     <div class="area-item" *ngFor="let area of me.skillAreas">
       <div class="area-header">
         <div class="area-header-name">
-          <img class="area-item-icon" [src]="area.icon" [alt]="area.areaName" />
+          <div class="area-icon-wrapper">
+            <ng-container *ngComponentOutlet="area.svgComponent" />
+          </div>
           <h6 [innerHTML]="area.areaName.split(' ').join('</br>')"></h6>
         </div>
         <div class="area-explanation">

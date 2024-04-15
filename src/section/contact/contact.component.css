@@ -31,10 +31,6 @@
   background-color: var(--yellow-400);
 }
 
-#contact-form-submit:hover {
-  color: var(--yellow-400);
-}
-
 #contact-form-submit:disabled {
 }
 

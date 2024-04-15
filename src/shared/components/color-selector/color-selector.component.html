@@ -1,15 +1,23 @@
 <div id="color-selector-container">
-  <div class="color-selector-opener" (click)="openModal()"></div>
+  <div class="color-selector-opener" (click)="openModal()">
+    <img src="assets/svg/gear.svg" class="icon" />
+  </div>
   <dialog [open]="isModalOpen" class="color-dialog">
+    <div class="dialog-header">
+      <h5 class="dialog-title">Select Theme Color</h5>
+    </div>
     <div class="color-items">
-      <div class="color-item"></div>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
-      <div class="color-item"></div>
+      <div
+        *ngFor="let color of themeColors"
+        [style.backgroundColor]="color"
+        class="color-item"
+        (click)="selectThemeColor(color)"
+      ></div>
     </div>
   </dialog>
-  <div [attr.modal-open]="isModalOpen" class="overlay"></div>
+  <div
+    [attr.modal-open]="isModalOpen"
+    class="overlay"
+    (click)="overlayClick()"
+  ></div>
 </div>

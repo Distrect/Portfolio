@@ -1,0 +1,12 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.area-item-icon {
+  width: 100%;
+}
+
+.area-item-icon path {
+  fill: var(--area-item-border-color);
+}

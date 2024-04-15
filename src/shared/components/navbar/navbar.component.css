@@ -21,6 +21,13 @@
   margin-inline: auto;
 }
 
+.sidebar-icon-container {
+  border-radius: 2px;
+  padding: 4px;
+  border: 2px solid var(--selected-color);
+  cursor: pointer;
+}
+
 #sidebar-interact-icon {
   display: block;
   width: 30px;
@@ -129,12 +136,22 @@
   }
 }
 
+.close-icon {
+  width: 20px;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  padding-left: 0.5ch;
+}
 li a {
   display: inline-block;
   width: 100%;
 }
 
 @media screen and (min-width: 768px) {
+  .sidebar-icon-container {
+    display: none;
+  }
+
   .navbar-inner.navbar-inner.sidebar-open #sidebar-navigation-container,
   #sidebar-navigation-container {
     display: none;

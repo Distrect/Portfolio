@@ -2,6 +2,8 @@
   grid-column: 1/-1;
   padding-block: 1rem;
   margin-inline: auto;
+  padding-top: 30px;
+  min-height: 100dvh;
 }
 
 #landing-section.layout {
@@ -20,6 +22,10 @@
   width: 83%;
   aspect-ratio: 1/1;
 }
+
+/* #landing-me-container.top-to-appear-anim {
+  animation-delay: 0.5s;
+} */
 
 #characteristics-container {
   display: flex;
@@ -63,7 +69,11 @@
 #landing-text {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 1rem;
+}
+
+#landing-text h5 {
+  color: var(--gray-300);
 }
 
 #button-group {

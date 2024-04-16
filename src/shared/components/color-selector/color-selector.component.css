@@ -19,7 +19,7 @@
   display: flex;
   place-items: center;
   position: fixed;
-  left: 0;
+  right: 0;
   top: 30%;
   padding: 4px;
   background-color: var(--selected-color);

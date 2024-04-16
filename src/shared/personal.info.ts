@@ -111,17 +111,17 @@ const socialMedia: ISocialMediaLinks[] = [
   {
     socialMedia: 'Github',
     icon: 'assets/svg/github.svg',
-    url: '',
+    url: 'https://github.com/Distrect',
   },
   {
     socialMedia: 'LinkedIn',
     icon: 'assets/svg/linkedin.svg',
-    url: '',
+    url: 'https://www.linkedin.com/in/samet-sar%C4%B1%C3%A7i%C3%A7ek-779212272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
   },
   {
     socialMedia: 'Whatsapp',
     icon: 'assets/svg/whatsapp.svg',
-    url: '',
+    url: 'https://wa.me/905428601502',
   },
 ];
 
@@ -209,5 +209,13 @@ export default class Person implements IPersonalInfo {
       this.databaseSkills,
       this.uiSkills,
     ];
+  }
+
+  public getSocialMediaLink(scoialMedia: 'Github' | 'Linkedin' | 'Whatsapp') {
+    const socialMediaItem = this.socialMedias.find(
+      ({ socialMedia }) => scoialMedia === socialMedia
+    ) as ISocialMediaLinks;
+
+    return socialMediaItem.url;
   }
 }

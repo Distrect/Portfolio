@@ -12,7 +12,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 })
 export class PersonalComponent {
   public me: Person = new Person();
-
+  public window: Window = window;
   constructor(private datePipe: DatePipe) {}
 
   public transformDate() {

@@ -1,10 +1,7 @@
 <section id="skill-section" class="layout">
   <h3 class="navigate-header">My Skills</h3>
-  <div class="list-container">
-    <div
-      class="area-item left-to-appear-anim"
-      *ngFor="let area of me.skillAreas"
-    >
+  <div class="list-container" id="area-items-container">
+    <div class="area-item" *ngFor="let area of me.skillAreas">
       <div class="area-header">
         <div class="area-header-name">
           <div class="area-icon-wrapper">

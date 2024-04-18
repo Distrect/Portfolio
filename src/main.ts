@@ -5,9 +5,10 @@ import {
 import { AppComponent } from './app/app.component';
 import { enableProdMode } from '@angular/core';
 import ThemeColorStateService from './shared/stateManagement/themeColor.state.service';
+import { IntersectionObserverService } from './service/intersection-observer.service';
 
 enableProdMode();
 
 bootstrapApplication(AppComponent, {
-  providers: [ThemeColorStateService],
+  providers: [ThemeColorStateService, IntersectionObserverService],
 }).catch((err) => console.error(err));

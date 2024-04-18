@@ -1,6 +1,6 @@
 #navbar {
-  padding-block: 10px;
-  background-color: var(--dark-background);
+  padding-block: 8px;
+  background-color: transparent;
   grid-column: 1/-1;
   grid-row: 1/2;
   position: fixed;
@@ -8,14 +8,15 @@
   left: 0;
   width: 100%;
   z-index: 9;
-  border-bottom: 1px solid var(--selected-color);
+  transition: background-color 0.2s;
+  /* border-bottom: 1px solid var(--selected-color); */
 }
 
 #logo-wrapper {
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  aspect-ratio: 1/1;
   border-radius: 50%;
-  background-color: var(--selected-color);
+  /* background-color: var(--selected-color); */
 }
 
 .navbar-inner {

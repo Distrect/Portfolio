@@ -1,6 +1,8 @@
 <nav id="navbar" class="layout">
   <div class="navbar-inner" [ngClass]="isOpen === true ? 'sidebar-open' : ''">
-    <div id="logo-wrapper"></div>
+    <div id="logo-wrapper">
+      <svg logo></svg>
+    </div>
     <div id="navigation-items-container">
       <ul class="navigation-items-fixed">
         <li *ngFor="let item of navigationItems">

@@ -1,0 +1,99 @@
+button {
+  appearance: none;
+  cursor: pointer;
+
+  max-width: 10rem;
+  max-height: 2rem;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+
+  padding: 1ch;
+
+  border: none;
+  border-radius: 6px;
+
+  color: var(--white);
+  background-color: var(--blue-400);
+}
+
+button .button-icon-container {
+  width: 100%;
+  height: 100%;
+}
+
+.button-icon-container > img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* button,
+  a.btn {
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    border: none !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    width: fit-content;
+    padding-inline: 1.5ch;
+    padding-block: 1ch;
+    border-radius: 2px;
+    border: 2px solid var(--gray-100);
+    color: var(--black);
+    overflow: hidden;
+    background-color: var(--white);
+    transition-property: color, background-color, transform;
+    transition-duration: 0.3s, 0.2s, 0.1s;
+    transition-timing-function: ease-in-out;
+  }
+  
+  button.color-button,
+  a.color-button {
+    background-color: var(--selected-color);
+    color: seashell;
+  }
+  
+  @media (hover: hover) and (pointer: coarse) {
+    button.fixed-button:active,
+    a.fixed-button:active,
+    button.color-button:active,
+    a.color-button:active {
+      transform: scale(1.05);
+    }
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    button,
+    a.btn {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      transition: transform 0.1s, background-color 0.1s, outline 0.1s;
+    }
+  
+    button.fixed-button:hover,
+    a.fixed-button:hover {
+      outline-color: var(--gray-50);
+      background-color: var(--gray-200);
+    }
+  
+    button.color-button:hover,
+    a.color-button:hover {
+      outline-color: var(--area-item-border-color);
+    }
+  
+    button.fixed-button:active,
+    a.fixed-button:active,
+    button.color-button:active,
+    a.color-button:active {
+      transform: scale(1.05);
+    }
+  } */

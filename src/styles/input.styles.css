@@ -1,0 +1,29 @@
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  appearance: none;
+  border: none;
+  outline: none;
+  padding: 1ch;
+  border-radius: 2px;
+  background-color: var(--input-background);
+  caret-color: var(--white);
+  font-size: 1em;
+  color: var(--gray-200);
+  position: relative;
+}
+
+textarea {
+  appearance: none;
+  border: none;
+  outline: none;
+  padding: 1ch;
+  border-radius: 2px;
+  background-color: var(--input-background);
+  caret-color: var(--white);
+  font-size: 1em;
+  color: var(--gray-200);
+  font-family: var(--font-face-1);
+  resize: vertical;
+  min-height: 120px;
+}

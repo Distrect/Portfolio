@@ -1,3 +1,5 @@
+@import "../../styles//root.scss";
+
 #contact-section .navigate-header {
   grid-column: 1/-1;
   grid-row: 1/2;
@@ -24,14 +26,11 @@
 }
 
 #contact-form-submit {
-  border-color: var(--yellow-400);
+  border-color: $yellow-400;
 }
 
 #contact-form-submit::before {
-  background-color: var(--yellow-400);
-}
-
-#contact-form-submit:disabled {
+  background-color: $yellow-400;
 }
 
 #social-medias {
@@ -62,7 +61,7 @@
   height: 10px;
   bottom: -4px;
   left: 0;
-  background-color: var(--secondary-green);
+  background-color: $secondary-green;
   border-radius: 2px;
   transition: width 0.2s ease-in-out;
 }
@@ -92,7 +91,7 @@
 
 .input-error {
   font-size: 14px;
-  color: var(--secondary-red);
+  color: $secondary-red;
 }
 
 #outro-container {

@@ -7,7 +7,7 @@ import ThemeColorStateService from '../../stateManagement/themeColor.state.servi
   standalone: true,
   imports: [CommonModule],
   templateUrl: './color-selector.component.html',
-  styleUrl: './color-selector.component.css',
+  styleUrl: './color-selector.component.scss',
 })
 export class ColorSelectorComponent {
   public isModalOpen: boolean = false;

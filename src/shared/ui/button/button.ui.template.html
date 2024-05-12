@@ -1,0 +1,21 @@
+<button
+  type="button"
+  [ngClass]="class"
+  [disabled]="disabled"
+  [attr.button-type]="buttonType"
+  [class]="customClass"
+  (click)="onClick($event)"
+>
+  <div class="icon-container">
+    <ng-container
+      *ngComponentOutlet="
+    svgComponent;
+    inputs:{fill:'dynamic'}
+    "
+    ></ng-container>
+    <!-- <ng-content select="[icon]" class=".icon-el"></ng-content> -->
+  </div>
+  <div class="text-container">
+    <ng-content></ng-content>
+  </div>
+</button>

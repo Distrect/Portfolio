@@ -1,101 +1,51 @@
-<section id="personal-section">
-  <div class="section-inner layout">
-    <h3 class="navigate-header h3">Who am I?</h3>
-    <div id="personal-info">
-      <div id="deneme">
-        <div id="personal-image-wrapper">
-          <div id="me-wrapper">
-            <img id="me" src="assets/images/1-1.png" alt="" />
-          </div>
-          <div class="button-group">
-            <a
-              href="assets/portfolio/cv.pdf"
-              download="cv.pdf"
-              class="btn fixed-button"
-              >Download CV</a
-            >
-            <a
-              href="https://www.linkedin.com/in/samet-sar%C4%B1%C3%A7i%C3%A7ek-779212272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              target="_blank"
-              class="btn color-button"
-              >Linkedin</a
-            >
-          </div>
-        </div>
+<section id="personal-section" class="layout">
+  <h3 class="navigate-header h3">Who am I?</h3>
+  <div id="section-content">
+    <div class="personal-image-wrapper">
+      <img class="personal-image" src="assets/images/1-1.png" alt="" />
+    </div>
+    <div class="personal-article-container">
+      <article>
+        {{ me.intro }}
+      </article>
+    </div>
+    <div class="personal-details-container">
+      <ul id="personal-details">
+        <li *ngFor="let item of me.personalInfo">
+          {{ item.attribute }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="characteristics-container">
+      <div class="characterstic">
+        <img
+          class="characteristic-icon"
+          src="assets/svg/intelligent.svg"
+          alt=""
+        />
       </div>
-      <div id="info-intro-wrapper">
-        <div id="intro">
-          <h4 class="heading">Hello there, nice to meet you...</h4>
-          <p class="paragraph p">
-            {{ me.intro }}
-          </p>
-        </div>
-        <div id="info">
-          <div class="col">
-            <div
-              class="info-item"
-              *ngFor="let item of me.personalInfo | slice : 0 : 4"
-            >
-              <span class="info-label">
-                {{ item.label }}
-              </span>
-              <p class="info-item-text">
-                {{ item.attribute }}
-              </p>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="info-item"
-              *ngFor="let item of me.personalInfo | slice : 4"
-            >
-              <span class="info-label">
-                {{ item.label }}
-              </span>
-              <p class="info-item-text">
-                {{ item.attribute }}
-              </p>
-            </div>
-          </div>
-        </div>
+      <div class="characterstic">
+        <img
+          class="characteristic-icon"
+          src="assets/svg/result-oriented.svg"
+          alt=""
+        />
+      </div>
+      <div class="characterstic">
+        <img
+          class="characteristic-icon"
+          src="assets/svg/problem-solving.svg"
+          alt=""
+        />
+      </div>
+      <div class="characterstic">
+        <img
+          class="characteristic-icon"
+          src="assets/svg/curiosity.svg"
+          alt=""
+        />
       </div>
     </div>
   </div>
 </section>
-
-<!-- <ul>
-            <div class="col">
-              <li>
-                <img src="assets/svg/person.svg" class="icon" alt="" />
-                <p class="text-span-1">
-                  {{ me.fullName }}
-                </p>
-              </li>
-              <li>
-                <img src="assets/svg/calendar.svg" class="icon" alt="" />
-                <p class="text-span-1">
-                  {{ transformDate() }}
-                </p>
-              </li>
-              <li>
-                <img src="assets/svg/location.svg" class="icon" alt="" />
-                <p class="text-span-1">
-                  {{ me.location }}
-                </p>
-              </li>
-            </div>
-            <div class="col">
-              <li>
-                <img src="assets/svg/status.svg" class="icon" alt="" />
-                <p class="text-span-1">
-                  {{ me.status }}
-                </p>
-              </li>
-              <li>
-                <img src="assets/svg/code.svg" class="icon" alt="" />
-                <p class="text-span-1">
-                  {{ me.title }}
-                </p>
-              </li>
-            </div>
-          </ul> -->

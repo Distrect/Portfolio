@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  Injector,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import Person from '../../shared/personal.info';
 import { CommonModule, NgComponentOutlet } from '@angular/common';
 import { IntersectionObserverService } from '../../service/intersection-observer.service';
@@ -8,15 +15,17 @@ import { IntersectionObserverService } from '../../service/intersection-observer
   standalone: true,
   imports: [CommonModule, NgComponentOutlet],
   templateUrl: './skills.component.html',
-  styleUrl: './skills.component.css',
+  styleUrl: './skills.component.scss',
 })
-export class SkillsComponent implements AfterViewInit, OnDestroy {
+export class SkillsComponent implements AfterViewInit, OnDestroy, OnInit {
   private observer!: IntersectionObserver;
   public me: Person = new Person();
 
   constructor(
     private intersectionObserverService: IntersectionObserverService
   ) {}
+
+  ngOnInit(): void {}
 
   private initObserver(): void {
     const areaItemsContainer = document.querySelectorAll('.area-item');

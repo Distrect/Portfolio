@@ -8,7 +8,7 @@ import { CommonModule, DatePipe } from '@angular/common';
   imports: [CommonModule],
   providers: [DatePipe],
   templateUrl: './personal.component.html',
-  styleUrls: ['../../globalStyles.css', './personal.component.css'],
+  styleUrls: ['./personal.component.scss'],
 })
 export class PersonalComponent {
   public me: Person = new Person();

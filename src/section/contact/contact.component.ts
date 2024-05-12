@@ -21,7 +21,7 @@ interface IContactForm {
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css',
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent implements AfterViewInit {
   @ViewChild('mailer') private mailButton:
@@ -44,9 +44,7 @@ export class ContactComponent implements AfterViewInit {
 
   private fields: string[] = Object.keys(this.contactForm.controls);
 
-  public ngAfterViewInit() {
-    console.log(this.mailButton);
-  }
+  public ngAfterViewInit() {}
 
   private getFormField(fieldName: string): AbstractControl {
     if (!this.fields.includes(fieldName))
@@ -61,17 +59,10 @@ export class ContactComponent implements AfterViewInit {
 
   public checkIfFieldHasError(fieldName: string | AbstractControl): boolean {
     if (fieldName instanceof AbstractControl) {
-      console.log(fieldName.errors);
       return Object.keys(fieldName?.errors || {}).length > 0;
     }
 
     const fieldControl = this.getFormField(fieldName);
-
-    console.log(
-      'Fields',
-      fieldControl,
-      Object.keys(fieldControl?.errors || {}).length > 0
-    );
 
     return Object.keys(fieldControl?.errors || {}).length > 0;
   }
@@ -142,10 +133,7 @@ export class ContactComponent implements AfterViewInit {
   public submitForm(e: Event): void {
     this.contactForm.markAllAsTouched();
 
-    console.log('Form Error:', this.checkIfFormHasError());
-
     if (this.checkIfFormHasError()) {
-      console.log('Error');
       return;
     }
 

@@ -1,8 +1,13 @@
 import { Type } from '@angular/core';
-import { FrontendSVGComponent } from '../svgComponents/frontend.svg.component';
-import { BackendSVGComponent } from '../svgComponents/backend.svg.component';
-import { DatabaseSVGComponent } from '../svgComponents/database.svg.component';
-import { UiSVGComponent } from '../svgComponents/ui.svg.component';
+import { FrontendSVGComponent } from '../svgComponents/components/frontend.svg.component';
+import { BackendSVGComponent } from '../svgComponents/components/backend.svg.component';
+import { DatabaseSVGComponent } from '../svgComponents/components/database.svg.component';
+import { UiSVGComponent } from '../svgComponents/components/ui.svg.component';
+import {
+  ISVGComponent,
+  ISVGInps,
+  ISVGInputs,
+} from '../svgComponents/base.svg.component';
 
 interface ISkill {
   skillName: string;
@@ -37,6 +42,7 @@ interface ISkilArea {
   skills: ISkill[];
   icon: string;
   svgComponent: Type<any>;
+  inputs: ISVGInps;
 }
 
 interface RPersonalInfo {
@@ -140,7 +146,7 @@ export default class Person implements IPersonalInfo {
   readonly degree: string = 'EMU';
   readonly program: string = 'Software Engineering';
   readonly intro: string = `
-  My name is Samet Sarıçiçek. I am a senior year Software Engineer at Eastern Mediterranean University. I have been improving myself on web technologies for about 3 years. I really enjoy solving problems and designing systems.`;
+  A passionate, inquisitive, and skilled software engineer with a strong desire to continuously learn and grow. Leveraging my software engineering education, I am committed to expanding my knowledge base by exploring new technologies and delving into emerging software concepts. With a keen interest in front-end development, I am actively seeking new opportunities to contribute my expertise and further my professional career.`;
 
   readonly frontendSkills: ISkilArea = {
     areaName: 'Frontend Development',
@@ -150,6 +156,7 @@ export default class Person implements IPersonalInfo {
     skills: [...skillz.slice(0, 4)],
     icon: 'assets/svg/frontend.svg',
     svgComponent: FrontendSVGComponent,
+    inputs: { fill: 'dynamic' },
   };
 
   readonly backendSkills: ISkilArea = {
@@ -160,6 +167,7 @@ export default class Person implements IPersonalInfo {
     skills: [...skillz.slice(4, 6)],
     icon: 'assets/svg/backend.svg',
     svgComponent: BackendSVGComponent,
+    inputs: { fill: 'dynamic' },
   };
 
   readonly databaseSkills: ISkilArea = {
@@ -168,6 +176,7 @@ export default class Person implements IPersonalInfo {
     skills: [...skillz.slice(6, 9)],
     icon: 'assets/svg/database.svg',
     svgComponent: DatabaseSVGComponent,
+    inputs: { fill: 'dynamic' },
   };
 
   readonly uiSkills: ISkilArea = {
@@ -176,6 +185,7 @@ export default class Person implements IPersonalInfo {
     skills: [skillz[skillz.length - 1]],
     icon: 'assets/svg/ui.svg',
     svgComponent: UiSVGComponent,
+    inputs: { fill: 'dynamic' },
   };
 
   private transformDate(date: Date) {

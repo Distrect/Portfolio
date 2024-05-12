@@ -20,6 +20,10 @@ export default class ThemeColorStateService {
     '#b5651d',
   ];
 
+  constructor() {
+    console.log(this.rootEl?.style.getPropertyValue('--selected'));
+  }
+
   private hexToRGBA(hex: string, opacity: number = 1) {
     const splitted = hex
       .substring(1)

@@ -1,14 +1,14 @@
 import { IntersectionObserverService } from './../../../service/intersection-observer.service';
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
-import { LogoSvgComponent } from '../../../svgComponents/logo.svg.component';
+import { LogoSvgComponent } from '../../../svgComponents/components/logo.svg.component';
 
 @Component({
   selector: 'nav[navbar]',
   standalone: true,
   templateUrl: './navbar.component.html',
   imports: [LogoSvgComponent, CommonModule],
-  styleUrls: ['../../../globalStyles.css', './navbar.component.css'],
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements AfterViewInit {
   public navigationImtes: Record<string, string> = {

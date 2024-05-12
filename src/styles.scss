@@ -1,0 +1,25 @@
+@import "./styles/reset.scss";
+@import "./styles/root.scss";
+@import "./styles/typography.scss";
+@import "./styles/anims.scss";
+@import "./styles/layout.scss";
+
+@import "./styles/button.styles.scss";
+@import "./styles/input.styles.scss";
+
+html {
+  width: 100%;
+  height: auto;
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  background-color: $dark-background;
+  position: relative;
+}
+
+body:has(dialog[open="true"]) {
+  overflow-y: hidden;
+}

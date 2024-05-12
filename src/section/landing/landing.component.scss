@@ -1,3 +1,6 @@
+@import "../../styles/root.scss";
+@import "../../styles/button.styles.scss";
+
 #landing-section {
   grid-column: 1/-1;
   padding-block: 1rem;
@@ -83,7 +86,7 @@
 .characterisitic-icon-wrapper {
   padding: 5px;
   border-radius: 2px;
-  border: 2px solid var(--selected-color);
+  border: 2px solid $selected-color;
 }
 
 .characteristic-icon {
@@ -96,7 +99,7 @@
 }
 
 #landing-me {
-  background-color: var(--white);
+  background-color: $white;
   border-radius: 2px;
   user-select: none;
   width: 60%;
@@ -109,7 +112,7 @@
 }
 
 #landing-text h5 {
-  color: var(--gray-300);
+  color: $gray-300;
 }
 
 #button-group {
@@ -120,12 +123,12 @@
 }
 
 .navigator-button {
-  color: var(--red-500);
-  border-color: var(--red-500);
+  color: $red-500;
+  border-color: $red-500;
 }
 
 #nav-btn.navigator-button::before {
-  background-color: var(--red-500);
+  background-color: $red-500;
 }
 
 @media screen and (min-width: 576px) {

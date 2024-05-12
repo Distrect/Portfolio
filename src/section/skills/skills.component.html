@@ -5,7 +5,9 @@
       <div class="area-header">
         <div class="area-header-name">
           <div class="area-icon-wrapper">
-            <ng-container *ngComponentOutlet="area.svgComponent" />
+            <ng-container
+              *ngComponentOutlet="area.svgComponent; inputs: area.inputs"
+            />
           </div>
           <h6 [innerHTML]="area.areaName.split(' ').join('</br>')"></h6>
         </div>

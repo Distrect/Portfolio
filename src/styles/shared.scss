@@ -1,0 +1,5 @@
+$border-radius: 10px;
+
+@mixin item-wrapper {
+  border-radius: $border-radius;
+}

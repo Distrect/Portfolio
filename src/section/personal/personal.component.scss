@@ -1,8 +1,14 @@
 @import "../../styles/root.scss";
 @import "../../styles/layout.scss";
 
-@mixin deneme-r {
-  background-color: #001f1c;
+@mixin flex-maker($direction: column, $gap: 0.75ch) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin deneme-r($back-color: #001f1c) {
+  background-color: $back-color;
   border-radius: $rad;
   padding: 15px;
 }
@@ -22,6 +28,7 @@
 #personal-section.layout {
   row-gap: 1rem;
   column-gap: 1rem;
+  place-content: center;
 }
 
 #personal-section.layout #section-content {
@@ -43,16 +50,15 @@
   grid-column: 1/-1;
 }
 
-#personal-section.layout #section-content .personal-details-container {
-  @include deneme-r();
-  grid-row: 3/4;
-  grid-column: 1/-1;
-}
-
-.characterstic img {
+#personal-section.layout #section-content .characteristics-container {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-row: 1/2;
+  grid-column: 3/5;
   width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
+  overflow: hidden;
+  row-gap: 1rem;
+  column-gap: 1rem;
 }
 
 .characteristics-container > .characterstic {
@@ -63,16 +69,13 @@
   aspect-ratio: 1/1;
   background-color: #001f1c;
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
 }
 
-#personal-section.layout #section-content .characteristics-container {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-row: 1/2;
-  grid-column: 3/5;
+.characterstic img {
   width: 100%;
-  overflow: hidden;
+  aspect-ratio: 1/1;
+  max-width: 85px;
 }
 
 #personal-section.layout
@@ -80,4 +83,35 @@
   .characteristics-container
   .characteristic {
   grid-column: 1 / span 1;
+}
+
+#personal-section.layout #section-content .personal-details-container {
+  @include deneme-r();
+  grid-row: 3/4;
+  grid-column: 1/-1;
+}
+
+#personal-details {
+  @include flex-maker();
+}
+
+.personal-details-container #personal-details .personal-details-item {
+  @include flex-maker(row);
+}
+
+.personal-details-item .item-icon-wrapper {
+  @include deneme-r(gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  border-radius: 6px;
+  aspect-ratio: 1/1;
+  padding: 5px;
+  background-color: $blue-500;
+}
+
+.personal-details-item .item-icon-wrapper .item-icon {
+  width: 100%;
+  aspect-ratio: 1/1;
 }

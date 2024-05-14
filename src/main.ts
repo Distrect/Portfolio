@@ -13,4 +13,4 @@ bootstrapApplication(AppComponent, {
   providers: [ThemeColorStateService, IntersectionObserverService],
 }).catch((err) => console.error(err));
 
-console.log('App has been initialized');
+console.log('App has been initialized 1');

@@ -1,4 +1,4 @@
-<section id="personal-section" class="layout">
+<section id="personal-section" class="layout section-limiter">
   <h3 class="navigate-header h3">Who am I?</h3>
   <div id="section-content">
     <div class="personal-image-wrapper">
@@ -11,17 +11,21 @@
     </div>
     <div class="personal-details-container">
       <ul id="personal-details">
-        <li *ngFor="let item of me.personalInfo">
-          {{ item.attribute }}
+        <li class="personal-details-item" *ngFor="let item of me.personalInfo">
+          <div class="item-icon-wrapper">
+            <img src="assets/svg/person.svg" alt="" class="item-icon" />
+          </div>
+          <span class="item-text">
+            {{ item.attribute }}
+          </span>
         </li>
       </ul>
     </div>
-
     <div class="characteristics-container">
       <div class="characterstic">
         <img
           class="characteristic-icon"
-          src="assets/svg/intelligent.svg"
+          src="assets/svg/intelligence.svg"
           alt=""
         />
       </div>
@@ -40,11 +44,7 @@
         />
       </div>
       <div class="characterstic">
-        <img
-          class="characteristic-icon"
-          src="assets/svg/curiosity.svg"
-          alt=""
-        />
+        <img class="characteristic-icon" src="assets/svg/curious.svg" alt="" />
       </div>
     </div>
   </div>

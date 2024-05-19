@@ -1,4 +1,7 @@
 @import "../../styles/root.scss";
+@import "../../styles/shared.scss";
+
+$bar-radius: 20px;
 
 #skill-section.layout {
   grid-template-rows: auto;
@@ -67,7 +70,7 @@
 .progress-bar {
   height: 10px;
   width: 100%;
-  border-radius: 2px;
+  border-radius: $bar-radius;
   position: relative;
   overflow: hidden;
 }
@@ -79,15 +82,13 @@
   bottom: 0;
   width: 25%;
   background-color: $html;
-  border-radius: 2px;
+  border-radius: $bar-radius;
 }
 
 .area-item {
+  @include container-style();
   opacity: 0;
   grid-column: 1/-1;
-  border: 4px solid $area-item-border-color;
-  padding: 15px;
-  border-radius: 2px;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;

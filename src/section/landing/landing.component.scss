@@ -4,11 +4,11 @@
 #landing-section {
   grid-column: 1/-1;
   padding-block: 1rem;
-  /* margin-inline: auto; */
   padding-top: 30px;
   min-height: 100vh;
   background-image: url(../../assets/svg/landing-background.svg);
   background-size: contain;
+  width: 100%;
 }
 
 #landing-me-container {
@@ -40,8 +40,8 @@
 
 #landing-group .display-subtext {
   text-align: center !important;
-  width: 75%;
-  margin-inline: auto;
+  // width: 75%;
+  // margin-inline: auto;
 }
 #landing-section:has(.section-inner) {
   padding: 0 !important;

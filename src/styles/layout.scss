@@ -1,7 +1,7 @@
-section:not(section:has(.section-inner)) {
-  margin-block: 1.5rem;
-  width: 100% !important;
-}
+// section:not(section:has(.section-inner)) {
+//   margin-block: 1.5rem;
+//   width: 100% !important;
+// }
 
 .layout {
   display: grid;
@@ -11,7 +11,7 @@ section:not(section:has(.section-inner)) {
 }
 
 .section-limiter {
-  @media screen and (max-width: 576px) {
+  @media screen and (min-width: 576px) {
     max-width: 540px;
   }
 
@@ -21,41 +21,26 @@ section:not(section:has(.section-inner)) {
   }
 
   @media screen and (min-width: 1000px) {
-    max-width: 1000px;
+    max-width: 1250px;
     margin-inline: auto;
   }
 }
 
-section:has(.section-inner) {
-  max-width: 100% !important;
-}
+// section:has(.section-inner) {
+//   max-width: 100% !important;
+// }
 
 @media screen and (min-width: 576px) {
   .layout {
     grid-template-columns: repeat(4, 1fr);
     row-gap: 18px;
   }
-
-  section:not(#personal-section, #landing-section) .section-inner {
-    max-width: 540px;
-    margin-inline: auto;
-  }
 }
 
 @media screen and (min-width: 768px) {
-  section:not(#landing-section, section:has(#landing-section)) {
-    margin-block: 2rem;
-  }
-
   .layout {
     grid-template-columns: repeat(8, 1fr);
     row-gap: 36px;
-  }
-
-  section:not(#personal-section, #landing-section),
-  .section-inner {
-    max-width: 820px;
-    margin-inline: auto;
   }
 
   input[type="text"],
@@ -71,11 +56,5 @@ section:has(.section-inner) {
     /* padding-inline: 36px; */
     grid-template-columns: repeat(12, 1fr);
     column-gap: 16px;
-  }
-
-  section:not(#personal-section, #landing-section),
-  .section-inner {
-    max-width: 1000px;
-    margin-inline: auto;
   }
 }

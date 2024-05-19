@@ -3,3 +3,9 @@ $border-radius: 10px;
 @mixin item-wrapper {
   border-radius: $border-radius;
 }
+
+@mixin container-style($back-color: #001f1c) {
+  background-color: $back-color;
+  border-radius: $rad;
+  padding: 15px;
+}

@@ -9,6 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import Person from '../../shared/personal.info';
+import { Button } from '../../shared/ui/button/button.ui.component';
 
 interface IContactForm {
   name: string;
@@ -19,7 +20,7 @@ interface IContactForm {
 @Component({
   selector: 'section[contact]',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule, Button],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
@@ -116,10 +117,7 @@ export class ContactComponent implements AfterViewInit {
   }
 
   private clickMailer(link: string) {
-    if (this.mailButton === undefined)
-      throw new Error('Mail Button is undefined');
-
-    const el = this.mailButton.nativeElement;
+    const el = document.createElement('a');
     el.href = link;
     el.click();
   }

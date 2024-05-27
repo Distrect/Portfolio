@@ -2,3 +2,7 @@ main {
   width: 100%;
   position: relative;
 }
+
+main section:not(:first-child) {
+  margin-block: 1rem;
+}

@@ -1,13 +1,15 @@
 @import "./root.scss";
 
-button {
+.button {
   display: flex;
   align-items: center;
   gap: 0.5ch;
   appearance: none;
-  cursor: pointer;
   flex-shrink: 0;
   white-space: nowrap;
+  width: min-content;
+
+  cursor: pointer;
 
   font-family: inherit;
   font-size: 1rem;
@@ -24,11 +26,11 @@ button {
   transition: color 0.4s, border-color 0.4s, background-color 0.4s;
 }
 
-button[button-type="dynamic"]:disabled {
+.button[button-type="dynamic"]:disabled {
   background-color: $gray-300;
 }
 
-button[button-type="dynamic"]:disabled.outlined {
+.button[button-type="dynamic"]:disabled.outlined {
   cursor: default;
   color: $gray-500;
   border-color: $gray-300;
@@ -45,32 +47,35 @@ button[button-type="dynamic"]:disabled.outlined {
   }
 }
 
-button[button-type="dynamic"].outlined {
+.button[button-type="dynamic"].outlined {
   background-color: transparent;
   color: $selected-color;
   border: 3px solid $selected-color;
 }
 
-button[button-type="dynamic"].outlined svg path {
+.button[button-type="dynamic"].outlined svg path {
   fill: $selected;
 }
 
-button[button-type="dynamic"] {
+.button[button-type="dynamic"] {
   color: $white;
   background-color: $selected-color;
 }
 
-button[button-type="dynamic"] svg path {
+.button[button-type="dynamic"] svg path {
   fill: $white;
 }
 
 @each $color-name, $color-value in $accent-colors {
-  button[button-type="#{$color-name}"] {
+  .button[button-type="#{$color-name}"] {
     color: $white;
     background-color: $color-value;
+    border-width: 3px;
+    border-style: solid;
+    border-color: $color-value;
   }
 
-  button[button-type="#{$color-name}"]:disabled {
+  .button[button-type="#{$color-name}"]:disabled {
     cursor: default;
     background-color: $gray-300;
     color: $gray-500;
@@ -89,52 +94,52 @@ button[button-type="dynamic"] svg path {
     }
   }
 
-  button[button-type="#{$color-name}"].outlined {
+  .button[button-type="#{$color-name}"].outlined {
     color: $color-value;
     background-color: transparent;
     border: 3px solid $color-value;
   }
 }
 
-button.small-btn,
-button.outlined.small-btn {
+.button.small-btn,
+.button.outlined.small-btn {
   font-size: 0.75rem;
   border-width: 2px;
 }
 
-button.medium-btn,
-button.outlined.medium-btn {
+.button.medium-btn,
+.button.outlined.medium-btn {
   font-size: 0.875rem;
   border-width: 2px;
 }
 
-button[color="red"].outlined {
+.button[color="red"].outlined {
   color: $accent-red;
   border-color: $accent-red;
 }
-button[color="green"].outlined {
+.button[color="green"].outlined {
   color: $accent-green;
   border-color: $accent-green;
 }
 
-button .text-container {
+.button .text-container {
   flex-grow: 1;
   width: fit-content;
 }
 
-button .icon-container {
+.button .icon-container {
   width: 1rem;
   height: 1rem;
   overflow: hidden;
 }
 
-button .icon-container > * {
+.button .icon-container > * {
   width: 1rem !important;
   height: 100% !important;
   overflow: hidden;
 }
 
-button .icon-container:empty {
+.button .icon-container:empty {
   display: none;
 }
 
@@ -145,52 +150,61 @@ button .icon-container:empty {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  button[button-type="dynamic"]:hover {
+  .button[button-type="dynamic"]:hover {
     background-color: lighten($selected-color, 10%);
   }
 
-  button[button-type="dynamic"]:active {
+  .button[button-type="dynamic"]:active {
     background-color: darken($selected-color, 10%);
   }
 
-  button[button-type="dynamic"].outlined:hover {
+  .button[button-type="dynamic"].outlined:hover {
     background-color: $selected-color;
     color: $white;
   }
 
-  button[button-type="dynamic"].outlined:hover svg path {
+  .button[button-type="dynamic"].outlined:hover svg path {
     fill: $white;
   }
 
-  button[button-type="dynamic"].outlined:active {
+  .button[button-type="dynamic"].outlined:active {
     $darked-color: darken($selected, 10%);
     border-color: $darked-color;
     background-color: $darked-color;
   }
 
   @each $color-name, $color-value in $accent-colors {
-    button[button-type="#{$color-name}"]:hover {
+    .button[button-type="#{$color-name}"]:hover {
       color: $white;
       background-color: lighten($color-value, 10%);
+      border-color: lighten($color-value, 10%);
     }
 
-    button[button-type="#{$color-name}"]:active {
+    .button[button-type="#{$color-name}"]:active {
       color: $white;
       background-color: darken($color-value, 10%);
+      border-color: darken($color-value, 10%);
     }
 
-    button[button-type="#{$color-name}"].outlined:hover {
+    .button[button-type="#{$color-name}"].outlined:hover {
       color: $white;
       background-color: $color-value;
       border: 3px solid $color-value;
     }
 
-    button[button-type="#{$color-name}"].outlined:active {
+    .button[button-type="#{$color-name}"].outlined:active {
       $darked-color: darken($color-value, 10%);
       color: $white;
       background-color: $darked-color;
       border: 3px solid $darked-color;
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .button {
+    font-size: 0.875rem;
+    padding: 0.7ch 1.2ch;
   }
 }
 

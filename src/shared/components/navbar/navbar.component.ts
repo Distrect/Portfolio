@@ -9,6 +9,7 @@ import { LogoSvgComponent } from '../../../svgComponents/components/logo.svg.com
   templateUrl: './navbar.component.html',
   imports: [LogoSvgComponent, CommonModule],
   styleUrls: ['./navbar.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NavbarComponent implements AfterViewInit {
   public navigationImtes: Record<string, string> = {
@@ -27,7 +28,6 @@ export class NavbarComponent implements AfterViewInit {
     if (navEl === null) throw new Error('Element is null');
 
     window.addEventListener('scroll', ({}) => {
-      const navRect = navEl.getBoundingClientRect();
       const scrollTop = (
         document.documentElement ||
         document.body.parentNode ||
@@ -35,7 +35,7 @@ export class NavbarComponent implements AfterViewInit {
       ).scrollTop;
 
       if (scrollTop > 0) {
-        navEl.style.backgroundColor = '#141414';
+        navEl.style.backgroundColor = '#171717';
       } else {
         navEl.style.backgroundColor = 'transparent';
       }

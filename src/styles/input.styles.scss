@@ -1,12 +1,19 @@
+@import "./shared.scss";
+@import "./root.scss";
+
+@mixin reset-input() {
+  appearance: none;
+  border: none;
+  outline: transparent;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  appearance: none;
-  border: none;
-  outline: none;
+  @include reset-input();
   padding: 1ch;
-  border-radius: 2px;
-  background-color: $input-background;
+  border-radius: $border-radius;
+  background-color: lighten(#001f1c, 2%);
   caret-color: $white;
   font-size: 1em;
   color: $gray-200;
@@ -14,12 +21,10 @@ input[type="password"] {
 }
 
 textarea {
-  appearance: none;
-  border: none;
-  outline: none;
+  @include reset-input();
   padding: 1ch;
-  border-radius: 2px;
-  background-color: $input-background;
+  border-radius: $border-radius;
+  background-color: lighten(#001f1c, 2%);
   caret-color: $white;
   font-size: 1em;
   color: $gray-200;

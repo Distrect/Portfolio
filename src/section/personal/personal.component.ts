@@ -4,7 +4,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Button } from '../../shared/ui/button/button.ui.component';
 
 @Component({
-  selector: 'personal',
+  selector: 'section[personal]',
   standalone: true,
   imports: [CommonModule, Button],
   providers: [DatePipe],

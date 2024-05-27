@@ -1,3 +1,5 @@
+import { ISVGInps } from './../../../svgComponents/base.svg.component';
+import { AccentColorsName } from './../../interface';
 import {
   Component,
   EventEmitter,
@@ -7,14 +9,14 @@ import {
   OnInit,
   Output,
   SimpleChanges,
+  TemplateRef,
   Type,
+  ViewChild,
   booleanAttribute,
 } from '@angular/core';
 import { ButtonDirective } from './button.directive';
 import { CommonModule, NgComponentOutlet } from '@angular/common';
 import { AllSVGComponents, svgNames } from '../../../svgComponents/components';
-import { AccentColorsEnum, AccentColorsName } from '../../interface';
-import { ISVGInps } from '../../../svgComponents/base.svg.component';
 
 @Component({
   standalone: true,
@@ -23,6 +25,14 @@ import { ISVGInps } from '../../../svgComponents/base.svg.component';
   imports: [ButtonDirective, CommonModule, NgComponentOutlet],
 })
 export class Button implements OnInit, OnChanges {
+  @ViewChild('anchorTemplate')
+  anchorTemplate!: TemplateRef<any>;
+
+  @ViewChild('buttonTemplate')
+  buttonTemplate!: TemplateRef<any>;
+
+  @Input('text') text?: string;
+
   @Input('iconName') public iconName?: svgNames;
 
   @Input('customClass') public customClass: string = '';
@@ -33,7 +43,12 @@ export class Button implements OnInit, OnChanges {
   @Input({ alias: 'outlined', transform: booleanAttribute })
   public outlined: boolean = false;
 
+  @Input('link') link?: string;
+
+  @Input('download') download?: string;
+
   public svgComponent: Type<any> | null = null;
+
   public svgInputs: ISVGInps = { fill: 'dynamic' };
 
   public class: Record<string, boolean> = {
@@ -54,9 +69,12 @@ export class Button implements OnInit, OnChanges {
   @Output() public clickEvet: EventEmitter<MouseEvent> =
     new EventEmitter<MouseEvent>();
 
-  constructor() {}
+  constructor() {
+    console.log(this.anchorTemplate);
+  }
 
   public ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
     if (changes['iconName'] !== undefined) {
       const { currentValue } = changes['iconName'];
       this.iconName = currentValue as svgNames;
@@ -77,5 +95,21 @@ export class Button implements OnInit, OnChanges {
     this.clickEvet.emit(event);
   }
 
-  public ngOnInit() {}
+  public ngOnInit() {
+    if (this.download && !this.link)
+      throw Error('You should insert link parameter to use download property');
+  }
+
+  private goToLink() {
+    const anchorEL = document.createElement('a');
+    anchorEL.href = this.link as string;
+    anchorEL.click();
+  }
+
+  private downloadFİle() {
+    const anchorEL = document.createElement('a');
+    anchorEL.href = this.link as string;
+    anchorEL.download = this.download as string;
+    anchorEL.click();
+  }
 }

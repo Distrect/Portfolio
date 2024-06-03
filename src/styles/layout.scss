@@ -1,61 +1,85 @@
-// section:not(section:has(.section-inner)) {
-//   margin-block: 1.5rem;
-//   width: 100% !important;
-// }
+@use "sass:math";
+@import "./root.scss";
+@import "./typography.scss";
+
+$gaps: (
+  1: math.div($font-size, 2),
+  2: $font-size,
+  3: $font-size * 2,
+  4: $font-size * 4,
+);
+
+$breakpoints: (
+  xs: (
+    col: repeat(4, 1fr),
+    val: 320px,
+  ),
+  s: (
+    col: repeat(4, 1fr),
+    val: 380px,
+  ),
+  m: (
+    col: repeat(4, 1fr),
+    val: 423px,
+  ),
+  l: (
+    col: repeat(4, 1fr),
+    val: 576px,
+    limit: 540px,
+  ),
+  xl: (
+    col: repeat(8, 1fr),
+    val: 768px,
+    limi t: 820px,
+  ),
+  xxl: (
+    col: repeat(12, 1fr),
+    val: 1000px,
+    limit: 1250px,
+  ),
+);
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 16px;
+  gap: map-get($gaps, "1");
   padding-inline: 16px;
 }
 
 .section-limiter {
   margin-inline: auto;
-  @media screen and (min-width: 576px) {
-    max-width: 540px;
-  }
+}
 
-  @media screen and (min-width: 768px) {
-    max-width: 820px;
-    margin-inline: auto;
-  }
-
-  @media screen and (min-width: 1000px) {
-    max-width: 1250px;
-    margin-inline: auto;
+@each $num, $gap in $gaps {
+  .layout-gap-#{$num},
+  .layout .layout-gap-#{$num} {
+    row-gap: $gap;
+    column-gap: $gap;
   }
 }
 
-// section:has(.section-inner) {
-//   max-width: 100% !important;
-// }
+@each $break-name, $val in $breakpoints {
+  $breakpoint: map-get($breakpoints, #{$break-name});
 
-@media screen and (min-width: 576px) {
-  .layout {
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 18px;
-  }
-}
+  $grid-col: map-get($breakpoint, "col");
+  $device-size: map-get($breakpoint, "val");
+  $max-width: map-get($breakpoint, "limit");
 
-@media screen and (min-width: 768px) {
-  .layout {
-    grid-template-columns: repeat(8, 1fr);
-    row-gap: 36px;
+  .layout-col,
+  .layout.layout-col-#{$break-name} {
+    grid-template-columns: $grid-col;
+    min-width: $device-size;
   }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  textarea {
-    font-size: 20px;
-  }
-}
+  @media screen and (min-width: $device-size) {
+    .layout {
+      grid-template-columns: $grid-col;
+      row-gap: $font-size;
+    }
 
-@media screen and (min-width: 1000px) {
-  .layout {
-    /* padding-inline: 36px; */
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 16px;
+    .layout.section-limiter {
+      @if $max-width !=null {
+        max-width: $max-width;
+      }
+    }
   }
 }

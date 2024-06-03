@@ -1,26 +1,12 @@
 @import "../../styles/root.scss";
 @import "../../styles/layout.scss";
+@import "../../styles/shared.scss";
+@import "../../styles/typography.scss";
 
 @mixin flex-maker($direction: column, $gap: 0.75ch) {
   display: flex;
   flex-direction: $direction;
   gap: $gap;
-}
-
-@mixin container-style($back-color: #001f1c) {
-  background-color: $back-color;
-  border-radius: $rad;
-  padding: 15px;
-}
-
-.personal-article-container .article-header,
-.personal-article-container.second .article-header {
-  margin-bottom: 0.5rem;
-}
-
-.personal-article-container article,
-.personal-article-container.second article {
-  color: $gray-200;
 }
 
 #personal-section.layout .image-characteristic-container {
@@ -101,7 +87,7 @@
   justify-content: center;
   width: 80%;
   aspect-ratio: 1/1;
-  background-color: #001f1c;
+  background-color: lighten($main-color, $amount: 40%);
   border-radius: 50%;
   padding: 12px;
 }

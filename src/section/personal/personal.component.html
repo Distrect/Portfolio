@@ -50,14 +50,14 @@
       </div>
     </div>
     <div class="personal-article-container">
-      <h4 class="article-header">Introduction</h4>
-      <article>
+      <h4 class="font-l font-weight-700 mb-2">Introduction</h4>
+      <article class="font-b">
         {{ me.intro }}
       </article>
     </div>
     <div class="personal-article-container second">
-      <h4 class="article-header">Background</h4>
-      <article>
+      <h4 class="font-l font-weight-700 mb-2">Background</h4>
+      <article class="font-b">
         {{ me.background }}
       </article>
     </div>
@@ -65,7 +65,7 @@
       <ul id="personal-details">
         <li class="personal-details-item" *ngFor="let item of me.personalInfo">
           <div class="item-icon-wrapper"></div>
-          <span class="item-text">
+          <span class="font-s">
             {{ item.attribute }}
           </span>
         </li>
@@ -80,3 +80,5 @@
     </div>
   </div>
 </section>
+
+<!-- <h4 class="article-header">Introduction</h4> -->

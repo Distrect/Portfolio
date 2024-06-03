@@ -1,12 +1,25 @@
+@use "sass:math";
 $border-radius: 10px;
 $container-back-color: #001f1c;
+$rem-list: 1, 2, 3, 4, 5;
 
 @mixin item-wrapper {
   border-radius: $border-radius;
 }
 
+@mixin mb($value) {
+  margin-bottom: $value;
+}
+
 @mixin container-style($back-color: #001f1c) {
-  background-color: hsl(240, 88%, 10%);
+  background-color: #f0a500;
   border-radius: $rad;
   padding: 15px;
+}
+
+@for $i from 1 through 10 {
+  // Adjust loop range as needed
+  .mb-#{$i} {
+    @include mb($i * 0.5rem); // Adjust calculation for desired unit
+  }
 }

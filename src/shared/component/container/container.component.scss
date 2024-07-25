@@ -1,0 +1,8 @@
+@import "root.style";
+
+.generic-container {
+  background-color: $base-black;
+  border-radius: $default-radius;
+  padding: 10px;
+  width: min-content;
+}

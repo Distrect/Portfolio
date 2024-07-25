@@ -1,0 +1,23 @@
+@mixin flex($direction: column, $gap: 1rem, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin grid($grid-column: repeat(4, 1fr), $padding-inline: 10px) {
+  display: grid;
+  grid-template-columns: $grid-column;
+  column-gap: 20px;
+
+  padding-inline: $padding-inline;
+}
+
+@function pow($base, $exponent) {
+  $result: 1;
+  @for $i from 1 through $exponent {
+    $result: $result * $base;
+  }
+  @return $result;
+}

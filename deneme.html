@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        background-image: url(/src/assets/svg/background.svg);
+        background-repeat: repeat;
+        background-size: contain;
+        background-blend-mode: overlay;
+        height: 300rem;
+      }
+
+      .parent {
+        margin-block: 1rem;
+        padding: 50px;
+        width: 15rem;
+        height: 40rem;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+
+      .child {
+        background-color: tomato;
+        border-radius: 10px;
+        aspect-ratio: 1;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </body>
+</html>

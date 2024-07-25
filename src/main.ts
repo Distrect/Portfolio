@@ -1,16 +1,9 @@
-import {
-  bootstrapApplication,
-  platformBrowser,
-} from '@angular/platform-browser';
+import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { enableProdMode } from '@angular/core';
-import ThemeColorStateService from './shared/stateManagement/themeColor.state.service';
-import { IntersectionObserverService } from './service/intersection-observer.service';
 
 enableProdMode();
 
-bootstrapApplication(AppComponent, {
-  providers: [ThemeColorStateService, IntersectionObserverService],
-}).catch((err) => console.error(err));
+bootstrapApplication(AppComponent).catch((err) => console.error(err));
 
-console.log('App has been initialized 1');
+console.log('App has been initialized');

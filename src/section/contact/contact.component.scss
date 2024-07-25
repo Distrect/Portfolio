@@ -1,138 +1,50 @@
-@import "../../styles/root.scss";
-@import "../../styles/shared.scss";
+@import "util.style";
+@import "root.style";
+@import "shared.style";
 
-#contact-section .navigate-header {
-  grid-column: 1/-1;
-  grid-row: 1/2;
-}
-
-#contact-section.layout {
-  row-gap: 3rem;
-}
-
-#contact-form-wrapper {
-  @include container-style();
-  grid-row: 3/4;
+:host {
   grid-column: 1/-1;
 }
 
-#contact-form-wrapper #contact-form {
-  width: 100%;
-  display: flex;
-  /* flex-direction: column; */
-  gap: 0.5rem;
+#contact-section {
+  @include grid(subgrid, 0);
 }
 
-#contact-form {
-  flex-wrap: wrap;
-}
-
-#contact-form-submit {
-  border-color: $yellow-400;
-}
-
-#contact-form-submit::before {
-  background-color: $yellow-400;
-}
-
-#social-medias {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-#mailer {
-  display: none;
-}
-.input-wrapper {
-  height: min-content;
-}
-
-.input-wrapper,
-.input-wrapper input,
-.input-wrapper textarea {
-  position: relative;
-  width: 100%;
-}
-
-.input-wrapper::before {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 10px;
-  bottom: -4px;
-  left: 0;
-  background-color: $secondary-green;
-  border-radius: 2px;
-  transition: width 0.2s ease-in-out;
-}
-
-.input-wrapper:has(input:focus)::before {
-  width: 100%;
-}
-
-.input-wrapper:has(input[error="true"])::before {
-  background-color: red;
-}
-
-.input-wrapper:has(textarea:focus)::before {
-  width: 100%;
-}
-
-.input-wrapper:has(textarea[error="true"])::before {
-  background-color: red;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 0.75rem;
-}
-
-.input-error {
-  font-size: 14px;
-  color: $secondary-red;
-}
-
-#outro-container {
+#outro-holder {
+  display: block;
+  grid-column: 1/-1;
+  @include flex(column, 0.875rem, flex-start, flex-start);
   margin-bottom: 1rem;
 }
 
-.outro-text {
-  margin-inline: auto;
-  text-align: center;
+.social-link-container {
+  @include flex(row, 1rem, center, flex-start);
+  width: 100%;
+
+  & .social-link-item {
+    @include flex(row, 1rem, center, center);
+    border-radius: 50%;
+    padding: 15px;
+    background-color: red;
+
+    &.instagram {
+      background-color: #405de6;
+    }
+    &.linkedin {
+      background-color: #0077b5;
+    }
+    &.facebook {
+      background-color: #4267b2;
+    }
+    &.whatsapp {
+      background-color: #25d366;
+    }
+    &.github {
+      background-color: #2b3137;
+    }
+  }
 }
 
-#social-media-container {
-  grid-row: 2/3;
-  grid-column: 1/-1;
-}
-
-@media screen and (min-width: 768px) {
-  .wrap {
-    flex: 1 0 200px;
-  }
-
-  #social-media-container {
-    grid-column: 5/9;
-    align-items: flex-start;
-  }
-
-  #contact-form-wrapper {
-    grid-row: 2/3;
-    grid-column: 1/5;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  #social-media-container {
-    grid-column: 8/13;
-  }
-
-  #contact-form-wrapper {
-    grid-row: 2/3;
-    grid-column: 1/7;
-  }
+#contact-details {
+  @include flex(column, 1rem, center, flex-start);
 }

@@ -1,0 +1,108 @@
+@import "util.style";
+@import "root.style";
+
+:host,
+#about-section {
+  @include grid(subgrid, 0);
+  grid-column: 1/-1;
+  row-gap: 0.5rem;
+}
+
+#detail-container,
+#information-container {
+  grid-column: 1/-1;
+  @include flex(column, 2rem, center, flex-start);
+  margin-bottom: 2rem;
+}
+
+#me {
+  @include flex(column, 1rem, center, flex-start);
+}
+
+#my-img {
+  width: 80%;
+  margin-inline: auto;
+  border-radius: 50%;
+}
+
+.name-container {
+  text-align: center;
+}
+
+.info-list-item {
+  @include flex(row, 5px, center, flex-start);
+  margin-left: 10px;
+}
+
+.list-icon {
+  $size: 15px;
+  width: $size;
+  height: $size;
+  border-radius: 50px;
+  background-color: $base-orange;
+}
+
+.quote-container {
+  @include flex(column, 0.5rem, flex-start);
+  text-align: left;
+  width: 100%;
+  color: $white-tint-1;
+
+  & .quote-author {
+    align-self: flex-end;
+  }
+}
+
+.experienced-job-container {
+  @include flex(column, 0.75rem, flex-start, flex-start);
+  width: 100%;
+
+  & .text-bs {
+    color: darken($white-tint-1, 20);
+  }
+}
+
+.experienced-job-container .experienced-job-header {
+  @include flex(row, 0.5rem, center, flex-start);
+
+  & .job-icon {
+    align-self: flex-start;
+    width: 45px;
+  }
+
+  & .experienced-job-title {
+    & .text-md {
+      color: $white-tint-1;
+    }
+
+    & .job-detail {
+      & span:first-child {
+        color: $base-orange;
+      }
+      & span:nth-child(2) {
+        color: darken($base-white, 30);
+      }
+    }
+  }
+}
+
+.skill-container {
+  width: 100%;
+  @include flex(row, 0.75rem, center, flex-start);
+
+  & .skill-icon {
+    width: 40px;
+  }
+
+  & .text-md {
+    color: $white-tint-1;
+  }
+
+  & .text-bs {
+    color: $base-orange;
+  }
+}
+
+.skills-holder {
+  @include flex(column, 0.5rem);
+}

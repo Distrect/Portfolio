@@ -1,0 +1,201 @@
+@import "./root.style.scss";
+@import "util.style";
+
+@mixin border-styles($width: 1px, $color: $base-black) {
+  border-color: $color;
+  border-width: $width;
+  border-radius: $default-radius;
+  border-style: solid;
+}
+
+@mixin genericContainer($padding: none, $type: "filled") {
+  border-radius: $default-radius;
+  width: min-content;
+  overflow: hidden;
+  padding: $padding;
+
+  @if $type == "filled" {
+    background-color: $base-black;
+  } @else {
+    @include border-styles(2px, $base-black);
+    background-color: transparent;
+  }
+}
+
+@mixin baseButton {
+  border: none;
+  outline: transparent;
+  appearance: none;
+  font-size: $base-font-size;
+  padding: 10px 5px;
+  cursor: pointer;
+}
+
+@for $i from 0 to 30 {
+  @if $i == 0 {
+    .generic-container {
+      @include genericContainer(10px);
+    }
+
+    .generic-container.outlined {
+      @include genericContainer(10px, "outlined");
+    }
+  }
+
+  $val: #{$i}px;
+
+  .generic-container-#{$i} {
+    @include genericContainer($val);
+  }
+
+  .generic-containe#{$i}.outlined {
+    @include genericContainer($val, "outlined");
+  }
+}
+
+.chip {
+  width: 15px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: $tomato;
+
+  &.blue {
+    background-color: $base-blue;
+  }
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.info-header {
+  @include genericContainer(3px 10px);
+  background-color: $black-tint-1;
+
+  & .info-header-text {
+    color: $white-tint-1;
+  }
+}
+
+.special-item {
+  $radius: 6px;
+
+  @include flex(row, 0rem, center, flex-start);
+  overflow: hidden;
+  border-radius: $radius;
+  width: 100%;
+
+  & .item-icon {
+    @include flex(row, 0, center, center);
+    padding: 0.875rem;
+    height: 100%;
+    background-color: $black-tint-1;
+    align-self: center;
+  }
+
+  & .item-content {
+    $border-style: 2px solid $black-tint-1;
+
+    flex-grow: 1;
+    padding-left: 5px;
+
+    border-radius: 0px $radius $radius 0px;
+
+    border-top: $border-style;
+    border-right: $border-style;
+    border-bottom: $border-style;
+  }
+
+  & p {
+    color: $base-black;
+  }
+}
+
+.personal-info-container {
+  @include flex(column, 0.875rem, flex-start);
+  width: 100%;
+
+  & .info-item-container {
+    $radius: 6px;
+
+    @include flex(row, 0, center, flex-start);
+    border-radius: $radius;
+    overflow: hidden;
+
+    width: fit-content;
+
+    & .info-shape {
+      border-top-left-radius: $radius;
+      border-bottom-left-radius: $radius;
+
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      background-color: $base-blue;
+
+      width: 20px;
+      height: 100%;
+    }
+
+    & .info-text {
+      width: fit-content;
+      height: 100%;
+      padding-inline: 0.5ch;
+      $border-style: none;
+
+      border-top: $border-style;
+      border-bottom: $border-style;
+      border-right: $border-style;
+
+      background-color: $base-black;
+
+      color: $text-white;
+    }
+
+    &.outlined {
+      .info-shape {
+        width: 15px;
+        background-color: $base-orange;
+      }
+
+      & .info-text {
+        width: fit-content;
+        height: 100%;
+        padding-inline: 0.5ch;
+        $border-style: 2px solid $black-tint-1;
+
+        border-radius: 0px $radius $radius 0px;
+
+        border-top: $border-style;
+        border-bottom: $border-style;
+        border-right: $border-style;
+
+        background-color: transparent;
+
+        color: $text-black;
+      }
+    }
+
+    &.icon {
+      & .info-shape {
+        @include flex(row, 0, center, center);
+        width: 30px;
+      }
+    }
+  }
+
+  & .info-list-container {
+    @include flex(column, 10px, flex-start, center);
+    padding-left: 5px;
+    width: 100%;
+
+    & .info-item-container {
+      width: 100%;
+    }
+  }
+}
+
+.personal-info-containers-container {
+  @include flex(column, 2rem, flex-start, flex-start);
+  width: 100%;
+}

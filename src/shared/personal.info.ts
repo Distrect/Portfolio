@@ -9,6 +9,10 @@ import {
   ISVGInputs,
 } from '../svgComponents/base.svg.component';
 
+interface ILanguageSkill{
+  langugage:string
+}
+
 interface ISkill {
   skillName: string;
   percent: number;
@@ -147,6 +151,11 @@ export default class Person implements IPersonalInfo {
   readonly program: string = 'Software Engineering';
   readonly intro: string = `
   A passionate, inquisitive, and skilled software engineer with a strong desire to continuously learn and grow. Leveraging my software engineering education, I am committed to expanding my knowledge base by exploring new technologies and delving into emerging software concepts. With a keen interest in front-end development, I am actively seeking new opportunities to contribute my expertise and further my professional career.`;
+
+  readonly languageSkills:ILanguageSkill[] = [
+    {langugage:"Turkish"},
+    {langugage:"English"}
+  ]
 
   readonly background: string = `I was born in Cyprus Ncosia. I am 23 year old and currently studying Software Engineering at Eastern Mediterranean Universtiy as senior year student. Before college, i gratuated from Bülent Ecevit Anadolu High School. In my spare times, i like to go hiking, read books, develop applications.`;
 

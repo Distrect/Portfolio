@@ -1,14 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
-import { Button } from '../../shared/ui/button/button.ui.component';
-import { SendSVGComponent } from '../../svgComponents/components/send.svg.component';
+import { Component } from '@angular/core';
+import { IllustrationComponent } from './components/illustration/illustration.component';
 
 @Component({
-  standalone: true,
   selector: 'section[landing]',
+  standalone: true,
+  imports: [IllustrationComponent],
   templateUrl: './landing.component.html',
-  imports: [NavbarComponent, Button, SendSVGComponent],
-  styleUrls: ['./landing.component.scss', '../../styles.scss'],
-  encapsulation: ViewEncapsulation.None,
+  styleUrl: './landing.component.scss',
 })
 export class LandingComponent {}

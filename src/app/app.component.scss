@@ -1,8 +1,12 @@
-main {
+@import "util.style";
+
+#app {
   width: 100%;
-  position: relative;
+  min-height: 100%;
+
+  @include grid;
 }
 
-main section:not(:first-child) {
-  margin-block: 1rem;
+#app nav {
+  grid-column: 1/-1;
 }

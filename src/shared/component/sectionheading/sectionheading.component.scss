@@ -1,0 +1,28 @@
+@import "util.style";
+@import "shared.style";
+
+:host {
+  grid-column: 1/-1;
+}
+
+.section-heading {
+  @include genericContainer(8px);
+  @include flex(row, 0.25rem, center, flex-start);
+
+  width: min-content;
+}
+
+.section-heading .heading-text {
+  text-wrap: nowrap;
+  color: $base-white;
+  // font-size: 1.25em;
+}
+
+.icon-container {
+  width: 0.95em;
+  height: auto;
+}
+
+.icon-container:empty {
+  display: none;
+}

@@ -1,0 +1,78 @@
+@import "util.style";
+@import "shared.style";
+
+:host {
+  width: 100%;
+}
+
+#page-navigation {
+  @include flex(column, 0.5rem, center, none);
+  @include genericContainer;
+  height: 15rem;
+  width: 3rem;
+
+  &.horizontal {
+    @include flex(row, 0rem);
+    height: min-content;
+    align-items: stretch;
+    width: 20rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    width: 100%;
+  }
+
+  &.horizontal .icon-container {
+    padding-block: 10px;
+    border: none;
+    margin-right: auto;
+    width: min-content;
+    min-width: 60px;
+  }
+
+  &.horizontal .nav-item-container {
+    margin: 0;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+    padding-inline: 10px;
+  }
+
+  &.horizontal #cv-button {
+    width: auto;
+    padding-inline: 1rem;
+  }
+}
+
+#page-navigation .icon-container {
+  padding: 8px;
+  border-bottom: 1px solid $base-white;
+  width: 100%;
+}
+
+.icon-container svg {
+  width: 100%;
+}
+
+#page-navigation .nav-item-container {
+  @include flex(column, 0.25rem);
+  width: 100%;
+  margin-bottom: auto;
+}
+
+.nav-item-container svg {
+  aspect-ratio: 1/1;
+}
+
+#page-navigation .nav-item-container .nav-item {
+  cursor: pointer;
+}
+
+#cv-button {
+  @include baseButton;
+  width: 100%;
+  padding-block: 1rem;
+  background-color: $base-orange;
+  color: $text-white;
+}

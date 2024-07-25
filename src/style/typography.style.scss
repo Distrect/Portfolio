@@ -1,0 +1,87 @@
+@import "util.style";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+$base-font-size: 16px;
+$scale-ratio: 1.25;
+
+$text-xs: calc(1em / (($scale-ratio) * ($scale-ratio)));
+$text-sm: calc(1em / ($scale-ratio));
+$text-md: calc(1em * ($scale-ratio));
+$text-lg: calc(1em * ($scale-ratio) * ($scale-ratio));
+$text-xl: calc(1em * ($scale-ratio) * ($scale-ratio) * ($scale-ratio));
+$text-xxl: calc(
+  1em * ($scale-ratio) * ($scale-ratio) * ($scale-ratio) * ($scale-ratio)
+);
+$text-xxxl: calc(
+  1em * ($scale-ratio) * ($scale-ratio) * ($scale-ratio) * ($scale-ratio) *
+    ($scale-ratio)
+);
+
+@for $i from 1 to 10 {
+  $val: calc($i * 100);
+
+  .weight-#{$val} {
+    font-weight: $val;
+  }
+}
+
+:root {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-size: $base-font-size;
+  line-height: 1.5;
+}
+
+.text-xs {
+  font-size: $text-xs;
+}
+
+.text-sm {
+  font-size: $text-sm;
+}
+
+.text-bs {
+  font-size: $base-font-size;
+}
+
+.text-md {
+  font-size: $text-md;
+}
+
+.text-lg {
+  font-size: $text-lg;
+}
+
+.text-xl {
+  font-size: $text-xl;
+}
+
+.text-xxl {
+  font-size: $text-xxl;
+}
+
+.text-xxxl {
+  font-size: $text-xxxl;
+}
+
+p {
+  font-weight: 600;
+  color: $black-tint-1;
+}
+
+.display-heading {
+  font-size: 1.7em;
+  color: $text-black;
+}
+
+.display-subtext {
+  font-size: 1em;
+}
+
+.h4 {
+  font-size: 1.5em;
+}
+
+.h5 {
+  font-size: 1.4em;
+}

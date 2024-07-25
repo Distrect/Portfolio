@@ -1,0 +1,27 @@
+@import "./reset.style.scss";
+@import "./root.style.scss";
+@import "./typography.style.scss";
+
+html {
+  width: 100%;
+  min-width: 360px;
+
+  height: 100%;
+
+  background-image: url(../assets/svg/background.svg);
+  background-size: contain;
+  background-repeat: repeat;
+
+  background-color: $base-white;
+
+  overflow: auto;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  margin-bottom: 1rem;
+}

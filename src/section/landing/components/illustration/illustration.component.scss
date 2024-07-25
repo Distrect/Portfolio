@@ -1,0 +1,55 @@
+@import "root.style";
+@import "util.style";
+
+$background-color: #23222d;
+
+:host {
+  grid-column: 1/-1;
+  height: min-content;
+}
+
+#landing-illustration {
+  background-color: $background-color;
+  width: 100%;
+
+  border-radius: $default-radius;
+}
+
+.illustration-header {
+  padding-block: 8px;
+  padding-inline: 10px;
+  border-bottom: 1px solid $base-white;
+}
+
+.illustration-header .action-container {
+  @include flex(row, 5px, center, flex-start);
+  width: min-content;
+}
+
+.illustration-header .action-container .circle {
+  $size: 10px;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+.illustration-body {
+  padding: 10px;
+}
+
+.illustration-body .illustration-text {
+  font-family: monospace;
+  font-size: 1em;
+  font-weight: 600;
+  color: darken($text-white, 30);
+}
+
+.action-container .circle:nth-child(1) {
+  background-color: darken($base-white, 15);
+}
+.action-container .circle:nth-child(2) {
+  background-color: $tomato;
+}
+.action-container .circle:nth-child(3) {
+  background-color: $base-orange;
+}

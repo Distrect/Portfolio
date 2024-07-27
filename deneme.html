@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/src/lib/prism.css" />
     <style>
       *,
       *::before,
@@ -42,5 +43,34 @@
     <div class="parent">
       <div class="child"></div>
     </div>
+    <pre>
+      <code>
+        const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const shuffle = (array) => {
+  return array.sort(() => Math.random() - 0.5);
+};
+
+const transition = [35, 36, 37, 38, 42, 43, 63];
+const asciiMessage = [
+  76, 105, 118, 101, 32, 73, 109, 109, 101, 100, 105, 97, 116, 101, 108, 121,
+];
+
+let m = '';
+
+for (const asciiVal of asciiMessage) {
+  for (const char of shuffle(transition)) {
+    process.stdout.write(m + String.fromCharCode(char));
+    await sleep(50);
+    console.clear();
+  }
+
+  m = m + String.fromCharCode(asciiVal);
+  process.stdout.write(String.fromCharCode(asciiVal));
+
+  console.clear();
+      </code>
+    </pre>
+    <script src="/src/lib/prism.js"></script>
   </body>
 </html>

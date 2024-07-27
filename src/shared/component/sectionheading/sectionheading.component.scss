@@ -1,5 +1,6 @@
 @import "util.style";
 @import "shared.style";
+@import "root.style";
 
 :host {
   grid-column: 1/-1;
@@ -10,6 +11,7 @@
   @include flex(row, 0.25rem, center, flex-start);
 
   width: min-content;
+  box-shadow: $shadow-large;
 }
 
 .section-heading .heading-text {

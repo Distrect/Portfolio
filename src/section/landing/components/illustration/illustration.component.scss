@@ -6,6 +6,8 @@ $background-color: #23222d;
 :host {
   grid-column: 1/-1;
   height: min-content;
+  width: 100%;
+  max-width: 550px;
 }
 
 #landing-illustration {
@@ -13,6 +15,8 @@ $background-color: #23222d;
   width: 100%;
 
   border-radius: $default-radius;
+
+  box-shadow: $shadow-large;
 }
 
 .illustration-header {
@@ -34,14 +38,13 @@ $background-color: #23222d;
 }
 
 .illustration-body {
-  padding: 10px;
+  padding: 0 !important;
 }
 
 .illustration-body .illustration-text {
   font-family: monospace;
   font-size: 1em;
   font-weight: 600;
-  color: darken($text-white, 30);
 }
 
 .action-container .circle:nth-child(1) {
@@ -52,4 +55,14 @@ $background-color: #23222d;
 }
 .action-container .circle:nth-child(3) {
   background-color: $base-orange;
+}
+
+pre {
+  height: min-content;
+}
+
+code {
+  background-color: transparent !important;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }

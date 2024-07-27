@@ -20,9 +20,11 @@
 }
 
 #my-img {
-  width: 80%;
+  width: 75%;
   margin-inline: auto;
   border-radius: 50%;
+
+  box-shadow: $shadow-medium;
 }
 
 .name-container {
@@ -46,7 +48,10 @@
   @include flex(column, 0.5rem, flex-start);
   text-align: left;
   width: 100%;
+  max-width: 502px;
   color: $white-tint-1;
+
+  box-shadow: $shadow-medium;
 
   & .quote-author {
     align-self: flex-end;
@@ -55,7 +60,7 @@
 
 .experienced-job-container {
   @include flex(column, 0.75rem, flex-start, flex-start);
-  width: 100%;
+  width: fit-content;
 
   & .text-bs {
     color: darken($white-tint-1, 20);
@@ -105,4 +110,18 @@
 
 .skills-holder {
   @include flex(column, 0.5rem);
+}
+
+.skill-items .special-item .item-content span {
+  color: $base-orange;
+}
+
+p {
+  max-width: 80ch;
+}
+
+.skills-container,
+.education-container {
+  align-self: flex-start;
+  max-width: 80ch;
 }

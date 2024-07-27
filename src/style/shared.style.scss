@@ -1,5 +1,7 @@
-@import "./root.style.scss";
+@import "root.style";
 @import "util.style";
+@import "button.style";
+@import "input.style";
 
 @mixin border-styles($width: 1px, $color: $base-black) {
   border-color: $color;
@@ -87,10 +89,15 @@
 
   & .item-icon {
     @include flex(row, 0, center, center);
-    padding: 0.875rem;
+    padding: 0.5rem;
     height: 100%;
     background-color: $black-tint-1;
     align-self: center;
+    width: 55px;
+
+    & .icon {
+      width: 30px;
+    }
   }
 
   & .item-content {
@@ -162,7 +169,7 @@
         width: fit-content;
         height: 100%;
         padding-inline: 0.5ch;
-        $border-style: 2px solid $black-tint-1;
+        $border-style: 1px solid $black-tint-1;
 
         border-radius: 0px $radius $radius 0px;
 

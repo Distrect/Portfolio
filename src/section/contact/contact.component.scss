@@ -15,6 +15,10 @@
   grid-column: 1/-1;
   @include flex(column, 0.875rem, flex-start, flex-start);
   margin-bottom: 1rem;
+
+  & .content {
+    max-width: 80ch;
+  }
 }
 
 .social-link-container {
@@ -26,6 +30,8 @@
     border-radius: 50%;
     padding: 15px;
     background-color: red;
+
+    box-shadow: $shadow-small;
 
     &.instagram {
       background-color: #405de6;
@@ -47,4 +53,8 @@
 
 #contact-details {
   @include flex(column, 1rem, center, flex-start);
+}
+
+#contact-form {
+  max-width: 80ch;
 }

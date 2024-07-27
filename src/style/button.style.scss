@@ -1,0 +1,64 @@
+@import "root.style";
+@import "util.style";
+
+button {
+  @include reset;
+  @include flex(row, 0.75ch, center, center);
+
+  position: relative;
+
+  font-size: $base-font-size * 1.23;
+  font-weight: 600;
+  color: $text-white;
+
+  width: fit-content;
+  padding: 0.75ch 1.25ch;
+
+  background-color: $base-blue;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+
+  box-shadow: $shadow-small;
+
+  & .btn-icon-container {
+    position: relative;
+    height: 100%;
+    @include flex(row, 0, center, center);
+  }
+
+  & .btn-text {
+    position: relative;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: calc(-0.75ch / 2);
+
+      border-radius: 10px;
+      width: 1.5px;
+      height: 100%;
+      background-color: $white-tint-1;
+    }
+  }
+}
+
+@media (hover: hover) {
+  button:hover {
+    background-color: $blue-tint-1;
+  }
+
+  button:active {
+    background-color: $blue-tint-2;
+  }
+}
+
+@media (hover: none) {
+  button:active {
+    background-color: $blue-tint-2;
+  }
+}

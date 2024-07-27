@@ -1,4 +1,5 @@
 @import "util.style";
+@import "root.style";
 
 :host {
   @include grid(subgrid, 0);
@@ -11,6 +12,7 @@
   grid-column: 1/-1;
   grid-template-columns: subgrid;
   padding-top: 10px;
+  row-gap: 1.5rem;
 }
 
 #landing-section .landing-text-group {
@@ -18,6 +20,37 @@
   margin-bottom: 2rem;
 }
 
+#landing-section .illustration-container {
+  @include flex(row, 0, center, center);
+  grid-column: 1/-1;
+}
+
 .landing-text-group .display-heading:nth-child(2) {
   margin-bottom: 0.5rem;
+}
+
+.landing-text-group {
+  @include flex(column, 0, center, center);
+  text-align: center;
+  & > div {
+    margin-bottom: 0.875rem;
+    color: $text-black;
+  }
+
+  & > p {
+    margin-bottom: 0.75rem;
+    max-width: 40ch;
+  }
+
+  & > h1 {
+    max-width: 40ch;
+  }
+
+  & .btn {
+    margin-inline: auto;
+  }
+}
+
+#landing-section .illustration {
+  margin-inline: auto;
 }

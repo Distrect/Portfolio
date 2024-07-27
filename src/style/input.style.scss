@@ -1,0 +1,37 @@
+@import "root.style";
+@import "util.style";
+
+input,
+textarea {
+  @include reset;
+
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: $base-font-size;
+  padding: 0.875ch 1.125ch;
+  border-radius: 6px;
+
+  background-color: $black-tint-1;
+  color: $white-shade-1;
+
+  box-shadow: $shadow-small;
+}
+
+form {
+  width: 100%;
+
+  & .input-field {
+    width: 100%;
+    margin-bottom: 0.25rem;
+
+    & > input,
+    & > textarea {
+      width: 100%;
+    }
+  }
+}
+
+textarea {
+  resize: vertical;
+  height: 6rem;
+}

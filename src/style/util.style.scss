@@ -21,3 +21,9 @@
   }
   @return $result;
 }
+
+@mixin reset {
+  appearance: none;
+  outline: transparent;
+  border: none;
+}

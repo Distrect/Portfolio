@@ -20,7 +20,7 @@ $red-tint-3: #ffa1ab;
 $red-tint-4: #ffd0d5;
 
 $base-black: #282222;
-$black-tint-1: #423838;
+$black-tint-1: #3a3434;
 $black-tint-2: #867272;
 $black-tint-3: #999999;
 $black-tint-4: #cccccc;
@@ -30,13 +30,15 @@ $white-tint-1: #ededed;
 $white-tint-2: #f1f1f1;
 $white-tint-3: #f6f6f6;
 $white-tint-4: #fafafa;
+$white-shade-1: #d1d1d1;
 
 $text-black: #2e2727;
 $text-white: #e8e8e8;
 
 /* Effect styles */
-$shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
-$shadow-2: 2px 2px 5px rgba(0, 0, 0, 0.25);
+$shadow-large: 4px 4px 4px rgba(0, 0, 0, 0.5);
+$shadow-medium: 3px 3px 4px rgba(0, 0, 0, 0.4);
+$shadow-small: 2px 2px 2px rgba(0, 0, 0, 0.3);
 
 $default-radius: 10px;
 $base-font-size: 18px;

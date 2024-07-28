@@ -2,6 +2,7 @@
 @import "util.style";
 @import "button.style";
 @import "input.style";
+@import "responsive.style";
 
 @mixin border-styles($width: 1px, $color: $base-black) {
   border-color: $color;
@@ -193,7 +194,7 @@
 
   & .info-list-container {
     @include flex(column, 10px, flex-start, center);
-    padding-left: 5px;
+    padding-left: 20px;
     width: 100%;
 
     & .info-item-container {
@@ -205,4 +206,16 @@
 .personal-info-containers-container {
   @include flex(column, 2rem, flex-start, flex-start);
   width: 100%;
+}
+
+.container {
+  @media screen and (min-width: $media-mobile-width) {
+    margin-inline: 0;
+  }
+  @media screen and (min-width: $media-tablet-width) {
+    margin-inline: 0;
+  }
+  @media screen and (min-width: $media-desktop-width) {
+    margin-inline: 7rem;
+  }
 }

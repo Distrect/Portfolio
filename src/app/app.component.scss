@@ -1,4 +1,7 @@
 @import "util.style";
+@import "typography.style";
+@import "responsive.style";
+
 :host {
   position: relative;
 }
@@ -13,4 +16,28 @@
 
 #app nav {
   grid-column: 1/-1;
+}
+
+@media screen and (min-width: $media-tablet-width) {
+  #app {
+    @include grid(repeat(8, 1fr), 20px);
+  }
+}
+
+@media screen and (min-width: $media-desktop-width) {
+  :host {
+    @include grid(repeat(15, 1fr), 20px);
+  }
+
+  #app {
+    @include grid(subgrid, 0);
+  }
+
+  main {
+    grid-column: 2/16;
+  }
+
+  #app nav {
+    grid-column: 1/2;
+  }
 }

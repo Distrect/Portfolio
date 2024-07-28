@@ -1,5 +1,8 @@
+@use "sass:math";
+
 @import "util.style";
 @import "root.style";
+@import "responsive.style";
 
 :host,
 #about-section {
@@ -10,6 +13,7 @@
 
 #detail-container,
 #information-container {
+  position: relative;
   grid-column: 1/-1;
   @include flex(column, 2rem, center, flex-start);
   margin-bottom: 2rem;
@@ -124,4 +128,82 @@ p {
 .education-container {
   align-self: flex-start;
   max-width: 80ch;
+}
+
+#information-container:before {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+@media screen and (min-width: $media-tablet-width) {
+  :host,
+  #about-section {
+    @include grid(subgrid, 0);
+    grid-column: 1/-1;
+    row-gap: 0.5rem;
+  }
+
+  #my-img {
+    border-radius: 8px;
+  }
+
+  .section-header {
+    grid-row: 1/2;
+  }
+
+  #detail-container,
+  #information-container {
+    grid-row: 2/3;
+  }
+
+  #detail-container {
+    grid-column: 1/4;
+  }
+
+  #information-container {
+    grid-column: 4/9;
+
+    &:before {
+      $divider-width: 2px;
+      $gap: 20px;
+
+      content: "";
+      position: absolute;
+      width: $divider-width;
+      height: 100%;
+      background-color: $black-tint-2;
+      left: -11px;
+      top: 0;
+      border-radius: 10px;
+      z-index: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $media-desktop-width) {
+  :host,
+  #about-section {
+    grid-column: 1/-1;
+  }
+
+  #detail-container {
+    grid-column: 1/5;
+  }
+
+  #information-container {
+    grid-column: 5/16;
+  }
+
+  #my-img {
+    width: 100%;
+    margin-inline: auto;
+    border-radius: 50%;
+
+    box-shadow: $shadow-medium;
+  }
 }

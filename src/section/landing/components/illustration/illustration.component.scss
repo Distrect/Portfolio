@@ -8,11 +8,12 @@ $background-color: #23222d;
   height: min-content;
   width: 100%;
   max-width: 550px;
+  display: none;
 }
 
 #landing-illustration {
   background-color: $background-color;
-  width: 100%;
+  width: 40rem;
 
   border-radius: $default-radius;
 
@@ -58,11 +59,13 @@ $background-color: #23222d;
 }
 
 pre {
-  height: min-content;
+  width: 25rem;
+  height: 42rem;
 }
-
 code {
   background-color: transparent !important;
   white-space: pre-wrap;
   word-wrap: break-word;
+
+  padding: 10px !important;
 }

@@ -1,3 +1,4 @@
+@import "root.style";
 @import "util.style";
 @import "shared.style";
 
@@ -8,74 +9,82 @@
   z-index: 1;
 }
 
+#page-navigation.horizontal {
+  @include flex(row, 0rem);
+  height: min-content;
+  align-items: stretch;
+  width: 20rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+#page-navigation.horizontal .icon-container {
+  padding-block: 10px;
+  border: none;
+  margin-right: auto;
+  width: min-content;
+  min-width: 60px;
+}
+
+#page-navigation.horizontal .nav-item-container {
+  margin: 0;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: min-content;
+  padding-inline: 10px;
+}
+
+#page-navigation.horizontal #cv-button {
+  width: auto;
+  padding-inline: 1rem;
+}
+
 #page-navigation {
-  @include flex(column, 0.5rem, center, none);
+  @include flex(row, 0.5rem, center, space-between);
   @include genericContainer;
-  height: 15rem;
-  width: 3rem;
 
-  &.horizontal {
-    @include flex(row, 0rem);
-    height: min-content;
-    align-items: stretch;
-    width: 20rem;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  box-shadow: $shadow-medium;
+
+  height: min-content;
+  width: 100%;
+
+  & .nav-item-container {
+    @include flex(row, 1.125rem);
     width: 100%;
+    margin-bottom: auto;
+
+    & .nav-item {
+      cursor: pointer;
+    }
+
+    & svg {
+      aspect-ratio: 1/1;
+    }
   }
 
-  &.horizontal .icon-container {
-    padding-block: 10px;
-    border: none;
-    margin-right: auto;
-    width: min-content;
-    min-width: 60px;
+  & .icon-container {
+    padding: 8px;
+    border-bottom: 1px solid $base-white;
+    width: 90px;
+
+    & svg {
+      width: 100%;
+    }
   }
 
-  &.horizontal .nav-item-container {
-    margin: 0;
-    flex-direction: row;
-    gap: 0.5rem;
-    align-items: center;
-    justify-content: center;
-    width: min-content;
-    padding-inline: 10px;
-  }
-
-  &.horizontal #cv-button {
-    width: auto;
-    padding-inline: 1rem;
+  & #cv-button {
+    width: 100%;
+    padding-block: 1rem;
+    background-color: $base-orange;
+    color: $text-white;
   }
 }
 
-#page-navigation .icon-container {
-  padding: 8px;
-  border-bottom: 1px solid $base-white;
-  width: 100%;
-}
-
-.icon-container svg {
-  width: 100%;
-}
-
-#page-navigation .nav-item-container {
-  @include flex(column, 0.25rem);
-  width: 100%;
-  margin-bottom: auto;
-}
-
-.nav-item-container svg {
-  aspect-ratio: 1/1;
-}
-
-#page-navigation .nav-item-container .nav-item {
-  cursor: pointer;
-}
-
-#cv-button {
-  @include baseButton;
-  width: 100%;
-  padding-block: 1rem;
-  background-color: $base-orange;
-  color: $text-white;
+@media screen and (min-width: $media-desktop-width) {
+  #page-navigation {
+    flex-direction: column !important;
+  }
 }

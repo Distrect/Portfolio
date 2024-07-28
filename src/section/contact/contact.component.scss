@@ -1,12 +1,10 @@
 @import "util.style";
 @import "root.style";
-@import "shared.style";
+@import "responsive.style";
 
-:host {
-  grid-column: 1/-1;
-}
-
+:host,
 #contact-section {
+  grid-column: 1/-1;
   @include grid(subgrid, 0);
 }
 
@@ -14,7 +12,7 @@
   display: block;
   grid-column: 1/-1;
   @include flex(column, 0.875rem, flex-start, flex-start);
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
 
   & .content {
     max-width: 80ch;
@@ -53,8 +51,16 @@
 
 #contact-details {
   @include flex(column, 1rem, center, flex-start);
+  grid-column: 1/-1;
 }
 
 #contact-form {
   max-width: 80ch;
+}
+
+@media screen and (min-width: $media-tablet-width) {
+  #contact-details {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }

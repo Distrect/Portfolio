@@ -1,5 +1,6 @@
 @import "util.style";
 @import "root.style";
+@import "responsive.style";
 
 :host {
   @include grid(subgrid, 0);
@@ -11,8 +12,10 @@
   @include grid(subgrid, 0);
   grid-column: 1/-1;
   grid-template-columns: subgrid;
-  padding-top: 10px;
+  padding-block: 10px;
   row-gap: 1.5rem;
+
+  position: relative;
 }
 
 #landing-section .landing-text-group {
@@ -53,4 +56,35 @@
 
 #landing-section .illustration {
   margin-inline: auto;
+}
+
+@media screen and (min-width: $media-tablet-width) {
+  #landing-section {
+    padding-block: 30px;
+  }
+}
+
+@media screen and (min-width: $media-desktop-width) {
+  #landing-section {
+    padding-block: 0;
+    min-height: 100dvh;
+  }
+
+  #landing-section .landing-text-group {
+    text-align: left;
+    grid-column: 1/10;
+    grid-row: 1/2;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    & .btn {
+      margin: 0;
+    }
+  }
+
+  #landing-section .illustration-container {
+    position: absolute;
+    right: -8.25rem;
+    display: none;
+  }
 }

@@ -12,22 +12,16 @@ import 'highlight.js/styles/github-dark.css';
 })
 export class IllustrationComponent implements OnInit, AfterViewInit {
   public displayCode: string = `
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const shuffle = (array) => {
-  return array.sort(() => Math.random() - 0.5);
-};
-
+let m = '';
 const transition = [35, 36, 37, 38, 42, 43, 63];
 const asciiMessage = [
   76, 105, 118, 101, 32, 73, 109, 109, 101, 100, 105, 97, 116, 101, 108, 121,
 ];
 
-let m = '';
-
 for (const asciiVal of asciiMessage) {
-  for (const char of shuffle(transition)) {
+  for (const char of transition) {
     process.stdout.write(m + String.fromCharCode(char));
-    await sleep(50);
+    await new Promise((resolve) => setTimeout(resolve, 10));
     console.clear();
   }
 
@@ -35,7 +29,8 @@ for (const asciiVal of asciiMessage) {
   process.stdout.write(String.fromCharCode(asciiVal));
 
   console.clear();
-}`;
+}
+`;
 
   public ngOnInit(): void {
     hljs.registerLanguage('javascript', javascript);
@@ -43,5 +38,7 @@ for (const asciiVal of asciiMessage) {
 
   public ngAfterViewInit(): void {
     hljs.highlightAll();
+
+    hljs.highlightBlock(document.querySelector('code') as HTMLElement);
   }
 }

@@ -4,87 +4,47 @@
 
 :host {
   width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-#page-navigation.horizontal {
-  @include flex(row, 0rem);
-  height: min-content;
-  align-items: stretch;
-  width: 20rem;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  width: 100%;
-}
-
-#page-navigation.horizontal .icon-container {
-  padding-block: 10px;
-  border: none;
-  margin-right: auto;
-  width: min-content;
-  min-width: 60px;
-}
-
-#page-navigation.horizontal .nav-item-container {
-  margin: 0;
-  flex-direction: row;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  width: min-content;
-  padding-inline: 10px;
-}
-
-#page-navigation.horizontal #cv-button {
-  width: auto;
-  padding-inline: 1rem;
 }
 
 #page-navigation {
-  @include flex(row, 0.5rem, center, space-between);
-  @include genericContainer;
+  @include flex(row, 0, stretch, space-between);
+
+  background-color: $base-black;
 
   box-shadow: $shadow-medium;
 
-  height: min-content;
-  width: 100%;
-
-  & .nav-item-container {
-    @include flex(row, 1.125rem);
-    width: 100%;
-    margin-bottom: auto;
-
-    & .nav-item {
-      cursor: pointer;
-    }
-
-    & svg {
-      aspect-ratio: 1/1;
-    }
+  & .wrapper {
+    @include flex(row, 1rem, stretch, space-between);
   }
 
   & .icon-container {
-    padding: 8px;
-    border-bottom: 1px solid $base-white;
-    width: 90px;
+    padding: 10px;
+    background-color: red;
+  }
 
-    & svg {
-      width: 100%;
+  & .nav-item-container {
+    width: 8rem;
+    @include flex(row, 1.125rem, stretch, space-around);
+    margin-left: auto;
+
+    & .divider {
+      width: 2px;
+      background-color: red;
+      margin-block: 5px;
+    }
+
+    & .nav-item {
+      @include flex(row, 0, center, center);
+      flex: 1 1 0;
+      background-color: red;
+
+      & .nav-item-icon {
+        width: 1.5rem;
+      }
     }
   }
 
   & #cv-button {
-    width: 100%;
-    padding-block: 1rem;
-    background-color: $base-orange;
-    color: $text-white;
-  }
-}
-
-@media screen and (min-width: $media-desktop-width) {
-  #page-navigation {
-    flex-direction: column !important;
+    // height: 100%;
   }
 }

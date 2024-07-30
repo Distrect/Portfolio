@@ -1,18 +1,18 @@
 @import "root.style";
 @import "util.style";
 
-button {
+button,
+.btn {
   @include reset;
-  @include flex(row, 0.75ch, center, center);
+  @include flex(row, 0, center, center);
 
   position: relative;
 
-  font-size: $base-font-size * 1.23;
-  font-weight: 600;
-  color: $text-white;
+  font-size: $base-font-size * 1.05;
+  font-weight: 500;
+  color: lighten($text-white, 15);
 
   width: fit-content;
-  padding: 0.75ch 1.25ch;
 
   background-color: $base-blue;
 
@@ -23,37 +23,58 @@ button {
   transition: background-color 0.1s;
 
   box-shadow: $shadow-small;
+  overflow: hidden;
 
   & .btn-icon-container {
+    @include flex(row, 0, center, center);
     position: relative;
     height: 100%;
-    @include flex(row, 0, center, center);
+    width: 25px;
+    padding: 6px;
+    background-color: $black-tint-1;
+    transition: background-color 0.1s;
   }
 
   & .btn-text {
+    padding: 0.5ch 0.75ch;
     position: relative;
+  }
 
-    &::before {
-      content: "";
+  &.btn-large {
+    font-size: $base-font-size * 1.23;
+  }
 
-      position: absolute;
-      left: calc(-0.75ch / 2);
+  &.btn-medium {
+    font-size: $base-font-size * 1.15;
+  }
 
-      border-radius: 10px;
-      width: 1.5px;
-      height: 100%;
-      background-color: $white-tint-1;
-    }
+  &.btn-green {
+    background-color: $base-green;
   }
 }
 
 @media (hover: hover) {
   button:hover {
     background-color: $blue-tint-1;
+
+    & .btn-icon-container {
+      background-color: $black-tint-2;
+    }
   }
 
   button:active {
     background-color: $blue-tint-2;
+    & .btn-icon-container {
+      background-color: $black-tint-3;
+    }
+  }
+
+  button.btn-green:hover {
+    background-color: $green-tint-1;
+  }
+
+  button.btn-green:active {
+    background-color: $green-tint-2;
   }
 }
 

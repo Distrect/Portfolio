@@ -126,7 +126,7 @@
   & .info-item-container {
     $radius: 6px;
 
-    @include flex(row, 0, center, flex-start);
+    @include flex(row, 0, stretch, flex-start);
     border-radius: $radius;
     overflow: hidden;
 
@@ -142,12 +142,12 @@
       background-color: $base-blue;
 
       width: 20px;
-      height: 100%;
+      // height: 100%;
     }
 
     & .info-text {
       width: fit-content;
-      height: 100%;
+      // height: 100%;
       padding-inline: 0.5ch;
       $border-style: none;
 
@@ -216,6 +216,6 @@
     margin-inline: 0;
   }
   @media screen and (min-width: $media-desktop-width) {
-    margin-inline: 7rem;
+    margin-inline: 2rem;
   }
 }

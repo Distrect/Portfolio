@@ -4,47 +4,141 @@
 
 :host {
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 #page-navigation {
   @include flex(row, 0, stretch, space-between);
 
+  overflow: hidden;
+
   background-color: $base-black;
 
   box-shadow: $shadow-medium;
 
+  border-radius: 0 0 $default-radius $default-radius;
+
   & .wrapper {
-    @include flex(row, 1rem, stretch, space-between);
+    @include flex(row, 0, stretch, space-between);
   }
 
   & .icon-container {
-    padding: 10px;
-    background-color: red;
+    padding: 7px;
+
+    & .brand-icon {
+      max-width: 40px;
+    }
   }
 
   & .nav-item-container {
-    width: 8rem;
-    @include flex(row, 1.125rem, stretch, space-around);
+    width: 7.5rem;
+    @include flex(row, 0, stretch, space-around);
     margin-left: auto;
-
-    & .divider {
-      width: 2px;
-      background-color: red;
-      margin-block: 5px;
-    }
 
     & .nav-item {
       @include flex(row, 0, center, center);
       flex: 1 1 0;
-      background-color: red;
+      padding: 3px;
+      transition: background-color 0.1s;
+
+      cursor: pointer;
 
       & .nav-item-icon {
-        width: 1.5rem;
+        width: 1.25rem;
       }
     }
   }
 
   & #cv-button {
-    // height: 100%;
+    border-radius: 0;
+    background-color: $base-orange;
+    padding: 0.625ch;
+
+    &:hover {
+      background-color: $orange-tint-1;
+    }
+
+    &:active {
+      background-color: $orange-tint-2;
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #page-navigation .nav-item-container .nav-item {
+    &:hover {
+      background-color: $blue-tint-2;
+    }
+
+    // &:active {
+    //   background-color: $blue-tint-3;
+    // }
+  }
+}
+
+// @media (hover: none) {
+#page-navigation .nav-item-container .nav-item {
+  &:active {
+    background-color: $blue-tint-3;
+  }
+}
+// }
+
+@media screen and (min-width: $media-desktop-width) {
+  :host {
+    top: 30px;
+    align-self: start;
+  }
+
+  #page-navigation {
+    flex-direction: column;
+    width: 100%;
+
+    min-height: 17rem;
+    max-height: 50vh;
+    height: 25rem;
+    border-radius: $default-radius;
+
+    & .icon-container {
+      border-bottom: 2px solid $white-shade-1;
+
+      & .brand-icon {
+        width: 100%;
+        margin: auto;
+      }
+    }
+
+    & .wrapper {
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: space-between;
+
+      & .nav-item-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 0rem;
+        // padding-top: 0.5rem;
+
+        & .nav-item {
+          flex: 1 1 0;
+          padding-block: 1.125ch;
+
+          & .nav-item-icon {
+            width: 100%;
+            max-width: 25px;
+          }
+        }
+      }
+    }
+
+    & #cv-button {
+      padding-block: 1ch;
+      width: 100%;
+    }
   }
 }

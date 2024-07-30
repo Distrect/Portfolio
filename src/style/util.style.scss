@@ -27,3 +27,21 @@
   outline: transparent;
   border: none;
 }
+
+@mixin button-interaction($selector, $hover-color, $active-color) {
+  @media (hover: hover) {
+    #{$selector}:hover {
+      background-color: $hover-color;
+    }
+
+    #{$selector}:active {
+      background-color: $active-color;
+    }
+  }
+
+  @media (hover: none) {
+    #{$selector}:active {
+      background-color: $active-color;
+    }
+  }
+}

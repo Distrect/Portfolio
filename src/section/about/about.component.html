@@ -15,31 +15,33 @@
       </div>
     </div>
     <div class="quote-container generic-container">
-      <blockquote class="text-md">
-        "We are not made to be confined to narrow places."
+      <blockquote class="text-bs">
+        {{ me.selectedQuote.quote }}
       </blockquote>
-      <span class="quote-author text-bs weight-500">Seneca</span>
+      <span class="quote-author text-sm weight-500">{{
+        me.selectedQuote.author
+      }}</span>
     </div>
     <div class="personal-info-containers-container">
       <div class="personal-info-container">
         <div class="info-item-container">
           <div class="info-shape"></div>
-          <h4 class="text-lg info-text wieght-600">Details</h4>
+          <h4 class="text-md info-text wieght-600">Details</h4>
         </div>
         <ul class="info-list-container">
           <li class="info-item-container outlined">
             <div class="info-shape"></div>
-            <p class="text-bs weight-400 info-text">Ncosia/Cyprus</p>
+            <p class="text-bs weight-400 info-text">{{ me.location }}</p>
           </li>
         </ul>
       </div>
       <div class="personal-info-container education-container">
         <div class="info-item-container">
           <div class="info-shape"></div>
-          <h4 class="text-lg info-text wieght-600">Education</h4>
+          <h4 class="text-md info-text wieght-600">Education</h4>
         </div>
         <ul class="info-list-container">
-          <li class="special-item">
+          <li class="special-item" *ngFor="let education of me.educations">
             <div class="item-icon">
               <svg
                 width="28"
@@ -73,46 +75,10 @@
               </svg>
             </div>
             <div class="item-content">
-              <p class="text-bs weight-700">Bülent Ecevit Anadolu Lisesi</p>
-              <span class="text-sm weight-600">2015-2019</span>
-            </div>
-          </li>
-          <li class="special-item">
-            <div class="item-icon">
-              <svg
-                width="28"
-                height="22"
-                viewBox="0 0 28 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+              <p class="text-bs weight-700">{{ education.school }}</p>
+              <span class="text-sm weight-600"
+                >{{ education.startYear }}-{{ education.endYear }}</span
               >
-                <path
-                  d="M27 6.57143L14 1L1 6.57143L14 12.1429L27 6.57143ZM27 6.57143V14.9286V6.57143Z"
-                  fill="#ededed"
-                />
-                <path
-                  d="M27 6.57143L14 1L1 6.57143L14 12.1429L27 6.57143ZM27 6.57143V14.9286"
-                  stroke="#ededed"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M6.2002 8.7998V16.3212C6.2002 17.4295 7.02198 18.4923 8.48476 19.2759C9.94755 20.0596 11.9315 20.4998 14.0002 20.4998C16.0689 20.4998 18.0528 20.0596 19.5156 19.2759C20.9784 18.4923 21.8002 17.4295 21.8002 16.3212V8.7998"
-                  fill="#ededed"
-                />
-                <path
-                  d="M6.2002 8.7998V16.3212C6.2002 17.4295 7.02198 18.4923 8.48476 19.2759C9.94755 20.0596 11.9315 20.4998 14.0002 20.4998C16.0689 20.4998 18.0528 20.0596 19.5156 19.2759C20.9784 18.4923 21.8002 17.4295 21.8002 16.3212V8.7998"
-                  stroke="#ededed"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div class="item-content">
-              <p class="text-md weight-700">Bülent Ecevit Anadolu Lisesi</p>
-              <span class="text-bs weight-600">2015-2019</span>
             </div>
           </li>
         </ul>
@@ -120,16 +86,15 @@
       <div class="personal-info-container">
         <div class="info-item-container">
           <div class="info-shape"></div>
-          <h4 class="text-lg info-text wieght-600">Hobies</h4>
+          <h4 class="text-md info-text wieght-600">Hobies</h4>
         </div>
         <ul class="info-list-container">
-          <li class="info-item-container outlined">
+          <li
+            class="info-item-container outlined"
+            *ngFor="let hoby of me.hobies"
+          >
             <div class="info-shape"></div>
-            <p class="text-bs weight-400 info-text">Hiking</p>
-          </li>
-          <li class="info-item-container outlined">
-            <div class="info-shape"></div>
-            <p class="text-bs weight-400 info-text">Reading Book</p>
+            <p class="text-bs weight-400 info-text">{{ hoby }}</p>
           </li>
         </ul>
       </div>
@@ -139,31 +104,32 @@
     <div class="personal-info-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-lg info-text wieght-600">Background</h4>
+        <h4 class="text-md info-text wieght-600">Background</h4>
       </div>
       <p class="text-bs">
-        As a curious and skilled engineer with a strong desire to learn new
-        things in the field of software, I am constantly seeking opportunities
-        to enhance my knowledge and skills. My engineering background has
-        provided me with a solid foundation in software development principles,
-        and I am particularly interested in pursuing a Front-End Developer
-        position where I can utilize my talents to create user-centric and
-        visually appealing web applications.
+        {{ me.background }}
       </p>
     </div>
     <div class="personal-info-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-lg info-text wieght-600">Experience</h4>
+        <h4 class="text-md info-text wieght-600">Experience</h4>
       </div>
-      <div class="experienced-job-container generic-container-10">
+      <div
+        class="experienced-job-container generic-container-10"
+        *ngFor="let experience of me.experiences"
+      >
         <div class="experienced-job-header">
           <ils assembler class="job-icon"></ils>
           <div class="experienced-job-title">
-            <h4 class="text-md">Frontend Developer</h4>
+            <h4 class="text-md">{{ experience.title }}</h4>
             <span class="job-detail text-bs">
-              <span class="weight-600">Near East Technology </span>
-              <span>07/23-10/23</span>
+              <span class="weight-600">{{ experience.companyName }} </span>
+              <span
+                >{{ experience.startDate | date : "mm/yy" }}-{{
+                  experience.endDate | date : "mm/yy"
+                }}</span
+              >
             </span>
           </div>
         </div>
@@ -180,43 +146,20 @@
     <div class="personal-info-container skills-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-lg info-text wieght-600">Skills</h4>
+        <h4 class="text-md info-text wieght-600">Skills</h4>
       </div>
       <ul class="info-list-container skill-items" style="padding: 0">
-        <li class="special-item">
+        <li class="special-item skill-item" *ngFor="let skill of me.skills">
           <div class="item-icon">
-            <ils angular class="icon"></ils>
+            <img
+              [src]="skill.iconSrc"
+              [alt]="skill.skillName + '-icon'"
+              class="icon"
+            />
           </div>
           <div class="item-content">
-            <p class="text-md weight-700">Angular</p>
-            <span class="text-bs weight-600">Beginner</span>
-          </div>
-        </li>
-        <li class="special-item">
-          <div class="item-icon">
-            <ils angular class="icon"></ils>
-          </div>
-          <div class="item-content">
-            <p class="text-md weight-700">Angular</p>
-            <span class="text-bs weight-600">Beginner</span>
-          </div>
-        </li>
-        <li class="special-item">
-          <div class="item-icon">
-            <ils angular class="icon"></ils>
-          </div>
-          <div class="item-content">
-            <p class="text-md weight-700">Angular</p>
-            <span class="text-bs weight-600">Beginner</span>
-          </div>
-        </li>
-        <li class="special-item">
-          <div class="item-icon">
-            <ils angular class="icon"></ils>
-          </div>
-          <div class="item-content">
-            <p class="text-md weight-700">Angular</p>
-            <span class="text-bs weight-600">Beginner</span>
+            <p class="text-bs weight-700">{{ skill.skillName }}</p>
+            <span class="text-sm weight-600">{{ skill.percent | level }}</span>
           </div>
         </li>
       </ul>

@@ -66,13 +66,13 @@
 
 @media screen and (min-width: $media-desktop-width) {
   #landing-section {
-    padding-block: 0;
+    padding-block: 30px;
     min-height: 100dvh;
   }
 
   #landing-section .landing-text-group {
     text-align: left;
-    grid-column: 1/10;
+    grid-column: 1/16;
     grid-row: 1/2;
     align-items: flex-start;
     justify-content: flex-start;

@@ -2,6 +2,14 @@
 @import "root.style";
 @import "responsive.style";
 
+$social-colors: (
+  instagram: #405de6,
+  linkedin: #0077b5,
+  facebook: #4267b2,
+  whatsapp: #25d366,
+  github: #2b3137,
+);
+
 :host,
 #contact-section {
   grid-column: 1/-1;
@@ -30,21 +38,34 @@
     background-color: red;
 
     box-shadow: $shadow-small;
+    cursor: pointer;
 
-    &.instagram {
-      background-color: #405de6;
-    }
-    &.linkedin {
-      background-color: #0077b5;
-    }
-    &.facebook {
-      background-color: #4267b2;
-    }
-    &.whatsapp {
-      background-color: #25d366;
-    }
-    &.github {
-      background-color: #2b3137;
+    transition: background-color 0.1s;
+
+    // &.instagram {
+    //   background-color: #405de6;
+    // }
+    // &.linkedin {
+    //   background-color: #0077b5;
+    // }
+    // &.facebook {
+    //   background-color: #4267b2;
+    // }
+    // &.whatsapp {
+    //   background-color: #25d366;
+    // }
+    // &.github {
+    //   background-color: #2b3137;
+    // }
+
+    @each $key, $value in $social-colors {
+      &.#{$key} {
+        background-color: $value;
+      }
+
+      &.#{$key}:hover {
+        background-color: lighten($value, 10);
+      }
     }
   }
 }
@@ -56,6 +77,10 @@
 
 #contact-form {
   max-width: 80ch;
+
+  & .form-btn-group button {
+    margin-left: auto;
+  }
 }
 
 @media screen and (min-width: $media-tablet-width) {

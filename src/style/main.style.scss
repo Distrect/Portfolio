@@ -1,16 +1,15 @@
-@import "./reset.style.scss";
-@import "./root.style.scss";
-@import "./typography.style.scss";
+@import "reset.style.scss";
+@import "root.style.scss";
+@import "typography.style.scss";
 
 html {
   width: 100%;
-  min-width: 360px;
 
   height: auto;
 
-  background-image: url(../assets/s.svg);
-  background-size: cover;
-  background-repeat: repeat-y;
+  background-image: url(../assets/s.png);
+  background-size: contain;
+  background-repeat: repeat;
 
   background-color: $base-white;
 
@@ -20,8 +19,16 @@ html {
 body {
   width: 100%;
   height: auto;
+  min-width: 360px;
+  max-width: 1250px;
+  margin-inline: auto;
 }
 
 section {
   margin-bottom: 1rem;
+}
+
+*::selection {
+  background-color: $tomato;
+  color: $white-shade-1;
 }

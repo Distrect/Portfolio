@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SectionHeadingComponent } from '../../shared/component/sectionheading/sectionheading.component';
 import { DialIcon } from '../../shared/svgComponent';
+import Person from '../../shared/personal.info';
 
 @Component({
   selector: 'section[contact]',
@@ -9,4 +10,6 @@ import { DialIcon } from '../../shared/svgComponent';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent {}
+export class ContactComponent {
+  public me: Person = new Person();
+}

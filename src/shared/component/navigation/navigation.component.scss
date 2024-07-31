@@ -37,11 +37,12 @@
     @include flex(row, 0, stretch, space-around);
     margin-left: auto;
 
-    & .nav-item {
+    & > * {
       @include flex(row, 0, center, center);
       flex: 1 1 0;
       padding: 3px;
       transition: background-color 0.1s;
+      height: 100%;
 
       cursor: pointer;
 
@@ -67,7 +68,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  #page-navigation .nav-item-container .nav-item {
+  #page-navigation .nav-item-container > * {
     &:hover {
       background-color: $blue-tint-2;
     }
@@ -78,13 +79,13 @@
   }
 }
 
-// @media (hover: none) {
-#page-navigation .nav-item-container .nav-item {
-  &:active {
-    background-color: $blue-tint-3;
+@media (hover: none) {
+  #page-navigation .nav-item-container > * {
+    &:active {
+      background-color: $blue-tint-3;
+    }
   }
 }
-// }
 
 @media screen and (min-width: $media-desktop-width) {
   :host {
@@ -102,7 +103,7 @@
     border-radius: $default-radius;
 
     & .icon-container {
-      border-bottom: 2px solid $white-shade-1;
+      border-bottom: 2px solid $white-shade-3;
 
       & .brand-icon {
         width: 100%;
@@ -124,7 +125,7 @@
         gap: 0rem;
         // padding-top: 0.5rem;
 
-        & .nav-item {
+        & > * {
           flex: 1 1 0;
           padding-block: 1.125ch;
 

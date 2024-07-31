@@ -25,18 +25,88 @@
         <div class="info-shape"></div>
         <h4 class="text-md info-text wieght-600">Contact Form</h4>
       </div>
-      <form id="contact-form">
-        <div class="input-field">
-          <input type="text" name="subject" placeholder="Subject" />
+      <form id="contact-form" [formGroup]="contactForm">
+        <div
+          class="form-field"
+          [attr.error]="
+            contactForm.controls['subject'].invalid &&
+            (contactForm.controls['subject'].touched ||
+              contactForm.controls['subject'].dirty ||
+              isSubmitted)
+          "
+        >
+          <div>
+            @if (contactForm.controls['subject'].invalid &&
+            (contactForm.controls['subject'].touched ||
+            contactForm.controls['subject'].dirty || isSubmitted)) {
+
+            <span
+              class="form-field-error"
+              *ngIf="contactForm.controls['subject'].invalid"
+              >Should not be empty</span
+            >
+            }
+          </div>
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            formControlName="subject"
+          />
         </div>
-        <div class="input-field">
-          <input type="email" name="email" placeholder="Email" />
+        <div
+          class="form-field"
+          [attr.error]="
+            contactForm.controls['email'].invalid &&
+            (contactForm.controls['email'].touched ||
+              contactForm.controls['email'].dirty ||
+              isSubmitted)
+          "
+        >
+          <div>
+            @if (contactForm.controls['email'].invalid &&
+            (contactForm.controls['email'].touched ||
+            contactForm.controls['email'].dirty || isSubmitted)) {
+            @if(contactForm.controls['email'].errors?.['required']){
+            <span class="form-field-error">Email cannot be empty</span>
+            } @if (contactForm.controls['email'].errors?.['email']) {
+            <span class="form-field-error">Invalid email format </span>
+            } }
+          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            formControlName="email"
+          />
         </div>
-        <div class="input-field">
-          <textarea name="message" placeholder="Message"></textarea>
+        <div
+          class="form-field"
+          [attr.error]="
+            contactForm.controls['message'].invalid &&
+            (contactForm.controls['message'].touched ||
+              contactForm.controls['message'].dirty ||
+              isSubmitted)
+          "
+        >
+          <div
+            *ngIf="
+              contactForm.controls['message'].invalid &&
+              (contactForm.controls['message'].touched ||
+                contactForm.controls['message'].dirty ||
+                isSubmitted)
+            "
+          >
+            <span class="form-field-error">Message cannot be empty</span>
+          </div>
+          <textarea
+            name="message"
+            placeholder="Message"
+            formControlName="message"
+          ></textarea>
         </div>
         <div class="form-btn-group">
-          <button class="btn btn-small btn-green" type="submit">
+          <button class="btn btn-small btn-green" (click)="submitForm()">
             <div class="btn-text">Submit</div>
           </button>
         </div>

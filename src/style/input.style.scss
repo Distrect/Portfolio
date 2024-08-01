@@ -1,9 +1,11 @@
 @import "root.style";
 @import "util.style";
+@import "typography.style";
 
 input,
 textarea {
   @include reset;
+  position: relative;
 
   font-family: "Nunito", sans-serif;
   font-weight: 600;
@@ -20,13 +22,49 @@ textarea {
 form {
   width: 100%;
 
-  & .input-field {
+  & .form-field {
     width: 100%;
+    height: min-content;
     margin-bottom: 0.25rem;
+    position: relative;
+
+    &:has(input:focus) {
+      &:before {
+        width: 100%;
+      }
+    }
+
+    &[error="true"]::before {
+      width: 100%;
+      background-color: $tomato;
+    }
+
+    & .form-field-error {
+      color: $tomato;
+      font-size: $text-sm;
+    }
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      bottom: -5px;
+      border-radius: 6px;
+      left: 0;
+      width: 0%;
+      height: 1rem;
+      background-color: $base-green;
+
+      transition: width 0.2s;
+    }
 
     & > input,
     & > textarea {
       width: 100%;
+    }
+
+    &:has(textarea):before {
+      bottom: 0px;
     }
   }
 }

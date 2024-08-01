@@ -78,6 +78,10 @@ $social-colors: (
 #contact-form {
   max-width: 80ch;
 
+  & .form-field {
+    margin-bottom: 0.75rem;
+  }
+
   & .form-btn-group button {
     margin-left: auto;
   }

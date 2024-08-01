@@ -95,6 +95,10 @@
   }
 }
 
+.csx {
+  color: $black-tint-2;
+}
+
 .skill-items .special-item .item-content span {
   color: $base-orange;
 }
@@ -135,6 +139,13 @@ p {
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.education-container .special-item .item-icon {
+  width: 55px;
+  & .icon {
+    width: 30px;
+  }
 }
 
 @media screen and (min-width: $media-tablet-width) {
@@ -203,7 +214,6 @@ p {
   #my-img {
     width: 100%;
     margin-inline: auto;
-    border-radius: 50%;
 
     box-shadow: $shadow-medium;
   }

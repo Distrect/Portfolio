@@ -1,7 +1,13 @@
 <section id="about-section">
-  <shared heading headerText="About Me" class="section-header">
-    <ils user slot="icon"></ils>
-  </shared>
+  <div class="section-heading">
+    <div class="icon-container">
+      <img src="assets/svg/user-icon.svg" alt="" />
+    </div>
+    <h3 class="heading-text text-md weight-700">
+      {{ "sectionHeaders.about_me_header" | translate }}
+    </h3>
+  </div>
+
   <div id="detail-container">
     <div id="me">
       <img src="assets/images/1-1.png" alt="" id="my-img" />
@@ -16,32 +22,41 @@
     </div>
     <div class="quote-container generic-container">
       <blockquote class="text-bs">
-        {{ me.selectedQuote.quote }}
+        {{ dataService.personalData.selectedQuote.quote }}
       </blockquote>
       <span class="quote-author text-sm weight-500">{{
-        me.selectedQuote.author
+        dataService.personalData.selectedQuote.author
       }}</span>
     </div>
     <div class="personal-info-containers-container">
       <div class="personal-info-container">
         <div class="info-item-container">
           <div class="info-shape"></div>
-          <h4 class="text-md info-text wieght-600">Details</h4>
+          <h4 class="text-md info-text wieght-600">
+            {{ "headings.details" | translate }}
+          </h4>
         </div>
         <ul class="info-list-container">
           <li class="info-item-container outlined">
             <div class="info-shape"></div>
-            <p class="text-bs weight-400 info-text">{{ me.location }}</p>
+            <p class="text-bs weight-400 info-text">
+              {{ dataService.personalData.location }}
+            </p>
           </li>
         </ul>
       </div>
       <div class="personal-info-container education-container">
         <div class="info-item-container">
           <div class="info-shape"></div>
-          <h4 class="text-md info-text wieght-600">Education</h4>
+          <h4 class="text-md info-text wieght-600">
+            {{ "headings.education" | translate }}
+          </h4>
         </div>
         <ul class="info-list-container">
-          <li class="special-item" *ngFor="let education of me.educations">
+          <li
+            class="special-item"
+            *ngFor="let education of dataService.personalData.educations"
+          >
             <div class="item-icon">
               <img src="assets/svg/graduation-icon.svg" class="icon" alt="" />
             </div>
@@ -57,12 +72,14 @@
       <div class="personal-info-container">
         <div class="info-item-container">
           <div class="info-shape"></div>
-          <h4 class="text-md info-text wieght-600">Hobies</h4>
+          <h4 class="text-md info-text wieght-600">
+            {{ "headings.hobies" | translate }}
+          </h4>
         </div>
         <ul class="info-list-container">
           <li
             class="info-item-container outlined"
-            *ngFor="let hoby of me.hobies"
+            *ngFor="let hoby of dataService.personalData.hobies"
           >
             <div class="info-shape"></div>
             <p class="text-bs weight-400 info-text">{{ hoby }}</p>
@@ -75,20 +92,24 @@
     <div class="personal-info-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-md info-text wieght-600">Background</h4>
+        <h4 class="text-md info-text wieght-600">
+          {{ "headings.background" | translate }}
+        </h4>
       </div>
       <p class="text-bs">
-        {{ me.background }}
+        {{ dataService.personalData.background }}
       </p>
     </div>
     <div class="personal-info-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-md info-text wieght-600">Experience</h4>
+        <h4 class="text-md info-text wieght-600">
+          {{ "headings.experience" | translate }}
+        </h4>
       </div>
       <div
         class="experienced-job-container generic-container-10"
-        *ngFor="let experience of me.experiences"
+        *ngFor="let experience of dataService.personalData.experiences"
       >
         <div class="experienced-job-header">
           <ils assembler class="job-icon"></ils>
@@ -117,10 +138,15 @@
     <div class="personal-info-container skills-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-md info-text wieght-600">Skills</h4>
+        <h4 class="text-md info-text wieght-600">
+          {{ "headings.skills" | translate }}
+        </h4>
       </div>
       <ul class="info-list-container skill-items" style="padding: 0">
-        <li class="special-item skill-item" *ngFor="let skill of me.skills">
+        <li
+          class="special-item skill-item"
+          *ngFor="let skill of dataService.personalData.skills"
+        >
           <div class="item-icon">
             <img
               [src]="skill.iconSrc"

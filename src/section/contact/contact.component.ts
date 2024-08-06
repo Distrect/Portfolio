@@ -1,29 +1,14 @@
+import { DataService } from './../../service/data.service';
 import { Component } from '@angular/core';
-import { SectionHeadingComponent } from '../../shared/component/sectionheading/sectionheading.component';
-import { DialIcon } from '../../shared/svgComponent';
 import Person from '../../shared/personal.info';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'section[contact]',
-  standalone: true,
-  imports: [
-    SectionHeadingComponent,
-    DialIcon,
-    ReactiveFormsModule,
-    CommonModule,
-  ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-  public me: Person = new Person();
   public isSubmitted: boolean = false;
 
   public contactForm: FormGroup = new FormGroup({
@@ -38,7 +23,7 @@ export class ContactComponent {
     message: new FormControl('', { validators: [Validators.required] }),
   });
 
-  constructor() {}
+  constructor(public dataService: DataService) {}
 
   private sendEmail(link: string) {
     const anchor = document.createElement('a');
@@ -53,8 +38,9 @@ export class ContactComponent {
 
     const formData = this.contactForm.value;
 
-    const link = `mailto:${this.me.email}?subject=${formData.subject}&body=${formData.message}`;
+    const link = `mailto:${this.dataService.personalData.email}?subject=${formData.subject}&body=${formData.message}`;
 
     this.sendEmail(link);
+    this.contactForm.reset();
   }
 }

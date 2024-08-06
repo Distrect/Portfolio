@@ -6,11 +6,11 @@
     <div class="content">
       <h1 class="text-lg">Goodbye, until we meet again...</h1>
       <p class="text-bs">
-        {{ me.outro }}
+        {{ dataService.personalData.outro }}
       </p>
     </div>
     <div class="social-link-container">
-      @for (social of me.socialMedias; track $index) {
+      @for (social of dataService.personalData.socialMedias; track $index) {
       <a [href]="social.url" target="_blank">
         <div [class]="'social-link-item ' + social.socialMedia.toLowerCase()">
           <img class="social-icon" [src]="social.icon" alt="" />
@@ -23,7 +23,9 @@
     <div class="personal-info-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-md info-text wieght-600">Contact Form</h4>
+        <h4 class="text-md info-text wieght-600">
+          {{ "headings.contactForm" | translate }}
+        </h4>
       </div>
       <form id="contact-form" [formGroup]="contactForm">
         <div
@@ -115,10 +117,13 @@
     <div class="personal-info-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-md info-text wieght-600">Contact Details</h4>
+        <h4 class="text-md info-text wieght-600">
+          {{ "headings.contactDetails" | translate }}
+        </h4>
       </div>
       <ul class="info-list-container">
-        @for (contactItem of me.contactDetails; track $index) {
+        @for (contactItem of dataService.personalData.contactDetails; track
+        $index) {
 
         <li class="info-item-container outlined">
           <div class="info-shape"></div>

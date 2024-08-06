@@ -1,0 +1,22 @@
+{
+  "landingText_1": "Merhaba, Ben {{name}}! Kullanıcı dostu web siteleri geliştiririm",
+  "landingText_2": "Beraber, daha büyük şeyler geliştirelim",
+  "landingSubtext": "Hoş geldin! Kullanıcı dostu web sitelerine tutkuyla bağlı bir web geliştiricisiyim. Haydi bağlanalım ve birlikte muhteşem bir şey yaratalım",
+  "landingButtonText": "Linkedin Profilim",
+
+  "sectionHeaders": {
+    "about_me_header": "Hakkımda",
+    "contact_header": "İletişim"
+  },
+
+  "headings": {
+    "background": "Geçmiş",
+    "experience": "Tecrübeler",
+    "skills": "Yetenekler",
+    "details": "Detaylar",
+    "education": "Eğitim",
+    "hobies": "Hobiler",
+    "contactForm": "İletişim Formu",
+    "contactDetails": "İletişim Detayları"
+  }
+}

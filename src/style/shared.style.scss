@@ -208,6 +208,35 @@
   width: 100%;
 }
 
+.section-heading {
+  grid-column: 1/-1;
+
+  @include genericContainer(8px);
+  @include flex(row, 0.25rem, stretch, flex-start);
+
+  width: min-content;
+  box-shadow: $shadow-large;
+
+  & .icon-container {
+    width: 1.05em;
+    height: auto;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & .icon-container:empty {
+    display: none;
+  }
+}
+
+.section-heading .heading-text {
+  text-wrap: nowrap;
+  color: $base-white;
+  // font-size: 1.25em;
+}
+
 .container {
   @media screen and (min-width: $media-mobile-width) {
     margin-inline: 0;

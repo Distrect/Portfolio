@@ -12,16 +12,13 @@
 #page-navigation {
   @include flex(row, 0, stretch, space-between);
 
-  overflow: hidden;
-
   background-color: $base-black;
-
   box-shadow: $shadow-medium;
-
   border-radius: 0 0 $default-radius $default-radius;
 
   & .wrapper {
     @include flex(row, 0, stretch, space-between);
+    flex-grow: 1;
   }
 
   & .icon-container {
@@ -33,16 +30,17 @@
   }
 
   & .nav-item-container {
-    width: 7.5rem;
-    @include flex(row, 0, stretch, space-around);
-    margin-left: auto;
+    @include flex(row, 0, stretch, flex-start);
+    flex-grow: 1;
 
-    & > * {
+    & > .nav-item {
+      position: relative;
       @include flex(row, 0, center, center);
-      flex: 1 1 0;
-      padding: 3px;
+      // flex: 1 1 0;
+      padding-inline: 1rem;
       transition: background-color 0.1s;
       height: 100%;
+      flex-basis: 10px;
 
       cursor: pointer;
 
@@ -50,25 +48,53 @@
         width: 1.25rem;
       }
     }
+
+    & > .nav-item:nth-child(2) {
+      margin-right: auto;
+    }
   }
 
-  & #cv-button {
-    border-radius: 0;
-    background-color: $base-orange;
-    padding: 0.625ch;
+  & .nav-item-container .nav-item .nav-item-dropdown {
+    @include user-select-none();
+    display: none;
+    position: absolute;
+    background-color: $base-black;
+    right: 0;
+    bottom: -68px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 0 0 $default-radius $default-radius;
+    z-index: 1;
 
-    &:hover {
-      background-color: $orange-tint-1;
+    & .dropdown-item {
+      color: $text-white;
+      padding-inline: 6px;
+      padding-block: 4px;
     }
 
-    &:active {
-      background-color: $orange-tint-2;
+    & .dropdown-item:not(:last-child) {
+      border-bottom: 1px solid $white-shade-3;
     }
   }
 }
 
+#cv-button {
+  border-radius: 0 0 $default-radius $default-radius;
+  background-color: $base-orange;
+  padding: 0.625ch;
+
+  &:hover {
+    background-color: $orange-tint-1;
+  }
+
+  &:active {
+    background-color: $orange-tint-2;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
-  #page-navigation .nav-item-container > * {
+  #page-navigation .nav-item-container > *,
+  #page-navigation .other-element-container .other-element {
     &:hover {
       background-color: $blue-tint-2;
     }
@@ -77,10 +103,27 @@
     //   background-color: $blue-tint-3;
     // }
   }
+
+  // #page-navigation .nav-item:has(.nav-item-dropdown):hover {
+  //   & .nav-item-dropdown {
+  //     display: block;
+  //   }
+  // }
+
+  .nav-item-dropdown .dropdown-item:hover {
+    background-color: $blue-tint-3;
+  }
 }
 
 @media (hover: none) {
-  #page-navigation .nav-item-container > * {
+  #page-navigation .nav-item-container > *,
+  #page-navigation .other-element-container .other-element {
+    &:active {
+      background-color: $blue-tint-3;
+    }
+  }
+
+  #page-navigation .dropdown .dropdown-item {
     &:active {
       background-color: $blue-tint-3;
     }
@@ -94,8 +137,10 @@
   }
 
   #page-navigation {
-    flex-direction: column;
+    @include flex(column, 0, stretch, flex-start);
     width: 100%;
+
+    flex-grow: 0;
 
     min-height: 17rem;
     max-height: 50vh;
@@ -121,18 +166,23 @@
         width: 100%;
         flex-direction: column;
         align-items: stretch;
-        justify-content: center;
+        flex-grow: 1;
+        justify-content: flex-start;
         gap: 0rem;
-        // padding-top: 0.5rem;
 
-        & > * {
-          flex: 1 1 0;
-          padding-block: 1.125ch;
+        & > .nav-item {
+          padding-block: 1rem;
+          height: min-content !important;
 
-          & .nav-item-icon {
-            width: 100%;
-            max-width: 25px;
+          & > .nav-item-icon {
+            width: 20px;
+            // max-width: 25px;
           }
+        }
+
+        & > .nav-item:nth-child(2) {
+          margin: 0;
+          margin-bottom: auto;
         }
       }
     }
@@ -140,6 +190,13 @@
     & #cv-button {
       padding-block: 1ch;
       width: 100%;
+    }
+
+    & .nav-item-container .nav-item .nav-item-dropdown {
+      right: -100px;
+      top: 0;
+      height: min-content;
+      border-radius: 0 $default-radius $default-radius 0;
     }
   }
 }

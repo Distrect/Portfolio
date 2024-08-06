@@ -1,12 +1,19 @@
 <section id="landing-section">
   <div class="landing-text-group">
     <div>
-      <h1 class="text-xl">Hi, I'm samet! I craft user-friendly websites</h1>
-      <h1 class="text-xl">Together, let's build something great</h1>
+      <h1 class="text-xl">
+        {{
+          "landingText_1" | translate : { name: dataService.personalData.name }
+        }}
+      </h1>
+      <h1 class="text-xl">
+        {{ "landingText_2" | translate }}
+      </h1>
     </div>
     <p class="text-md">
-      Hi, I'm Samet, a web developer passionate about user-friendly websites.
-      Let's connect and create something amazing together!
+      {{
+        "landingSubtext" | translate : { name: dataService.personalData.name }
+      }}
     </p>
     <button class="btn cta-btn btn-large">
       <div class="btn-icon-container">
@@ -34,10 +41,8 @@
           />
         </svg>
       </div>
-      <span class="btn-text">My Linkedin Profile</span>
+      <span class="btn-text">{{ "landingButtonText" | translate }}</span>
     </button>
   </div>
-  <div class="illustration-container">
-    <illustartion class="illustration"></illustartion>
-  </div>
+  <div class="illustration-container"></div>
 </section>

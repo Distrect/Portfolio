@@ -1,13 +1,14 @@
 import { AvailableLanguages } from './../shared/shared.interface';
 import { createReducer, on } from '@ngrx/store';
 import { LanguageActions } from './actions';
+import { normalizeLanguage } from '../utils';
 
 export interface LanguageaState {
   currentLanguage: AvailableLanguages;
 }
 
 export const initialState: LanguageaState = {
-  currentLanguage: navigator.language as AvailableLanguages,
+  currentLanguage: normalizeLanguage(navigator.language) as AvailableLanguages,
 };
 
 export const LanguageReducers = createReducer(

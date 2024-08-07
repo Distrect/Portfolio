@@ -3,16 +3,15 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Observable, fromEvent } from 'rxjs';
 import { AvailableLanguages } from '../../shared.interface';
 import { Store } from '@ngrx/store';
 import { languageSelector } from '../../../store/selector';
 import { LanguageActions } from '../../../store/actions';
-import { LanguageaState } from '../../../store/reducers';
 
 interface LanguageSelection {
   value: AvailableLanguages;
@@ -24,15 +23,17 @@ interface LanguageSelection {
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
 })
-export class NavigationBar implements OnInit, AfterViewInit {
+export class NavigationBar implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('downloadBtn', { static: true }) downloadBtn!: ElementRef;
 
-  private language$: Observable<AvailableLanguages>;
-
   public languageList: LanguageSelection[];
-
   public downloadBtnEvent!: Observable<Event>;
   public dropdownElement!: HTMLUListElement;
+  private language$: Observable<AvailableLanguages>;
+  private lastIntersectedElement: Element | null = null;
+  private sectionObserver = new IntersectionObserver(this.intersection, {
+    threshold: 0.15,
+  });
 
   constructor(public dataService: DataService, private store: Store) {
     this.language$ = this.store.select(languageSelector);
@@ -47,7 +48,40 @@ export class NavigationBar implements OnInit, AfterViewInit {
     });
   }
 
-  public ngAfterViewInit(): void {}
+  public ngAfterViewInit(): void {
+    document
+      .querySelectorAll('section[data-intersect]')
+      .forEach((el) => this.sectionObserver.observe(el));
+  }
+
+  public ngOnDestroy(): void {
+    this.sectionObserver.disconnect();
+  }
+  private intersection(
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver
+  ) {
+    for (const entry of entries) {
+      if (!(entry.target instanceof HTMLElement)) return;
+      const { target, isIntersecting } = entry;
+
+      if (isIntersecting) {
+        if (this.lastIntersectedElement !== null)
+          this.lastIntersectedElement?.classList.remove('intersected');
+
+        const navItem = document.querySelector(
+          `.nav-item[data-intersected='${target.dataset['intersect']}']`
+        );
+        navItem?.classList.add('intersected');
+        this.lastIntersectedElement = navItem;
+      } else {
+        const navItem = document.querySelector(
+          `.nav-item[data-intersected='${target.dataset['intersect']}']`
+        );
+        navItem?.classList.remove('intersected');
+      }
+    }
+  }
 
   public downloadFile() {
     const anchor = document.createElement('a');

@@ -12,8 +12,9 @@ $social-colors: (
 
 :host,
 #contact-section {
-  grid-column: 1/-1;
   @include grid(subgrid, 0);
+  grid-column: 1/-1;
+  row-gap: 1rem;
 }
 
 #outro-holder {

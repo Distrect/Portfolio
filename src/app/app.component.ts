@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
     this.language$ = this.store.select(languageSelector);
   }
   public ngOnInit(): void {
+    console.log('Is language problematic', navigator.language);
     this.language$.subscribe((arg) => {
       console.log('App language', arg);
       this.translateService.use(arg);

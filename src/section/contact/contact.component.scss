@@ -93,3 +93,9 @@ $social-colors: (
     align-items: flex-start;
   }
 }
+
+@media screen and (min-width: $media-desktop-width) {
+  #contact-section {
+    row-gap: 1rem;
+  }
+}

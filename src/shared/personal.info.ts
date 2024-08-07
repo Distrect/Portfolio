@@ -61,6 +61,8 @@ export default class Person {
 
   readonly _background: string = `I was born and raised in Nicosia, Cyprus, and I am originally from Turkey. I graduated from the Software Engineering department at Eastern Mediterranean University. During my university years, I developed my skills in web technologies. Along with my engineering knowledge, I built a solid foundation in software and I am continually improving myself in this field. I enjoy learning new technologies and concepts. Currently, I am actively seeking experience and job opportunities that will enhance my skills.`;
 
+  readonly _outroHeader: string = 'Goodbye, until we meet again...';
+
   readonly _outro: string =
     'Thank you for taking the time to explore my portfolio. I am enthusiastic about leveraging my skills and experiences to contribute to a forward-thinking company. I am eager to bring my dedication, creativity, and problem-solving abilities to a dynamic team environment.';
 
@@ -165,6 +167,7 @@ export default class Person {
         'Lefkoşa, Kıbrıs’ta doğdum ve büyüdüm. Aslen Türkiye’yim. Doğu Akdeniz Üniversitesi Yazılım Mühendisliği bölümünden mezun oldum. Üniversite yıllarım boyunca web teknolojilerindeki yetkinliklerimi geliştirdim. Mühendislik bilgimle birlikte yazılım alanında sağlam bir temel oluşturdum ve kendimi bu alanda sürekli geliştirmekteyim. Yeni teknolojiler ve kavramlar öğrenmekten keyif alıyorum. Şu anda, becerilerimi geliştirmeme olanak sağlayacak deneyim ve iş fırsatları arıyorum.',
       outro:
         'Portfolyomu incelediğiniz için teşekkür ederim. Yetenek ve deneyimlerimi geleceğe yön veren bir şirkete katkı sağlamak üzere kullanma konusunda heyecanlıyım. Görüşmek üzere...',
+      outroHeader: 'Tekrar görüşmek üzere...',
       languageSkills: [{ language: 'İnglizce' }],
       experiences: [
         {
@@ -190,6 +193,12 @@ export default class Person {
       ],
 
       hobies: ['Yürüyüş', 'Kitap'],
+      contactDetails: {
+        name: 'Samet Sarıçiçek',
+        email: 'sametsarticicekym@gmail.com',
+        number: '+357 99 414778(Whatsapp)',
+        address: 'KKTC/Lefkoşa, 99040',
+      },
     },
   };
 
@@ -216,10 +225,6 @@ export default class Person {
 
   public getRandomQuote() {
     return this._quotes[Math.floor(Math.random() * this._quotes.length)];
-  }
-
-  get contactDetails(): string[] {
-    return Object.values(this._contactDetails);
   }
 
   get title() {
@@ -266,51 +271,19 @@ export default class Person {
     return this._experiences;
   }
 
+  get outroHeader() {
+    if (this.currentLang === 'tr') return this.translation.tr.outroHeader;
+    return this._outroHeader;
+  }
+
+  get contactDetails(): string[] {
+    if (this.currentLang === 'tr')
+      return Object.values(this.translation.tr.contactDetails);
+
+    return Object.values(this._contactDetails);
+  }
+
   set currentLanguage(language: AvailableLanguages) {
     this.currentLang = language;
   }
 }
-
-/*
-
- readonly frontendSkills: ISkilArea = {
-    areaName: 'Frontend Development',
-    explanation: `I started to learn programing from frontend development. 
-    I create many application however complex, however simple. 
-    While developing apps, aside from logic and requirements, i also focus on responsivness and performance`,
-    skills: [...skillz.slice(0, 4)],
-    icon: 'assets/svg/frontend.svg',
-    svgComponent: FrontendSVGComponent,
-    inputs: { fill: 'dynamic' },
-  };
-
-  readonly backendSkills: ISkilArea = {
-    areaName: 'Backend Development',
-    explanation: `After learning frontend, i needed to develop backend applications for my projects. 
-    So i started to learn backend and studied server theories
-    `,
-    skills: [...skillz.slice(4, 6)],
-    icon: 'assets/svg/backend.svg',
-    svgComponent: BackendSVGComponent,
-    inputs: { fill: 'dynamic' },
-  };
-
-  readonly databaseSkills: ISkilArea = {
-    areaName: 'Database Operations',
-    explanation: `For full-stack applications i needed to learn database management. I am beginner but i am developing this skill`,
-    skills: [...skillz.slice(6, 9)],
-    icon: 'assets/svg/database.svg',
-    svgComponent: DatabaseSVGComponent,
-    inputs: { fill: 'dynamic' },
-  };
-
-  readonly uiSkills: ISkilArea = {
-    areaName: 'UI&UX Design',
-    explanation: `I am very beginer on this skill journey`,
-    skills: [skillz[skillz.length - 1]],
-    icon: 'assets/svg/ui.svg',
-    svgComponent: UiSVGComponent,
-    inputs: { fill: 'dynamic' },
-  };
-
-  */

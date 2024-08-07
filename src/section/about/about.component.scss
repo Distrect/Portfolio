@@ -8,7 +8,6 @@
 #about-section {
   @include grid(subgrid, 0);
   grid-column: 1/-1;
-  row-gap: 0.5rem;
 }
 
 #detail-container,
@@ -201,6 +200,7 @@ p {
   :host,
   #about-section {
     grid-column: 1/-1;
+    row-gap: 1rem;
   }
 
   #detail-container {

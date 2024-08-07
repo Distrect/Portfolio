@@ -18,5 +18,9 @@
     "hobies": "Hobies",
     "contactForm": "Contact Form",
     "contactDetails": "Contact Detals"
+  },
+
+  "buttons": {
+    "submit": "Submit"
   }
 }

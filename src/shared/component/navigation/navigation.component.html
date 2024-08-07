@@ -13,7 +13,7 @@
       <div class="nav-item" dropdown-directive>
         <img src="assets/svg/translate.svg" class="nav-item-icon" alt="" />
         <ul class="nav-item-dropdown dropdown">
-          @for(lang of availableLanguages; track $index){
+          @for(lang of languageList; track $index){
           <li
             class="dropdown-item"
             [attr.value]="lang.value"

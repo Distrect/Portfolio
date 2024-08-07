@@ -210,6 +210,7 @@
 
 .section-heading {
   grid-column: 1/-1;
+  grid-row: 1/2;
 
   @include genericContainer(8px);
   @include flex(row, 0.25rem, stretch, flex-start);

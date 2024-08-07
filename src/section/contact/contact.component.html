@@ -1,10 +1,15 @@
 <section id="contact-section">
-  <shared heading headerText="Contact" class="section-header">
-    <ils dial slot="icon"></ils>
-  </shared>
+  <div class="section-heading">
+    <div class="icon-container">
+      <img src="assets/svg/dial-icon.svg" alt="" />
+    </div>
+    <h3 class="heading-text text-md weight-700">
+      {{ "sectionHeaders.contact_header" | translate }}
+    </h3>
+  </div>
   <div id="outro-holder">
     <div class="content">
-      <h1 class="text-lg">Goodbye, until we meet again...</h1>
+      <h1 class="text-lg">{{ dataService.personalData.outroHeader }}</h1>
       <p class="text-bs">
         {{ dataService.personalData.outro }}
       </p>
@@ -109,7 +114,7 @@
         </div>
         <div class="form-btn-group">
           <button class="btn btn-small btn-green" (click)="submitForm()">
-            <div class="btn-text">Submit</div>
+            <div class="btn-text">{{ "buttons.submit" | translate }}</div>
           </button>
         </div>
       </form>

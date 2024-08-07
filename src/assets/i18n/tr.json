@@ -18,5 +18,9 @@
     "hobies": "Hobiler",
     "contactForm": "İletişim Formu",
     "contactDetails": "İletişim Detayları"
+  },
+
+  "buttons": {
+    "submit": "Gönder"
   }
 }

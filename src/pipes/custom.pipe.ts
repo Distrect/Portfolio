@@ -2,7 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'level',
-  standalone: true,
 })
 export class LevelPipe implements PipeTransform {
   public transform(value: any): any {

@@ -1,28 +1,17 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
-import { SectionHeadingComponent } from '../../shared/component/sectionheading/sectionheading.component';
-import {
-  AngularIcon,
-  AssemblerIcon,
-  UserIcon,
-} from '../../shared/svgComponent';
+
 import Person from '../../shared/personal.info';
-import { CommonModule } from '@angular/common';
-import { LevelPipe } from '../../pipe/custom.pipe';
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'section[about]',
-  standalone: true,
-  imports: [
-    SectionHeadingComponent,
-    UserIcon,
-    AssemblerIcon,
-    AngularIcon,
-    CommonModule,
-    LevelPipe,
-  ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  public me: Person = new Person();
+  constructor(
+    public dataService: DataService,
+    private translateService: TranslateService
+  ) {}
 }

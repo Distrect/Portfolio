@@ -53,6 +53,17 @@ button,
   }
 }
 
+.cta-btn {
+  & .btn-icon-container {
+    width: 30px;
+  }
+
+  & .btn-text {
+    padding: 0.25ch 0.5ch;
+    font-weight: 700;
+  }
+}
+
 @media (hover: hover) {
   button:hover {
     background-color: $blue-tint-1;

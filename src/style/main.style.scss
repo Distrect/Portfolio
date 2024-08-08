@@ -7,13 +7,16 @@ html {
 
   height: auto;
 
-  background-image: url(../assets/s.png);
+  background-image: url(../assets/background.png);
   background-size: contain;
   background-repeat: repeat;
 
   background-color: $base-white;
 
   overflow: auto;
+
+  scroll-padding-top: 30px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -31,4 +34,10 @@ section {
 *::selection {
   background-color: $tomato;
   color: $white-shade-1;
+}
+
+@media screen and (min-width: $media-mobile-width) {
+  html {
+    scroll-padding-top: 80px;
+  }
 }

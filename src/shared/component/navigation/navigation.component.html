@@ -4,13 +4,27 @@
   </div>
   <div class="wrapper">
     <div class="nav-item-container">
-      <a href="#about-section">
-        <div class="nav-item"><ils user class="nav-item-icon"></ils></div>
+      <a href="#about-section" class="nav-item" data-intersected="about">
+        <img src="assets/svg/user-icon.svg" class="nav-item-icon" alt="" />
       </a>
+      <a href="#contact-section" class="nav-item" data-intersected="contact">
+        <img src="assets/svg/dial-icon.svg" class="nav-item-icon" alt="" />
+      </a>
+      <div class="nav-item" dropdown-directive>
+        <img src="assets/svg/translate.svg" class="nav-item-icon" alt="" />
+        <ul class="nav-item-dropdown dropdown">
+          @for(lang of languageList; track $index){
+          <li
+            class="dropdown-item"
+            [attr.value]="lang.value"
+            (click)="changeLanguage($event)"
+          >
+            {{ lang.language }}
+          </li>
 
-      <a href="#contact-section">
-        <div class="nav-item"><ils dial class="nav-item-icon"></ils></div>
-      </a>
+          }
+        </ul>
+      </div>
     </div>
     <button id="cv-button" #downloadBtn>
       <div class="btn-text">CV</div>

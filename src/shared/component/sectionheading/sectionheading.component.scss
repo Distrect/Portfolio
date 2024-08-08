@@ -7,6 +7,8 @@
 }
 
 .section-heading {
+  grid-column: 1/-1;
+
   @include genericContainer(8px);
   @include flex(row, 0.25rem, center, flex-start);
 

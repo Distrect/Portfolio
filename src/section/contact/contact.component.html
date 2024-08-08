@@ -1,16 +1,21 @@
-<section id="contact-section">
-  <shared heading headerText="Contact" class="section-header">
-    <ils dial slot="icon"></ils>
-  </shared>
+<section id="contact-section" data-intersect="contact">
+  <div class="section-heading">
+    <div class="icon-container">
+      <img src="assets/svg/dial-icon.svg" alt="" />
+    </div>
+    <h3 class="heading-text text-md weight-700">
+      {{ "sectionHeaders.contact_header" | translate }}
+    </h3>
+  </div>
   <div id="outro-holder">
     <div class="content">
-      <h1 class="text-lg">Goodbye, until we meet again...</h1>
+      <h1 class="text-lg">{{ dataService.personalData.outroHeader }}</h1>
       <p class="text-bs">
-        {{ me.outro }}
+        {{ dataService.personalData.outro }}
       </p>
     </div>
     <div class="social-link-container">
-      @for (social of me.socialMedias; track $index) {
+      @for (social of dataService.personalData.socialMedias; track $index) {
       <a [href]="social.url" target="_blank">
         <div [class]="'social-link-item ' + social.socialMedia.toLowerCase()">
           <img class="social-icon" [src]="social.icon" alt="" />
@@ -23,7 +28,9 @@
     <div class="personal-info-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-md info-text wieght-600">Contact Form</h4>
+        <h4 class="text-md info-text wieght-600">
+          {{ "headings.contactForm" | translate }}
+        </h4>
       </div>
       <form id="contact-form" [formGroup]="contactForm">
         <div
@@ -107,7 +114,7 @@
         </div>
         <div class="form-btn-group">
           <button class="btn btn-small btn-green" (click)="submitForm()">
-            <div class="btn-text">Submit</div>
+            <div class="btn-text">{{ "buttons.submit" | translate }}</div>
           </button>
         </div>
       </form>
@@ -115,10 +122,13 @@
     <div class="personal-info-container">
       <div class="info-item-container">
         <div class="info-shape"></div>
-        <h4 class="text-md info-text wieght-600">Contact Details</h4>
+        <h4 class="text-md info-text wieght-600">
+          {{ "headings.contactDetails" | translate }}
+        </h4>
       </div>
       <ul class="info-list-container">
-        @for (contactItem of me.contactDetails; track $index) {
+        @for (contactItem of dataService.personalData.contactDetails; track
+        $index) {
 
         <li class="info-item-container outlined">
           <div class="info-shape"></div>

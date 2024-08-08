@@ -1,0 +1,26 @@
+{
+  "landingText_1": "Hi, I'm {{name}}! I craft user-friendly websites",
+  "landingText_2": "Together, let's build something great",
+  "landingSubtext": "Hi, I'm {{name}}, a web developer passionate about user-friendly websites. Let's connect and create something amazing together!",
+  "landingButtonText": "My Linkedin Profile",
+
+  "sectionHeaders": {
+    "about_me_header": "About Me",
+    "contact_header": "Contact"
+  },
+
+  "headings": {
+    "background": "Background",
+    "experience": "Experience",
+    "skills": "Skills",
+    "details": "Details",
+    "education": "Education",
+    "hobies": "Hobies",
+    "contactForm": "Contact Form",
+    "contactDetails": "Contact Detals"
+  },
+
+  "buttons": {
+    "submit": "Submit"
+  }
+}

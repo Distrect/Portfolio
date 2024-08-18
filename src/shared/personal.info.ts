@@ -64,7 +64,7 @@ export default class Person {
   readonly _outroHeader: string = 'Goodbye, until we meet again...';
 
   readonly _outro: string =
-    'Thank you for taking the time to explore my portfolio. I am enthusiastic about leveraging my skills and experiences to contribute to a forward-thinking company. I am eager to bring my dedication, creativity, and problem-solving abilities to a dynamic team environment.';
+    'Thank you for taking the time to explore my portfolio. I am enthusiastic about leveraging my skills and experiences to contribute to a project. I am eager to bring my dedication, creativity, and problem-solving abilities to a dynamic team environment.';
 
   readonly skills: Skills = [
     {
@@ -166,7 +166,7 @@ export default class Person {
       background:
         'Lefkoşa, Kıbrıs’ta doğdum ve büyüdüm. Aslen Türkiye’yim. Doğu Akdeniz Üniversitesi Yazılım Mühendisliği bölümünden mezun oldum. Üniversite yıllarım boyunca web teknolojilerindeki yetkinliklerimi geliştirdim. Mühendislik bilgimle birlikte yazılım alanında sağlam bir temel oluşturdum ve kendimi bu alanda sürekli geliştirmekteyim. Yeni teknolojiler ve kavramlar öğrenmekten keyif alıyorum. Şu anda, becerilerimi geliştirmeme olanak sağlayacak deneyim ve iş fırsatları arıyorum.',
       outro:
-        'Portfolyomu incelediğiniz için teşekkür ederim. Yetenek ve deneyimlerimi geleceğe yön veren bir şirkete katkı sağlamak üzere kullanma konusunda heyecanlıyım. Görüşmek üzere...',
+        'Portföyümü incelediğiniz için teşekkür ederim. Yetenek ve deneyimlerimi bir projeye katkı sağlamak amacıyla kullanma konusunda oldukça hevesliyim. Adanmışlık, yaratıcılık ve problem çözme becerilerimi dinamik bir ekip ortamına getirmeye hazırım',
       outroHeader: 'Tekrar görüşmek üzere...',
       languageSkills: [{ language: 'İnglizce' }],
       experiences: [

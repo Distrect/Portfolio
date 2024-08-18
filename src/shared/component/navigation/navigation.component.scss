@@ -202,5 +202,9 @@
       height: min-content;
       border-radius: 0 $default-radius $default-radius 0;
     }
+
+    #cv-button {
+      border-radius: 0 0 $default-radius $default-radius;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import {
   IPersonalInfo,
+  IProject,
   LanguageSkills,
   Skills,
   SocialMediaLinks,
@@ -24,6 +25,21 @@ export default class Person {
     quote: string;
     author: string;
   };
+
+  readonly _projects: IProject[] = [
+    {
+      projectName: 'Sponsorship',
+      url: 'https://github.com/Distrect/Sponsorship',
+    },
+    {
+      projectName: 'The Doctor Search',
+      url: 'https://github.com/Distrect/The-Doctor-Search',
+    },
+    {
+      projectName: 'Cloack',
+      url: 'https://github.com/Distrect/Cloack',
+    },
+  ];
 
   readonly socialMedias: SocialMediaLinks = [
     {
@@ -81,6 +97,11 @@ export default class Person {
       skillName: 'Typescript',
       percent: 85,
       iconSrc: 'assets/svg/skill/typescript.svg',
+    },
+    {
+      skillName: 'AngularJS',
+      percent: 60,
+      iconSrc: 'assets/svg/angular.svg',
     },
     {
       skillName: 'ReactJS',
@@ -281,6 +302,10 @@ export default class Person {
       return Object.values(this.translation.tr.contactDetails);
 
     return Object.values(this._contactDetails);
+  }
+
+  get projects(): IProject[] {
+    return this._projects;
   }
 
   set currentLanguage(language: AvailableLanguages) {

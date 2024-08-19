@@ -32,9 +32,9 @@ const components = [
 ];
 const directives = [DropdownDirective];
 const pipes = [LevelPipe];
-const icons = [AppIcon, AssemblerIcon];
+
 @NgModule({
-  declarations: [...components, ...directives, ...icons, ...pipes],
+  declarations: [...components, ...directives, ...pipes],
   imports: [
     CommonModule,
     ReactiveFormsModule,

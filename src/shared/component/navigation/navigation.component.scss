@@ -22,6 +22,7 @@
   }
 
   & .icon-container {
+    @include flex(row, 0, center, center);
     padding: 7px;
 
     & .brand-icon {

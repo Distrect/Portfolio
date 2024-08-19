@@ -12,6 +12,11 @@ export interface ISkill {
   iconSrc: string;
 }
 
+export interface IProject {
+  url: string;
+  projectName: string;
+}
+
 export type Skills = ISkill[];
 
 export interface ISocialMediaLink {

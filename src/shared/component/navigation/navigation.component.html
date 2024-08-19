@@ -1,17 +1,37 @@
 <nav id="page-navigation">
   <div class="icon-container">
-    <ils app-icon class="brand-icon"></ils>
+    <img
+      src="assets/svg/app-icon.svg"
+      class="brand-icon"
+      alt=""
+      loading="lazy"
+    />
   </div>
   <div class="wrapper">
     <div class="nav-item-container">
       <a href="#about-section" class="nav-item" data-intersected="about">
-        <img src="assets/svg/user-icon.svg" class="nav-item-icon" alt="" />
+        <img
+          src="assets/svg/user-icon.svg"
+          class="nav-item-icon"
+          alt=""
+          loading="lazy"
+        />
       </a>
       <a href="#contact-section" class="nav-item" data-intersected="contact">
-        <img src="assets/svg/dial-icon.svg" class="nav-item-icon" alt="" />
+        <img
+          src="assets/svg/dial-icon.svg"
+          class="nav-item-icon"
+          alt=""
+          loading="lazy"
+        />
       </a>
       <div class="nav-item" dropdown-directive>
-        <img src="assets/svg/translate.svg" class="nav-item-icon" alt="" />
+        <img
+          src="assets/svg/translate.svg"
+          class="nav-item-icon"
+          alt=""
+          loading="lazy"
+        />
         <ul class="nav-item-dropdown dropdown">
           @for(lang of languageList; track $index){
           <li

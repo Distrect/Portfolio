@@ -19,6 +19,41 @@
   margin-bottom: 2rem;
 }
 
+#project-container {
+  @include grid(subgrid);
+  grid-column: 1/-1;
+
+  & .personal-info-container {
+    grid-column: 1/-1;
+
+    & .info-list-container {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      flex-direction: row;
+      padding-left: 0;
+    }
+  }
+
+  & .project-item {
+    @include flex(row, 0.5rem, stretch, flex-start);
+    background-color: $base-black;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: background-color 0.1s box-shadow 0.1s;
+
+    & .project-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    & span {
+      color: $text-white;
+    }
+  }
+}
+
 #me {
   @include flex(column, 1rem, center, flex-start);
 }
@@ -226,4 +261,13 @@ p {
       grid-column: span 4;
     }
   }
+}
+
+@media (hover: hover) {
+  .project-item:hover {
+    background-color: $base-orange;
+  }
+}
+
+@media (hover: none) {
 }

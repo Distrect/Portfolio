@@ -1,7 +1,7 @@
 <section id="contact-section" data-intersect="contact">
   <div class="section-heading">
     <div class="icon-container">
-      <img src="assets/svg/dial-icon.svg" alt="" />
+      <img src="assets/svg/dial-icon.svg" alt="" loading="lazy" />
     </div>
     <h3 class="heading-text text-md weight-700">
       {{ "sectionHeaders.contact_header" | translate }}
@@ -18,7 +18,7 @@
       @for (social of dataService.personalData.socialMedias; track $index) {
       <a [href]="social.url" target="_blank">
         <div [class]="'social-link-item ' + social.socialMedia.toLowerCase()">
-          <img class="social-icon" [src]="social.icon" alt="" />
+          <img class="social-icon" [src]="social.icon" alt="" loading="lazy" />
         </div>
       </a>
       }

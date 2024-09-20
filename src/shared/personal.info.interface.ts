@@ -14,6 +14,7 @@ export interface ISkill {
 
 export interface IProject {
   url: string;
+  description: string;
   projectName: string;
 }
 

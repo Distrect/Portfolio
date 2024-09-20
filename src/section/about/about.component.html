@@ -9,7 +9,7 @@
   </div>
   <div id="detail-container">
     <div id="me">
-      <img src="assets/images/1-1.webp" alt="" id="my-img" loading="lazy" />
+      <img src="assets/images/deneme.jpg" alt="" id="my-img" loading="lazy" />
 
       <div class="name-container">
         <h4 class="text-lg">Samet Sarıçiçek</h4>
@@ -178,15 +178,26 @@
       </div>
       <ul class="info-list-container">
         @for (item of dataService.personalData.projects; track $index) {
-        <li>
-          <a class="project-item" [href]="item.url" target="_blank">
-            <img
-              src="assets/svg/social/github.svg"
-              alt=""
-              class="project-icon"
-            />
-            <span class="text-md weight-700">{{ item.projectName }}</span>
-          </a>
+        <li class="project-item">
+          <div class="project-item-header">
+            <img src="assets/svg/project.svg" class="project-icon" alt="" />
+            <span class="text-md weight-600">
+              {{ item.projectName }}
+            </span>
+          </div>
+          <div class="project-item-body">
+            <p class="text-bs weight-400">{{ item.description }}</p>
+          </div>
+          <div class="project-item-footer">
+            <a [href]="item.url">
+              <img
+                src="assets/svg/external-link.svg"
+                class="external-link-icon"
+                alt=""
+              />
+              <span class="text-bs">Repository</span>
+            </a>
+          </div>
         </li>
         }
       </ul>

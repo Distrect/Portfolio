@@ -22,32 +22,68 @@
 #project-container {
   @include grid(subgrid);
   grid-column: 1/-1;
+  padding: 0;
 
   & .personal-info-container {
+    @include grid(subgrid);
     grid-column: 1/-1;
+    padding: 0;
+
+    & .info-item-container {
+      grid-row: 1/2;
+    }
 
     & .info-list-container {
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      flex-direction: row;
+      @include grid(subgrid);
+      grid-row: 2/3;
+
+      grid-column: 1/-1;
+      // flex-wrap: wrap;
+      // justify-content: flex-start;
+      // flex-direction: row;
       padding-left: 0;
     }
   }
 
   & .project-item {
-    @include flex(row, 0.5rem, stretch, flex-start);
-    background-color: $base-black;
+    @include flex(column, 0.5rem, stretch, flex-start);
+    grid-column: 1/-1;
+    background-color: lighten($base-black, 6);
     padding: 8px;
     border-radius: 6px;
-    cursor: pointer;
-
     transition: background-color 0.1s box-shadow 0.1s;
+
+    & .project-item-header {
+      @include flex(row, 0.5rem, center, flex-start);
+    }
+
+    & .project-item-body p {
+      color: $white-shade-2;
+    }
+
+    & .project-item-footer {
+      @include flex(row, 0, center, flex-end);
+
+      & .external-link-icon {
+        $size: 25px;
+        height: $size;
+        width: $size;
+      }
+
+      & a {
+        & > span {
+          color: inherit;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: $blue-tint-3;
+      }
+    }
 
     & .project-icon {
       width: 30px;
-      height: 30px;
     }
-
     & span {
       color: $text-white;
     }
@@ -229,6 +265,12 @@ p {
 
   .skill-item {
     grid-column: span 2;
+  }
+
+  #project-container {
+    & .project-item {
+      grid-column: span 4;
+    }
   }
 }
 

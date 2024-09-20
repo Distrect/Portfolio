@@ -1,5 +1,4 @@
 import {
-  IPersonalInfo,
   IProject,
   LanguageSkills,
   Skills,
@@ -28,15 +27,22 @@ export default class Person {
 
   readonly _projects: IProject[] = [
     {
-      projectName: 'Sponsorship',
-      url: 'https://github.com/Distrect/Sponsorship',
-    },
-    {
       projectName: 'The Doctor Search',
+      description:
+        'This project allows users to search doctors in TRNC with given criterias. Express used for REST API and REactJS for frontend',
       url: 'https://github.com/Distrect/The-Doctor-Search',
     },
     {
+      projectName: 'Sponsorship',
+      description:
+        'Sponsorship project is my gradutation project. This application intended to help children in need by providing info to the user about child',
+
+      url: 'https://github.com/Distrect/Sponsorship',
+    },
+    {
       projectName: 'Cloack',
+      description:
+        'Cloack is simple time management project. User can track events, set reminders. NestJS used for REST and REact for frontend ',
       url: 'https://github.com/Distrect/Cloack',
     },
   ];
@@ -187,7 +193,7 @@ export default class Person {
       background:
         'Lefkoşa, Kıbrıs’ta doğdum ve büyüdüm. Aslen Türkiye’yim. Doğu Akdeniz Üniversitesi Yazılım Mühendisliği bölümünden mezun oldum. Üniversite yıllarım boyunca web teknolojilerindeki yetkinliklerimi geliştirdim. Mühendislik bilgimle birlikte yazılım alanında sağlam bir temel oluşturdum ve kendimi bu alanda sürekli geliştirmekteyim. Yeni teknolojiler ve kavramlar öğrenmekten keyif alıyorum. Şu anda, becerilerimi geliştirmeme olanak sağlayacak deneyim ve iş fırsatları arıyorum.',
       outro:
-        'Portföyümü incelediğiniz için teşekkür ederim. Yetenek ve deneyimlerimi bir projeye katkı sağlamak amacıyla kullanma konusunda oldukça hevesliyim. Adanmışlık, yaratıcılık ve problem çözme becerilerimi dinamik bir ekip ortamına getirmeye hazırım',
+        'Portföyümü incelediğiniz için teşekkür ederim. Eğer yeteneklerimden yararlanmak istiyorsanız lütfen iletişime geçmeyi ihmal etmeyiniz. Sağlıcakla kalın...',
       outroHeader: 'Tekrar görüşmek üzere...',
       languageSkills: [{ language: 'İnglizce' }],
       experiences: [
